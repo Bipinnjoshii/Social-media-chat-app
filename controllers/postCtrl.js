@@ -28,8 +28,8 @@ const postCtrl = {
       }
 
       const newPost = new Posts({
-        content,
-        images,
+        content: content || "",
+        images: imgs,
         user: req.user._id,
       });
       await newPost.save();

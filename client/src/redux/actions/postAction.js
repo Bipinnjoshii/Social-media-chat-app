@@ -47,7 +47,8 @@ export const createPost = ({content, images, auth, socket}) => async dispatch =>
         dispatch({
             type: GLOBALTYPES.ALERT,
             payload: {
-                error: err.response ? err.response.data.msg : err.message
+                loading: false,
+                error: err.response ? (err.response.data ? err.response.data.msg : err.message) : err.message
             }
         })
     }

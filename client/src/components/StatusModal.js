@@ -78,10 +78,10 @@ const StatusModal = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (images.length === 0) {
+    if (images.length === 0 && !content.trim()) {
       return dispatch({
         type: GLOBALTYPES.ALERT,
-        payload: { error: "Add image(s)." },
+        payload: { error: "Please add text or image(s)." },
       });
     }
 
