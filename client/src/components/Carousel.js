@@ -1,8 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 const Carousel = ({ images, id }) => {
-  const { theme } = useSelector(state => state);
     const isActive = index => {
         if(index === 0) return "active";
     }
@@ -26,42 +24,46 @@ const Carousel = ({ images, id }) => {
             {img.url.match(/video/i) ? (
               <video
                 controls
-                style={{ filter: theme ? "invert(1)" : "invert(0)" }}
                 src={img.url}
                 className="d-block w-100"
-                alt={img.url}
+                alt="post-media"
+                style={{ maxHeight: "600px", objectFit: "contain", background: "#000" }}
               />
             ) : (
               <img
-                style={{ filter: theme ? "invert(1)" : "invert(0)" }}
                 src={img.url}
                 className="d-block w-100"
-                alt={img.url}
+                alt="post-media"
+                style={{ maxHeight: "600px", objectFit: "cover" }}
               />
             )}
           </div>
         ))}
       </div>
-      <button
-        style={{ width: "5%" }}
-        className="carousel-control-prev"
-        type="button"
-        data-bs-target={`#image${id}`}
-        data-bs-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button
-        style={{ width: "5%" }}
-        className="carousel-control-next"
-        type="button"
-        data-bs-target={`#image${id}`}
-        data-bs-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
+      {images.length > 1 && (
+        <>
+          <button
+            style={{ width: "5%" }}
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target={`#image${id}`}
+            data-bs-slide="prev"
+          >
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            style={{ width: "5%" }}
+            className="carousel-control-next"
+            type="button"
+            data-bs-target={`#image${id}`}
+            data-bs-slide="next"
+          >
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </>
+      )}
     </div>
   );
 };

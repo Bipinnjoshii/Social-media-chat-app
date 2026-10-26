@@ -8,7 +8,7 @@ const LikeButton = ({ isLike, handleLike, handleUnLike }) => {
       {isLike ? (
         <i
           className="fas fa-thumbs-up text-info"
-          style={{ filter: theme ? "invert(1)" : "invert(0)" }}
+          style={{  }}
           onClick={handleUnLike}
         />
       ) : (

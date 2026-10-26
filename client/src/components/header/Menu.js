@@ -9,7 +9,7 @@ import NotifyModal from "../NotifyModal";
 const Menu = () => {
   const navLinks = [
     { label: "Home", icon: "home", path: "/" },
-    { label: "Message", icon: "near_me", path: "/message" },
+    { label: "Message", icon: "chat_bubble_outline", path: "/message" },
     { label: "Discover", icon: "explore", path: "/discover" },
   ];
 
@@ -19,85 +19,94 @@ const Menu = () => {
 
   const isActive = (pn) => {
     if (pn === pathname) return "active";
+    return "";
   };
 
   return (
     <div className="menu">
-      <ul className="navbar-nav flex-row mb-2 mb-lg-0">
+      <ul className="navbar-nav flex-row align-items-center mb-0">
         {navLinks.map((link, index) => (
           <li className={`nav-item px-2 ${isActive(link.path)}`} key={index}>
-            <Link className={`nav-link `} to={link.path}>
-              <span className={`material-icons `}>{link.icon}</span>
+            <Link className="nav-link" to={link.path} title={link.label}>
+              <span className="material-icons">{link.icon}</span>
             </Link>
           </li>
         ))}
 
-        <li className="nav-item dropdown" style={{ opacity: "1" }}>
+        {/* Notifications Dropdown */}
+        <li className="nav-item dropdown px-2" style={{ opacity: "1" }}>
           <span
-            className="nav-link position-relative"
-            id="navbarDropdown"
+            className="nav-link position-relative cursor-pointer"
+            id="notifyDropdown"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             <span
-              style={{ color: notify.data.length > 0 ? "var(--c1)" : "" }}
-              className={`material-icons `}
+              style={{ color: notify.data.length > 0 ? "var(--primary)" : "" }}
+              className="material-icons"
             >
-              notifications
+              notifications_none
             </span>
-            <span className="notify_length">{notify.data.length}</span>
+            {notify.data.length > 0 && (
+              <span className="notify_length">{notify.data.length}</span>
+            )}
           </span>
 
-          <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div className="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="notifyDropdown">
             <NotifyModal />
           </div>
         </li>
 
-        <li className="nav-item dropdown" style={{ opacity: "1" }}>
+        {/* User Profile & Settings Dropdown */}
+        <li className="nav-item dropdown px-2" style={{ opacity: "1" }}>
           <span
-            className="nav-link dropdown-toggle"
-            id="navbarDropdown"
+            className="nav-link dropdown-toggle d-flex align-items-center cursor-pointer p-0"
+            id="userDropdown"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             <Avatar src={auth.user.avatar} size="medium-avatar" />
           </span>
-          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul className="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="userDropdown">
             <li>
-              <Link
-                style={{ color: "white" }}
-                className="dropdown-item"
-                to={`/profile/${auth.user._id}`}
-              >
-                Profile
+              <div className="dropdown-header px-3 py-2">
+                <div className="fw-bold text-truncate" style={{ maxWidth: "160px" }}>
+                  {auth.user.username}
+                </div>
+                <small className="text-muted text-truncate d-block" style={{ maxWidth: "160px" }}>
+                  {auth.user.email}
+                </small>
+              </div>
+            </li>
+            <li><hr className="dropdown-divider my-1" /></li>
+            <li>
+              <Link className="dropdown-item d-flex align-items-center py-2" to={`/profile/${auth.user._id}`}>
+                <span className="material-icons me-2" style={{ fontSize: "19px" }}>person_outline</span>
+                <span>Profile</span>
               </Link>
             </li>
             <li>
-              <label
-                style={{ color: "white" }}
-                htmlFor="theme"
-                className="dropdown-item"
-                onClick={() =>
-                  dispatch({ type: GLOBALTYPES.THEME, payload: !theme })
-                }
+              <div
+                className="dropdown-item d-flex align-items-center py-2 cursor-pointer"
+                onClick={() => dispatch({ type: GLOBALTYPES.THEME, payload: !theme })}
               >
-                {theme ? "Light mode" : "Dark mode"}
-              </label>
+                <span className="material-icons me-2" style={{ fontSize: "19px" }}>
+                  {theme ? "light_mode" : "dark_mode"}
+                </span>
+                <span>{theme ? "Light Mode" : "Dark Mode"}</span>
+              </div>
             </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-
+            <li><hr className="dropdown-divider my-1" /></li>
             <li>
               <Link
-                style={{ color: "white" }}
-                className="dropdown-item"
+                className="dropdown-item d-flex align-items-center py-2 text-danger"
                 to="/"
                 onClick={() => dispatch(logout())}
               >
-                Logout
+                <span className="material-icons me-2 text-danger" style={{ fontSize: "19px" }}>logout</span>
+                <span>Logout</span>
               </Link>
             </li>
           </ul>

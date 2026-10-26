@@ -20,7 +20,7 @@ const ShareModal = ({ url, theme, setIsShare }) => {
         </div>
         <div
           className=" share_modal-body"
-          style={{ filter: theme ? "invert(1)" : "invert(0)" }}
+          style={{  }}
         >
           <FacebookShareButton url={url}>
             <FacebookIcon round={true} size={32} />

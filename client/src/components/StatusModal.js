@@ -131,9 +131,9 @@ const StatusModal = () => {
             name="content"
             placeholder={`${auth.user.username}, What's on your mind?`}
             style={{
-              filter: theme ? "invert(1)" : "invert(0)",
-              color: theme ? "white" : "#111",
-              background: theme ? "rgb(0,0,0,0.3)" : "",
+              
+              
+              
             }}
           />
 
@@ -171,7 +171,7 @@ const StatusModal = () => {
                 width="100%"
                 height="100%"
                 ref={videoRef}
-                style={{ filter: theme ? "invert(1)" : "invert(0)" }}
+                style={{  }}
                 autoPlay
                 muted
               />

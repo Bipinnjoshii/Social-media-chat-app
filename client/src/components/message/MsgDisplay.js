@@ -12,7 +12,7 @@ const MsgDisplay = ({user, msg, theme}) => {
         {msg.text && (
           <div
             className="chat_text"
-            style={{ filter: theme ? "invert(1)" : "invert(0)" }}
+            style={{  }}
           >
             {msg.text}
           </div>

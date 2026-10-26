@@ -1,22 +1,24 @@
-export const imageShow = (src, theme) => {
+import React from "react";
+
+export const imageShow = (src) => {
   return (
     <img
       src={src}
       className="img-thumbnail"
-      alt="uploaded pics"
-      style={{ filter: theme ? "invert(1)" : "invert(0)" }}
+      alt="uploaded pic"
+      style={{ maxHeight: "300px", objectFit: "cover" }}
     />
   );
 };
 
-export const videoShow = (src, theme) => {
+export const videoShow = (src) => {
   return (
     <video
       controls
       src={src}
       className="img-thumbnail"
-      alt="uploaded pics"
-      style={{ filter: theme ? "invert(1)" : "invert(0)" }}
+      alt="uploaded video"
+      style={{ maxHeight: "300px", objectFit: "contain" }}
     />
   );
 };

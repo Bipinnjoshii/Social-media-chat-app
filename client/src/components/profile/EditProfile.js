@@ -57,7 +57,7 @@ const EditProfile = ({ setOnEdit }) => {
           <img
             alt="profile"
             src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar}
-            style={{ filter: theme ? "invert(1)" : "invert(0)" }}
+            style={{  }}
           />
           <span>
             <i className="fas fa-camera" />

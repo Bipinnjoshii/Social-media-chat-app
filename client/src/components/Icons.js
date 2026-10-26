@@ -8,7 +8,7 @@ const Icons = ({ setContent, content, theme }) => {
       style={{
         opacity: "1",
         zIndex: "10",
-        filter: theme ? "invert(1)" : "invert(0)",
+        
       }}
     >
       <span

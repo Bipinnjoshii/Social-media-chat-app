@@ -1,55 +1,35 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { imageShow, videoShow } from "../utils/mediaShow";
 
 const PostThumb = ({ posts, result }) => {
-  const { theme } = useSelector((state) => state);
-
-  if (result === 0 ){
-    return <h2 className="text-center color-c1">No Post</h2>
+  if (result === 0 || !posts || posts.length === 0){
+    return <h5 className="text-center text-muted my-4">No Posts Yet</h5>
   }
 
-    const imageShow = (src) => {
-      return (
-        <img
-          src={src}
-          alt={src}
-          style={{ filter: theme ? "invert(1)" : "invert(0)" }}
-        />
-      );
-    };
-
-    const videoShow = (src) => {
-      return (
-        <video
-          controls
-          src={src}
-          alt={src}
-          style={{ filter: theme ? "invert(1)" : "invert(0)" }}
-        />
-      );
-    };
-    return (
-      <div className="post_thumb">
-        {posts && posts.map((post) => (
+  return (
+    <div className="post_thumb">
+      {posts && posts.map((post) => {
+        if (!post.images || post.images.length === 0) return null;
+        const media = post.images[0];
+        return (
           <Link to={`/post/${post._id}`} key={post._id}>
             <div className="post_thumb_display">
-              {post.images[0].url.match(/video/i)
-                ? videoShow(post.images[0].url, theme)
-                : imageShow(post.images[0].url, theme)
-              }
-
+              {media.url && media.url.match(/video/i) ? (
+                <video controls src={media.url} alt="post-thumb" />
+              ) : (
+                <img src={media.url} alt="post-thumb" />
+              )}
 
               <div className="post_thumb_menu">
-                <i className="far fa-thumbs-up">{post.likes.length}</i>
-                <i className="far fa-comments">{post.comments.length}</i>
+                <i className="far fa-thumbs-up">{post.likes ? post.likes.length : 0}</i>
+                <i className="far fa-comments">{post.comments ? post.comments.length : 0}</i>
               </div>
             </div>
           </Link>
-        ))}
-      </div>
-    );
+        );
+      })}
+    </div>
+  );
 };
 
-export default PostThumb
+export default PostThumb;

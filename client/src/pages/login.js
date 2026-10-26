@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Login = () => {
   const initialState = { email: "", password: "" };
   const [userData, setUserData] = useState(initialState);
-  const [userType, setUserType] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const { email, password } = userData;
 
   const [typePass, setTypePass] = useState(false);
@@ -27,7 +27,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!userType) {
+    if (!isAdmin) {
       dispatch(login(userData));
     } else {
       dispatch(adminLogin(userData));
@@ -36,86 +36,101 @@ const Login = () => {
 
   return (
     <div className="auth_page">
-      <form onSubmit={handleSubmit} className="inner-shadow">
-        <h3 className="text-uppercase text-center mb-4 auth-heading ">
+      <form onSubmit={handleSubmit}>
+        <h3 className="auth-heading">
           Campus Connect
         </h3>
+
+        {/* Account Role Selector Pill */}
+        <div 
+          className="d-flex mb-4 p-1"
+          style={{
+            background: "var(--bg-card-subtle)",
+            borderRadius: "14px",
+            border: "1px solid var(--border-color)"
+          }}
+        >
+          <button
+            type="button"
+            className="flex-fill py-2 border-0 fw-bold"
+            style={{
+              borderRadius: "10px",
+              background: !isAdmin ? "var(--background-1)" : "transparent",
+              color: !isAdmin ? "#ffffff" : "var(--text-muted)",
+              transition: "all 0.2s ease",
+              fontSize: "0.88rem",
+              boxShadow: !isAdmin ? "0 2px 8px rgba(194, 94, 62, 0.25)" : "none"
+            }}
+            onClick={() => setIsAdmin(false)}
+          >
+            User Login
+          </button>
+          <button
+            type="button"
+            className="flex-fill py-2 border-0 fw-bold"
+            style={{
+              borderRadius: "10px",
+              background: isAdmin ? "var(--background-1)" : "transparent",
+              color: isAdmin ? "#ffffff" : "var(--text-muted)",
+              transition: "all 0.2s ease",
+              fontSize: "0.88rem",
+              boxShadow: isAdmin ? "0 2px 8px rgba(194, 94, 62, 0.25)" : "none"
+            }}
+            onClick={() => setIsAdmin(true)}
+          >
+            Admin Portal
+          </button>
+        </div>
+
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
-            Email address
+            Email Address
           </label>
-          <div className="outer-shadow hover-in-shadow form-input-wrap">
-            <input
-              type="email"
-              className="form-control "
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              onChange={handleChangeInput}
-              value={email}
-              name="email"
-            />
-          </div>
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
-          </div>
+          <input
+            type="email"
+            className="form-control"
+            id="exampleInputEmail1"
+            onChange={handleChangeInput}
+            value={email}
+            name="email"
+            placeholder="name@example.com"
+            required
+          />
         </div>
-        <div className="mb-3">
+
+        <div className="mb-4">
           <label htmlFor="exampleInputPassword1" className="form-label">
             Password
           </label>
           <div className="pass">
-            <div className="outer-shadow hover-in-shadow form-input-wrap">
-              <input
-                type={typePass ? "text" : "password"}
-                className="form-control"
-                id="exampleInputPassword1"
-                onChange={handleChangeInput}
-                value={password}
-                name="password"
-              />
-              <small onClick={() => setTypePass(!typePass)}>
-                {typePass ? "Hide" : "Show"}
-              </small>
-            </div>
+            <input
+              type={typePass ? "text" : "password"}
+              className="form-control"
+              id="exampleInputPassword1"
+              onChange={handleChangeInput}
+              value={password}
+              name="password"
+              placeholder="••••••••"
+              required
+            />
+            <small onClick={() => setTypePass(!typePass)}>
+              {typePass ? "Hide" : "Show"}
+            </small>
           </div>
-        </div>
-
-        <div className="d-flex justify-content-evenly  mx-0 mb-4">
-          <label htmlFor="User">
-            User:
-            <input
-              type="radio"
-              id="User"
-              name="gender"
-              value={userType}
-              defaultChecked
-              onClick={() => setUserType(false)}
-            />
-          </label>
-
-          <label htmlFor="Admin">
-            Admin:
-            <input
-              type="radio"
-              id="Admin"
-              name="gender"
-              value={userType}
-              onClick={() => setUserType(true)}
-            />
-          </label>
         </div>
 
         <button
           type="submit"
-          className="btn-1 w-100 d-flex outer-shadow hover-in-shadow justify-content-center"
+          className="btn btn-primary w-100 mb-3"
           disabled={email && password ? false : true}
         >
-          Login
+          {isAdmin ? "Sign In as Admin" : "Sign In"}
         </button>
-        <p className="my-2">
+
+        <p className="my-2 text-center" style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>
           Don't have an account?{" "}
-          <Link to="/register" style={{ color: "crimson" }}>
-            Register Now.
+          <Link to="/register" style={{ color: "var(--primary)", fontWeight: "600" }}>
+            Register Now
           </Link>
         </p>
       </form>

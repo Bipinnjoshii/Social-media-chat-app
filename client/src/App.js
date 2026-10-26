@@ -21,7 +21,7 @@ import { GLOBALTYPES } from "./redux/actions/globalTypes";
 import SocketClient from "./SocketClient";
 
 function App() {
-  const { auth, status, modal, userType } = useSelector((state) => state);
+  const { auth, status, modal, userType, theme } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,6 +32,16 @@ function App() {
     return () => socket.close()
   }, [dispatch]);
 
+  // Apply real dark / light theme class to body
+  useEffect(() => {
+    if (theme) {
+      document.body.classList.add("theme-dark");
+      document.body.classList.remove("theme-light");
+    } else {
+      document.body.classList.add("theme-light");
+      document.body.classList.remove("theme-dark");
+    }
+  }, [theme]);
 
   useEffect(() => {
     if (auth.token) {
@@ -43,24 +53,16 @@ function App() {
 
   useEffect(() => {
     if (!("Notification" in window)) {
-      alert("This browser does not support desktop notification");
-    } else if (Notification.permission === "granted") {
-
-    } else if (Notification.permission !== "denied") {
-      Notification.requestPermission().then(function (permission) {
-        if (permission === "granted") {
-        }
-      });
+      // Notification API not supported
+    } else if (Notification.permission === "default") {
+      Notification.requestPermission();
     }
-  }, [])
-
-   
+  }, []);
 
   return (
     <Router>
       <Alert />
-      <input type="checkbox" id="theme" />
-      <div className={`App ${(status || modal) && "mode"}`}>
+      <div className={`App ${theme ? "theme-dark" : "theme-light"} ${(status || modal) && "mode"}`}>
         <div className="main">
           {userType === "user" && auth.token && <Header />}
           {status && <StatusModal />}

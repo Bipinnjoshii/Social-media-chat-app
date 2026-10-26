@@ -4,12 +4,13 @@
 
 /* Status (Create Post Bar) */
 .status {
-  background: #ffffff;
+  background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: var(--shadow-sm);
   padding: 16px 20px;
   margin-bottom: 24px;
+  transition: all 0.2s ease;
 }
 
 .status .statusBtn {
@@ -18,33 +19,34 @@
   text-align: left;
   margin-left: 12px;
   font-size: 0.95rem;
-  background-color: #F5EFEB;
-  border: 1px solid transparent;
-  color: #78716C;
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
   font-weight: 500;
   transition: all 0.2s ease;
   width: 100%;
+  cursor: pointer;
 }
 
 .status .statusBtn:hover {
-  background-color: #EAE5DE;
-  color: #292524;
-  border-color: #D6CEBE;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
 /* Post Cards */
 .posts .card {
-  background: #ffffff;
-  border: 1px solid var(--border-color);
-  border-radius: 18px;
-  box-shadow: 0 2px 4px 0 rgba(41, 37, 36, 0.04);
-  margin-bottom: 24px;
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--shadow-card) !important;
+  margin-bottom: 26px;
   overflow: hidden;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .posts .card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg) !important;
 }
 
 /* Post Card Header */
@@ -52,11 +54,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 20px;
+  padding: 16px 20px;
+  background: transparent;
 }
 
 .posts .card_header .card_name {
-  margin-left: 10px;
+  margin-left: 12px;
 }
 
 .posts .card_header .card_name h6 {
@@ -68,6 +71,11 @@
 .posts .card_header .card_name h6 a {
   color: var(--text-main);
   text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.posts .card_header .card_name h6 a:hover {
+  color: var(--primary);
 }
 
 .posts .card_header .card_name small {
@@ -75,53 +83,32 @@
   font-size: 0.8rem;
 }
 
-.posts .card_header .dropdown-menu {
-  background: #ffffff;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  box-shadow: var(--shadow-lg);
-  padding: 6px;
-  min-width: 150px;
-}
-
-.posts .card_header .dropdown-item {
-  display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 0.88rem;
-  color: #292524;
-  transition: background 0.15s ease;
-}
-
-.posts .card_header .dropdown-item:hover {
-  background: #F5EFEB;
-  color: #C25E3E;
-}
-
 .posts .card_header #moreLink {
-  color: #94a3b8;
+  color: var(--text-muted);
   cursor: pointer;
-  transition: color 0.15s ease;
+  padding: 4px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
 }
 
 .posts .card_header #moreLink:hover {
-  color: #292524;
+  color: var(--text-main);
+  background: var(--bg-card-subtle);
 }
 
 /* Post Card Body */
 .posts .card_body-content {
-  padding: 10px 20px 14px 20px;
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: #292524;
+  padding: 8px 20px 16px 20px;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: var(--text-main);
 }
 
 .posts .card_body-content .readMore {
-  color: #C25E3E;
+  color: var(--primary);
   font-weight: 600;
   cursor: pointer;
-  margin-left: 4px;
+  margin-left: 6px;
 }
 
 /* Post Card Actions / Footer */
@@ -129,25 +116,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 18px;
-  border-top: 1px solid #f8fafc;
+  padding: 10px 20px;
+  border-top: 1px solid var(--border-color);
 }
 
 .posts .card_icon_menu i {
-  font-size: 24px;
-  margin-right: 14px;
+  font-size: 22px;
+  margin-right: 16px;
   cursor: pointer;
   transition: transform 0.15s ease, color 0.15s ease;
-  color: #475569;
+  color: var(--text-muted);
 }
 
 .posts .card_icon_menu i:hover {
-  transform: scale(1.15);
-  color: #0f172a;
+  transform: scale(1.18);
+  color: var(--primary);
 }
 
 .posts .card_icon_menu i.fas.fa-heart.text-danger {
-  color: #ef4444 !important;
+  color: var(--danger) !important;
 }
 
 .posts .card_icon_menu img {
@@ -156,12 +143,23 @@
   cursor: pointer;
   margin-right: 14px;
   transition: transform 0.15s ease;
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 .posts .card_icon_menu img:hover {
-  transform: scale(1.15);
+  transform: scale(1.18);
   opacity: 1;
+}
+
+/* Likes & Comments Count */
+.card_footer h6 {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.card_footer h6:hover {
+  color: var(--text-main);
 }
 
 /* Right Sidebar Suggestions */
@@ -172,10 +170,10 @@
 }
 
 .right_sidebar .suggestions-title {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #78716C;
-  margin-bottom: 14px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 16px;
 }

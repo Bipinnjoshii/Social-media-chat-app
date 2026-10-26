@@ -41,9 +41,9 @@ const InputComment = ({ children, post, onReply, setOnReply }) => {
         value={content}
         onChange={(e) => setContent(e.target.value)}
         style={{
-          filter: theme ? "invert(1)" : "invert(0)",
-          color: theme ? "white" : "#111",
-          background: theme ? "rgb(0,0,0,0.3)" : "",
+          
+          
+          
         }}
       />
       <Icons setContent={setContent} content={content} theme={theme} />

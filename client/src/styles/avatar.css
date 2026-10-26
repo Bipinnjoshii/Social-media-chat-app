@@ -1,32 +1,44 @@
-.supper-avatar{
-  height: 150px;   
-  width: 150px;   
-  border-radius: 50%
+.supper-avatar {
+  height: 140px;   
+  width: 140px;   
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border-color);
+  background: var(--bg-card-subtle);
 }
 
-.big-avatar{
-  height: 50px;   
-  width: 50px;   
-  border-radius: 50%
+.big-avatar {
+  height: 48px;   
+  width: 48px;   
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+  background: var(--bg-card-subtle);
 }
 
-.medium-avatar{
-  height: 30px;   
-  width: 30px;   
-  border-radius: 50%
+.medium-avatar {
+  height: 34px;   
+  width: 34px;   
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-card-subtle);
 }
 
-.small-avatar{
-  height: 20px;   
-  width: 20px;   
-  border-radius: 50%
+.small-avatar {
+  height: 22px;   
+  width: 22px;   
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card-subtle);
 }
 
-.big-avatar-cover{
+.big-avatar-cover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
-  width: 60px;
+  height: 56px;
+  width: 56px;
   border-radius: 50%;
 }
