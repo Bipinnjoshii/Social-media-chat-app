@@ -2,7 +2,7 @@ import "./Main.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-// import Chart from "../charts/Chart";
+import Chart from "../charts/Chart";
 import {
   getTotalUsers,
   getTotalPosts,

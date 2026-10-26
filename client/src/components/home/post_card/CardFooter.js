@@ -4,7 +4,7 @@ import LikeButton from '../../LikeButton';
 import { useSelector, useDispatch } from "react-redux";
 import { likePost, savePost, unLikePost, unSavePost } from "../../../redux/actions/postAction";
 import ShareModal from '../../ShareModal';
-// import { BASE_URL } from '../../../utils/config';
+import { BASE_URL } from '../../../utils/config';
 
 
 const CardFooter = ({post}) => {
