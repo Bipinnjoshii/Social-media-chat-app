@@ -1,7 +1,7 @@
 # Campus Connect — Full-Stack MERN Social Media Platform
 
 <p align="center">
-  <img src="./screenshots/home.jpg" alt="Campus Connect Home" width="100%" />
+  <img src="./screenshots/banner.svg" alt="Campus Connect Platform Showcase" width="100%" />
 </p>
 
 <p align="center">
@@ -17,94 +17,85 @@
 
 ## 📌 Overview
 
-**Campus Connect** is a feature-rich, fully responsive social media web application developed with the **MERN** stack (MongoDB, Express, React, Node.js) and powered by **Socket.io** for real-time interactions. 
+**Campus Connect** is a feature-rich, modern social media and communication platform engineered using the **MERN** stack (MongoDB, Express, React, Node.js) with real-time interactivity powered by **Socket.io**. 
 
-The platform provides a comprehensive social networking experience featuring user authentication, post creation with camera/image uploads, comments with nested replies, real-time messaging, notifications, profile customization, a dark/light mode toggle, and a dedicated **Admin Dashboard** for community moderation.
-
----
-
-## ✨ Features
-
-### 👤 User Experience & Interaction
-- **Authentication & Security:** User registration and login protected with encrypted passwords (bcrypt) and JSON Web Tokens (access & refresh tokens).
-- **Post Creation & Uploads:**
-  - Create, edit, and delete posts with text captions and images.
-  - Image capture support directly from device camera or local file system.
-  - Multi-image carousel display.
-- **Social Engagement:**
-  - Like and unlike posts.
-  - Comment on posts with support for nested replies and comment likes.
-  - Share post links or copy direct link to clipboard.
-  - Save posts into private collections for later viewing.
-- **Discovery & Navigation:**
-  - **Explore Page:** Discover posts and trending content from across the platform.
-  - **User Search:** Search other users dynamically by username.
-  - **Suggestions:** Automated user recommendation sidebar to grow connections.
-  - **Pagination:** Infinite-scroll/load-more pagination across home feed, explore, and comments.
-- **Real-Time Communication:**
-  - Real-time 1-on-1 direct messaging powered by **Socket.io**.
-  - Instant notifications for likes, comments, follows, and messages with audio alerts.
-  - Online/offline presence indicators.
-- **Profile & Personalization:**
-  - User profile with follower and following counters and listings.
-  - Grid view of user posts, saved posts, and tagged content.
-  - Edit profile information (avatar, bio, contact, website).
-  - Built-in **Dark Mode** toggle for comfortable browsing in any lighting condition.
-- **Safety & Moderation:**
-  - Report inappropriate posts for spam or violations.
+The platform delivers a streamlined, modern social networking experience featuring JWT-based authentication, post creation with camera/image uploads, threaded comments with nested replies, real-time 1-on-1 direct messaging, instant notifications with sound alerts, profile management, and a dedicated **Admin Moderation Portal** for community safety.
 
 ---
 
-### 🛡️ Admin Dashboard
-- **Platform Analytics:** Real-time statistics displaying total users, posts, comments, likes, and spam reports.
-- **Content Moderation:** Dedicated review panel for posts flagged/reported by community members.
-- **Administrative Actions:** Delete reported spam content and manage platform integrity.
-- **Role Management:** Capability for administrators to create or assign administrative privileges to other users.
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technologies |
-|---|---|
-| **Frontend** | React 17, Redux, Redux Thunk, React Router v5, Material-UI, Bootstrap 5, Socket.io-client, Axios, Moment.js, Emoji-Mart |
-| **Backend** | Node.js, Express.js, Socket.io, Mongoose, JWT (jsonwebtoken), bcrypt, cookie-parser, cors |
-| **Database** | MongoDB / MongoDB Atlas |
-| **Cloud Storage** | Cloudinary (Media & Image Uploads) |
-
----
-
-## 📸 Application Previews
+## 📸 Application Interface & Previews
 
 <div align="center">
 
-| Login & Authentication | Home Feed & Interactions |
+| Authentication & Sign In | User Profile & Connections |
 | :---: | :---: |
-| <img src="./screenshots/login.jpg" width="400"/> | <img src="./screenshots/home.jpg" width="400"/> |
+| <img src="./screenshots/login.svg" width="450"/> | <img src="./screenshots/profile.svg" width="450"/> |
 
-| Post Creation & Camera Upload | User Profile & Follows |
+| Real-Time Messenger | Admin Moderation Dashboard |
 | :---: | :---: |
-| <img src="./screenshots/new-post.jpg" width="400"/> | <img src="./screenshots/profile.jpg" width="400"/> |
-
-| Explore Feed | User Search |
-| :---: | :---: |
-| <img src="./screenshots/explore.jpg" width="400"/> | <img src="./screenshots/search-users.jpg" width="400"/> |
-
-| Dark Mode Interface | Admin Dashboard & Moderation |
-| :---: | :---: |
-| <img src="./screenshots/dark-mode.jpg" width="400"/> | <img src="./screenshots/admin-panel.jpg" width="400"/> |
+| <img src="./screenshots/chat.svg" width="450"/> | <img src="./screenshots/admin.svg" width="450"/> |
 
 </div>
 
 ---
 
+## ✨ Features & Capabilities
+
+### 👤 Social Interaction & User Experience
+- **Authentication & Security:** Secure registration and login flow utilizing salted password hashing (`bcrypt`) and dual-token JWT verification (short-lived access tokens and refresh tokens stored in HTTP-only cookies).
+- **Post Creation & Media Support:**
+  - Create, edit, and delete multimedia posts with captions and imagery.
+  - In-browser camera capture or direct file-picker uploads.
+  - Multi-image carousel presentation.
+- **Social Engagement:**
+  - Dynamic like/unlike interactions.
+  - Nested comments and threaded replies with individual comment likes.
+  - Dynamic post sharing and clipboard link copy.
+  - Save posts into private user collections.
+- **Discovery & Navigation:**
+  - **Explore Feed:** Discover trending content and posts from across the network.
+  - **Dynamic Search:** Real-time user search by username and display name.
+  - **Automated Suggestions:** Algorithmic suggestions to discover new peers.
+  - **Infinite Scroll / Pagination:** Smooth pagination across feeds, explore views, and comments.
+- **Real-Time WebSockets (`Socket.io`):**
+  - Instantaneous 1-on-1 direct messaging.
+  - Live socket notifications for likes, comments, follows, and messages with audio triggers.
+  - Online/offline presence indicators.
+- **Modern Design & Theming:**
+  - Responsive, glassmorphic navigation header with blur filters.
+  - Clean card-based layout with soft elevations and smooth hover states.
+  - Built-in Dark Mode with natural true-color media preservation.
+- **Safety & Moderation:**
+  - User post reporting system to flag spam or inappropriate content.
+
+---
+
+### 🛡️ Admin Moderation Dashboard
+- **Platform Analytics:** Real-time metrics tracking total users, posts, community engagements, and active spam flags.
+- **Content Moderation:** Dedicated review table for community-reported content.
+- **Administrative Moderation:** Direct review and deletion of reported spam content.
+- **Role Assignment:** Ability to provision and grant administrative permissions.
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+| Layer | Technologies |
+|---|---|
+| **Frontend** | React 17, Redux, Redux Thunk, React Router v5, Material-UI, Bootstrap 5, Socket.io-client, Axios, Moment.js, Emoji-Mart |
+| **Backend** | Node.js, Express.js, Socket.io, Mongoose, JWT (`jsonwebtoken`), bcrypt, cookie-parser, cors |
+| **Database** | MongoDB / MongoDB Atlas |
+| **Media Hosting** | Cloudinary (Camera and file upload pipeline) |
+
+---
+
 ## 🚀 Getting Started
 
-Follow the steps below to set up and run the project locally.
+Follow the steps below to set up and run Campus Connect locally.
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v14 or higher recommended)
-- [MongoDB](https://www.mongodb.com/) (Local installation or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [MongoDB](https://www.mongodb.com/) (Local instance or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
 - [Cloudinary Account](https://cloudinary.com/) (Free tier for media uploads)
 - `npm` or `yarn`
 
@@ -119,13 +110,13 @@ cd Social-media-chat-app
 ---
 
 ### 2. Configure Environment Variables
-Create a `.env` file in the root directory by copying the example template:
+Copy the `.env.example` file to create your local `.env`:
 
 ```bash
 cp .env.example .env
 ```
 
-Populate `.env` with your credentials:
+Set the required environment keys in `.env`:
 ```env
 PORT=8080
 MONGODB_URL=mongodb://localhost:27017/mern
@@ -136,7 +127,7 @@ REFRESH_TOKEN_SECRET=your_jwt_refresh_token_secret
 ---
 
 ### 3. Configure Cloudinary
-To enable image and camera uploads, add your Cloudinary details in:
+To enable image and camera uploads, add your Cloudinary credentials in:
 `client/src/utils/imageUpload.js`
 
 ```javascript
@@ -153,12 +144,12 @@ const res = await fetch("https://api.cloudinary.com/v1_1/YOUR_CLOUDINARY_CLOUD_N
 
 ### 4. Install Dependencies
 
-#### Install Backend Dependencies (Root Directory)
+#### Backend Dependencies (Root Directory)
 ```bash
 npm install
 ```
 
-#### Install Frontend Dependencies (Client Directory)
+#### Frontend Dependencies (Client Directory)
 ```bash
 cd client
 npm install
@@ -173,18 +164,18 @@ cd ..
 In the root directory:
 ```bash
 npm start
-# or for live reloading during development:
+# or for hot reloading during development:
 npm run dev
 ```
-> The backend server will start on `http://localhost:8080`.
+> Server runs on `http://localhost:8080`.
 
 #### Start Frontend Client
-In a separate terminal window, navigate to the `client` folder:
+In a separate terminal:
 ```bash
 cd client
 npm start
 ```
-> The React app will launch automatically at `http://localhost:3000`.
+> React client launches at `http://localhost:3000`.
 
 ---
 
@@ -200,13 +191,13 @@ npm start
 │       ├── images/             # Icons and UI images
 │       ├── pages/              # App pages (Home, Login, Register, Profile, Messages, Admin)
 │       ├── redux/              # Redux store, actions, and reducers
-│       ├── styles/             # Modular CSS stylesheets
+│       ├── styles/             # Modular CSS stylesheets (Modern Design System)
 │       └── utils/              # API helpers, validation, and Cloudinary uploads
 ├── controllers/                # Backend route controllers (Auth, Posts, Users, Comments, Messages, Admin)
 ├── middleware/                 # Authentication middleware (JWT verification)
 ├── models/                     # Mongoose database models (User, Post, Comment, Message, Conversation, Notification)
 ├── routes/                     # Express API endpoint definitions
-├── screenshots/                # Application UI preview screenshots
+├── screenshots/                # Vector UI preview mockups & banner
 ├── .env.example                # Sample environment configuration
 ├── .gitignore                  # Git ignore rules
 ├── package.json                # Backend dependencies, metadata, and scripts

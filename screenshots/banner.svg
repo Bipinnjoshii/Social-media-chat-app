@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="cardGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.04" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="150" cy="120" r="300" fill="#6366f1" opacity="0.18" filter="blur(60px)"/>
+  <circle cx="1050" cy="500" r="320" fill="#ec4899" opacity="0.15" filter="blur(70px)"/>
+
+  <!-- Header Title & Tagline -->
+  <text x="600" y="85" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="38" font-weight="900" fill="#ffffff" letter-spacing="-0.02em">
+    Campus Connect
+  </text>
+  <text x="600" y="125" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="500" fill="#94a3b8">
+    Full-Stack MERN Social Networking Platform &amp; Real-Time Messenger
+  </text>
+
+  <!-- Badges Row -->
+  <g transform="translate(600, 165)">
+    <rect x="-240" y="-16" width="105" height="32" rx="16" fill="#1e293b" stroke="#334155"/>
+    <text x="-187" y="5" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#61dafb">REACT 17</text>
+    <rect x="-120" y="-16" width="115" height="32" rx="16" fill="#1e293b" stroke="#334155"/>
+    <text x="-62" y="5" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#38a169">NODE / MERN</text>
+    <rect x="10" y="-16" width="115" height="32" rx="16" fill="#1e293b" stroke="#334155"/>
+    <text x="67" y="5" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">SOCKET.IO</text>
+    <rect x="140" y="-16" width="105" height="32" rx="16" fill="#1e293b" stroke="#334155"/>
+    <text x="192" y="5" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ec4899">REDUX</text>
+  </g>
+
+  <!-- Central Showcase Mockup Card -->
+  <g transform="translate(180, 210)" filter="url(#shadow)">
+    <!-- Browser Frame -->
+    <rect width="840" height="380" rx="16" fill="#ffffff"/>
+    <rect width="840" height="42" rx="16" fill="#f8fafc"/>
+    <line x1="0" y1="42" x2="840" y2="42" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- Window Dots -->
+    <circle cx="24" cy="21" r="5" fill="#ef4444"/>
+    <circle cx="40" cy="21" r="5" fill="#f59e0b"/>
+    <circle cx="56" cy="21" r="5" fill="#10b981"/>
+
+    <!-- URL Bar -->
+    <rect x="240" y="9" width="360" height="24" rx="12" fill="#e2e8f0"/>
+    <text x="420" y="25" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#64748b">https://campusconnect.local/home</text>
+
+    <!-- App Header Inside Mockup -->
+    <rect x="0" y="42" width="840" height="48" fill="#ffffff"/>
+    <line x1="0" y1="90" x2="840" y2="90" stroke="#f1f5f9" stroke-width="1"/>
+    <text x="32" y="72" font-family="sans-serif" font-size="17" font-weight="800" fill="#4f46e5">CAMPUS CONNECT</text>
+    
+    <!-- Mini Search Bar -->
+    <rect x="280" y="52" width="220" height="28" rx="14" fill="#f1f5f9"/>
+    <text x="320" y="70" font-family="sans-serif" font-size="11" fill="#94a3b8">Search users...</text>
+    
+    <!-- Mini Nav Icons -->
+    <circle cx="700" cy="66" r="12" fill="#eff6ff"/>
+    <circle cx="740" cy="66" r="12" fill="#eff6ff"/>
+    <circle cx="780" cy="66" r="14" fill="#6366f1"/>
+    <text x="780" y="71" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff">BJ</text>
+
+    <!-- App Body Grid: Left Feed & Right Sidebar -->
+    <!-- Left Feed -->
+    <!-- Status / Create Post Box -->
+    <rect x="40" y="106" width="500" height="50" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+    <circle cx="70" cy="131" r="15" fill="#6366f1"/>
+    <text x="70" y="135" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff">BJ</text>
+    <rect x="100" y="118" width="420" height="26" rx="13" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="120" y="135" font-family="sans-serif" font-size="11" fill="#94a3b8">Bipin, what's on your mind?</text>
+
+    <!-- Main Feed Card -->
+    <rect x="40" y="170" width="500" height="195" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+    
+    <!-- Card Header -->
+    <circle cx="70" cy="198" r="15" fill="#6366f1"/>
+    <text x="70" y="202" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff">BJ</text>
+    <text x="96" y="196" font-family="sans-serif" font-size="13" font-weight="700" fill="#0f172a">Bipin Joshi</text>
+    <text x="96" y="209" font-family="sans-serif" font-size="10" fill="#64748b">@bipinjosh • 10m ago</text>
+
+    <text x="56" y="235" font-family="sans-serif" font-size="12" fill="#334155">
+      Excited to launch our redesigned Campus Connect platform with real-time sockets! 🚀
+    </text>
+
+    <!-- Media Card Preview Box -->
+    <rect x="56" y="248" width="468" height="75" rx="8" fill="url(#accent)" opacity="0.9"/>
+    <text x="290" y="290" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">
+      ⚡ Modernized UI/UX • Instant Messaging • Admin Moderation
+    </text>
+
+    <!-- Post Actions -->
+    <text x="60" y="348" font-family="sans-serif" font-size="12" fill="#ef4444">❤️ 128</text>
+    <text x="130" y="348" font-family="sans-serif" font-size="12" fill="#64748b">💬 24 Comments</text>
+    <text x="240" y="348" font-family="sans-serif" font-size="12" fill="#64748b">↗️ Share</text>
+
+    <!-- Right Sidebar in Mockup -->
+    <rect x="565" y="106" width="235" height="259" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="585" y="132" font-family="sans-serif" font-size="12" font-weight="800" fill="#475569" letter-spacing="0.05em">SUGGESTIONS FOR YOU</text>
+    
+    <!-- Suggestion item 1 -->
+    <circle cx="605" cy="165" r="14" fill="#3b82f6"/>
+    <text x="605" y="169" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff">AK</text>
+    <text x="628" y="163" font-family="sans-serif" font-size="11" font-weight="700" fill="#0f172a">Aarav Kumar</text>
+    <text x="628" y="176" font-family="sans-serif" font-size="9" fill="#64748b">@aaravk</text>
+    <rect x="735" y="152" width="52" height="24" rx="6" fill="#6366f1"/>
+    <text x="761" y="168" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#ffffff">Follow</text>
+
+    <!-- Suggestion item 2 -->
+    <circle cx="605" cy="215" r="14" fill="#10b981"/>
+    <text x="605" y="219" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff">SP</text>
+    <text x="628" y="213" font-family="sans-serif" font-size="11" font-weight="700" fill="#0f172a">Sneha Patel</text>
+    <text x="628" y="226" font-family="sans-serif" font-size="9" fill="#64748b">@snehap</text>
+    <rect x="735" y="202" width="52" height="24" rx="6" fill="#6366f1"/>
+    <text x="761" y="218" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#ffffff">Follow</text>
+
+    <!-- Suggestion item 3 -->
+    <circle cx="605" cy="265" r="14" fill="#ec4899"/>
+    <text x="605" y="269" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff">RM</text>
+    <text x="628" y="263" font-family="sans-serif" font-size="11" font-weight="700" fill="#0f172a">Rohan Mehta</text>
+    <text x="628" y="276" font-family="sans-serif" font-size="9" fill="#64748b">@rohanm</text>
+    <rect x="735" y="252" width="52" height="24" rx="6" fill="#6366f1"/>
+    <text x="761" y="268" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#ffffff">Follow</text>
+  </g>
+</svg>

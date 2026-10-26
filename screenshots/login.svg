@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="loginBtnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <filter id="loginShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#6366f1" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="600" height="480" fill="#f8fafc"/>
+
+  <!-- Background Blobs -->
+  <circle cx="120" cy="100" r="140" fill="#6366f1" opacity="0.08"/>
+  <circle cx="480" cy="380" r="160" fill="#ec4899" opacity="0.06"/>
+
+  <!-- Centered Login Card -->
+  <g transform="translate(110, 45)" filter="url(#loginShadow)">
+    <rect width="380" height="390" rx="20" fill="#ffffff" stroke="#e2e8f0"/>
+
+    <!-- Brand Header -->
+    <text x="190" y="55" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="22" font-weight="900" fill="#4f46e5" letter-spacing="-0.02em">
+      CAMPUS CONNECT
+    </text>
+    <text x="190" y="80" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#64748b">
+      Welcome back! Sign in to your account
+    </text>
+
+    <!-- Email Field -->
+    <text x="35" y="125" font-family="sans-serif" font-size="12" font-weight="600" fill="#334155">Email address</text>
+    <rect x="35" y="135" width="310" height="40" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="50" y="160" font-family="sans-serif" font-size="12" fill="#0f172a">bussyperson88550@gmail.com</text>
+
+    <!-- Password Field -->
+    <text x="35" y="205" font-family="sans-serif" font-size="12" font-weight="600" fill="#334155">Password</text>
+    <rect x="35" y="215" width="310" height="40" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="50" y="240" font-family="sans-serif" font-size="14" fill="#0f172a">••••••••••••</text>
+    <text x="315" y="240" text-anchor="end" font-family="sans-serif" font-size="11" font-weight="600" fill="#6366f1">Show</text>
+
+    <!-- Login Button -->
+    <rect x="35" y="280" width="310" height="44" rx="10" fill="url(#loginBtnGrad)"/>
+    <text x="190" y="307" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">
+      Sign In
+    </text>
+
+    <!-- Bottom Links -->
+    <text x="190" y="355" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#64748b">
+      Don't have an account? <tspan fill="#6366f1" font-weight="600">Register Now</tspan>
+    </text>
+  </g>
+</svg>

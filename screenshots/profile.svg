@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="600" height="480" fill="#f8fafc"/>
+
+  <!-- Profile Card Container -->
+  <rect x="25" y="25" width="550" height="430" rx="18" fill="#ffffff" stroke="#e2e8f0" filter="url(#cardShadow)"/>
+
+  <!-- Profile Header Banner Accent -->
+  <rect x="25" y="25" width="550" height="90" rx="18" fill="url(#avatarGrad)"/>
+
+  <!-- User Avatar Circle -->
+  <circle cx="95" cy="115" r="42" fill="#ffffff"/>
+  <circle cx="95" cy="115" r="38" fill="url(#avatarGrad)"/>
+  <text x="95" y="123" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="24" font-weight="800" fill="#ffffff">BJ</text>
+
+  <!-- Action Button -->
+  <rect x="425" y="128" width="125" height="34" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="487" y="150" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" fill="#334155">Edit Profile</text>
+
+  <!-- User Name & Handle -->
+  <text x="50" y="190" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="800" fill="#0f172a">Bipin Joshi</text>
+  <text x="50" y="208" font-family="-apple-system, sans-serif" font-size="13" font-weight="500" fill="#64748b">@Bipinnjoshii</text>
+
+  <!-- Bio -->
+  <text x="50" y="235" font-family="-apple-system, sans-serif" font-size="13" fill="#334155">
+    Full-Stack Developer • Building scalable web apps with MERN &amp; WebSockets 🚀
+  </text>
+  <text x="50" y="255" font-family="-apple-system, sans-serif" font-size="12" fill="#6366f1">
+    🔗 https://github.com/Bipinnjoshii
+  </text>
+
+  <!-- Stats Counter Bar -->
+  <g transform="translate(50, 275)">
+    <rect width="500" height="42" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="50" y="26" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#0f172a">28</text>
+    <text x="95" y="26" font-family="sans-serif" font-size="12" fill="#64748b">posts</text>
+    <text x="210" y="26" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#0f172a">342</text>
+    <text x="260" y="26" font-family="sans-serif" font-size="12" fill="#64748b">followers</text>
+    <text x="390" y="26" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#0f172a">189</text>
+    <text x="440" y="26" font-family="sans-serif" font-size="12" fill="#64748b">following</text>
+  </g>
+
+  <!-- Tabs Navigation -->
+  <g transform="translate(50, 335)">
+    <rect x="0" y="0" width="80" height="26" rx="6" fill="#eff6ff"/>
+    <text x="40" y="17" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#4f46e5">POSTS</text>
+    <text x="140" y="17" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="600" fill="#94a3b8">SAVED</text>
+  </g>
+
+  <!-- Post Grid Thumbnails -->
+  <g transform="translate(50, 375)">
+    <rect x="0" y="0" width="155" height="65" rx="8" fill="#6366f1" opacity="0.85"/>
+    <text x="77" y="38" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">MERN Project</text>
+
+    <rect x="172" y="0" width="155" height="65" rx="8" fill="#3b82f6" opacity="0.85"/>
+    <text x="249" y="38" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">Campus Live</text>
+
+    <rect x="345" y="0" width="155" height="65" rx="8" fill="#ec4899" opacity="0.85"/>
+    <text x="422" y="38" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">Hackathon 2026</text>
+  </g>
+</svg>
