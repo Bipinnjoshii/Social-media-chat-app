@@ -6,18 +6,22 @@ import { GLOBALTYPES } from "./redux/actions/globalTypes";
 import { NOTIFY_TYPES } from "./redux/actions/notifyAction";
 import { MESSAGE_TYPES } from "./redux/actions/messageAction";
 
-import audioTone from './audio/pristine-609.mp3' 
+import audioTone from "./audio/pristine-609.mp3";
 
 const spawnNotification = (body, icon, url, title) => {
-  let options = {
-    body, icon
+  if (typeof window === "undefined" || !("Notification" in window)) return;
+  if (Notification.permission !== "granted") return;
+  try {
+    let options = { body, icon };
+    let n = new Notification(title, options);
+    n.onclick = (e) => {
+      e.preventDefault();
+      window.open(url, "_blank");
+    };
+  } catch (e) {
+    console.error("spawnNotification error:", e);
   }
-  let n = new Notification(title, options);
-  n.onclick =  e => {
-    e.preventDefault();
-    window.open(url, '_blank');
-  }
-}
+};
 
 const SocketClient = () => {
   const { auth, socket, notify } = useSelector((state) => state);
@@ -25,107 +29,126 @@ const SocketClient = () => {
 
   const audioRef = useRef();
 
+  // If socket is not yet initialized or connected, do not render or attach listeners
+  const hasValidSocket = Boolean(
+    socket &&
+    typeof socket.on === "function" &&
+    typeof socket.emit === "function"
+  );
+
   //!connection
   useEffect(() => {
+    if (!hasValidSocket || !auth || !auth.user) return;
     if (auth.user.role === "user") {
       socket.emit("joinUser", auth.user._id);
     } else if (auth.user.role === "admin") {
       socket.emit("joinAdmin", auth.user._id);
     }
-  }, [socket, auth.user.role, auth.user._id]);
+  }, [hasValidSocket, socket, auth]);
 
   useEffect(() => {
+    if (!hasValidSocket) return;
     socket.on("getActiveUsersToClient", (totalActiveUsers) => {
       dispatch({
         type: ADMIN_TYPES.GET_TOTAL_ACTIVE_USERS,
         payload: totalActiveUsers,
       });
     });
-    return () => socket.off("getActiveUsersToClient");
-  }, [socket, dispatch]);
+    return () => socket.off && socket.off("getActiveUsersToClient");
+  }, [hasValidSocket, socket, dispatch]);
 
   //!like Post
   useEffect(() => {
+    if (!hasValidSocket) return;
     socket.on("likeToClient", (newPost) => {
       dispatch({ type: POST_TYPES.UPDATE_POST, payload: newPost });
     });
-    return () => socket.off("likeToClient");
-  }, [socket, dispatch]);
+    return () => socket.off && socket.off("likeToClient");
+  }, [hasValidSocket, socket, dispatch]);
 
   //!Unlike Post
   useEffect(() => {
+    if (!hasValidSocket) return;
     socket.on("unLikeToClient", (newPost) => {
       dispatch({ type: POST_TYPES.UPDATE_POST, payload: newPost });
     });
-    return () => socket.off("unLikeToClient");
-  }, [socket, dispatch]);
+    return () => socket.off && socket.off("unLikeToClient");
+  }, [hasValidSocket, socket, dispatch]);
 
   //!Comments
   useEffect(() => {
+    if (!hasValidSocket) return;
     socket.on("createCommentToClient", (newPost) => {
       dispatch({ type: POST_TYPES.UPDATE_POST, payload: newPost });
     });
-    return () => socket.off("createCommentToClient");
-  }, [socket, dispatch]);
+    return () => socket.off && socket.off("createCommentToClient");
+  }, [hasValidSocket, socket, dispatch]);
 
   useEffect(() => {
+    if (!hasValidSocket) return;
     socket.on("deleteCommentToClient", (newPost) => {
       dispatch({ type: POST_TYPES.UPDATE_POST, payload: newPost });
     });
-    return () => socket.off("deleteCommentToClient");
-  }, [socket, dispatch]);
+    return () => socket.off && socket.off("deleteCommentToClient");
+  }, [hasValidSocket, socket, dispatch]);
 
   //!Follow
   useEffect(() => {
+    if (!hasValidSocket) return;
     socket.on("followToClient", (newUser) => {
       dispatch({ type: GLOBALTYPES.AUTH, payload: { ...auth, user: newUser } });
     });
-    return () => socket.off("followToClient");
-  }, [socket, dispatch, auth]);
+    return () => socket.off && socket.off("followToClient");
+  }, [hasValidSocket, socket, dispatch, auth]);
 
   useEffect(() => {
+    if (!hasValidSocket) return;
     socket.on("unFollowToClient", (newUser) => {
       dispatch({
         type: GLOBALTYPES.AUTH,
         payload: { ...auth, user: newUser },
       });
     });
-    return () => socket.off("unFollowToClient");
-  }, [socket, dispatch, auth]);
+    return () => socket.off && socket.off("unFollowToClient");
+  }, [hasValidSocket, socket, dispatch, auth]);
 
   //!Notifications
   useEffect(() => {
+    if (!hasValidSocket) return;
     socket.on("createNotifyToClient", (msg) => {
       dispatch({ type: NOTIFY_TYPES.CREATE_NOTIFY, payload: msg });
 
-      if (notify.sound) {
-        audioRef.current.play();
+      if (notify && notify.sound && audioRef.current) {
+        audioRef.current.play().catch(() => {});
       }
-      spawnNotification(
-        msg.user.username + " " + msg.text,
-        msg.user.avatar,
-        msg.url,
-        "CAMPUS CONNECT"
-      );
+      if (msg && msg.user) {
+        spawnNotification(
+          (msg.user.username || "") + " " + (msg.text || ""),
+          msg.user.avatar || "",
+          msg.url || "",
+          "CAMPUS CONNECT"
+        );
+      }
     });
-    return () => socket.off("createNotifyToClient");
-  }, [socket, dispatch, notify.sound]);
+    return () => socket.off && socket.off("createNotifyToClient");
+  }, [hasValidSocket, socket, dispatch, notify]);
 
   useEffect(() => {
+    if (!hasValidSocket) return;
     socket.on("removeNotifyToClient", (msg) => {
       dispatch({ type: NOTIFY_TYPES.REMOVE_NOTIFY, payload: msg });
     });
-    return () => socket.off("removeNotifyToClient");
-  }, [socket, dispatch]);
+    return () => socket.off && socket.off("removeNotifyToClient");
+  }, [hasValidSocket, socket, dispatch]);
 
   //!Messages
   useEffect(() => {
-    if (!socket) return;
+    if (!hasValidSocket) return;
     socket.on("addMessageToClient", (msg) => {
       dispatch({ type: MESSAGE_TYPES.ADD_MESSAGE, payload: msg });
     });
-    return () => socket.off("addMessageToClient");
-  }, [dispatch, socket]);
+    return () => socket.off && socket.off("addMessageToClient");
+  }, [hasValidSocket, socket, dispatch]);
 
   return (
     <>

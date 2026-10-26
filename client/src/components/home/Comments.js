@@ -1,55 +1,56 @@
-import React, { useState, useEffect} from 'react'
-import CommentDisplay from './comments/CommentDisplay'
+import React, { useState, useEffect } from "react";
+import CommentDisplay from "./comments/CommentDisplay";
 
-const Comments = ({post}) => {
+const Comments = ({ post }) => {
   const [comments, setComments] = useState([]);
   const [showComments, setShowComments] = useState([]);
   const [next, setNext] = useState(2);
   const [replyComments, setReplyComments] = useState([]);
 
+  const postComments = (post && post.comments) || [];
 
   useEffect(() => {
-    const newCm = post.comments.filter((cm) => !cm.reply);
+    const newCm = postComments.filter((cm) => !cm.reply);
     setComments(newCm);
     setShowComments(newCm.slice(newCm.length - next));
-  }, [post.comments, next]);
+  }, [post, next]);
 
   useEffect(() => {
-    const newReply = post.comments.filter((cm) => cm.reply);
+    const newReply = postComments.filter((cm) => cm.reply);
     setReplyComments(newReply);
-  }, [post.comments]);
+  }, [post]);
 
-    return (
-      <div className="comments">
-        {showComments.map((comment, index) => (
-          <CommentDisplay
-            key={index}
-            comment={comment}
-            post={post}
-            replyCm={replyComments.filter((item) => item.reply === comment._id)}
-          />
-        ))}
-        {comments.length - next > 0 ? (
+  return (
+    <div className="comments">
+      {showComments.map((comment, index) => (
+        <CommentDisplay
+          key={index}
+          comment={comment}
+          post={post}
+          replyCm={replyComments.filter((item) => item.reply === comment._id)}
+        />
+      ))}
+      {comments.length - next > 0 ? (
+        <div
+          onClick={() => setNext(next + 10)}
+          className="p-2 border-top"
+          style={{ cursor: "pointer", color: "var(--primary)" }}
+        >
+          Load more...
+        </div>
+      ) : (
+        comments.length > 2 && (
           <div
-            onClick={() => setNext(next + 10)}
+            onClick={() => setNext(2)}
             className="p-2 border-top"
-            style={{ cursor: "pointer", color: "crimson" }}
+            style={{ cursor: "pointer", color: "var(--primary)" }}
           >
-            Load more...
+            Hide...
           </div>
-        ) : (
-          comments.length > 2 && (
-            <div
-              onClick={() => setNext(2)}
-              className="p-2 border-top"
-              style={{ cursor: "pointer", color: "crimson" }}
-            >
-              Hide...
-            </div>
-          )
-        )}
-      </div>
-    );
-}
+        )
+      )}
+    </div>
+  );
+};
 
-export default Comments
+export default Comments;
