@@ -5,11 +5,26 @@ const getInitialAuthState = () => {
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("token");
       const userStr = localStorage.getItem("user");
-      if (token && userStr) {
-        return { token, user: JSON.parse(userStr) };
+      if (
+        token &&
+        userStr &&
+        token !== "undefined" &&
+        token !== "null" &&
+        userStr !== "undefined" &&
+        userStr !== "null"
+      ) {
+        const user = JSON.parse(userStr);
+        if (user && user._id) {
+          return { token, user };
+        }
       }
     }
-  } catch (e) {}
+  } catch (e) {
+    try {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+    } catch (err) {}
+  }
   return {};
 };
 

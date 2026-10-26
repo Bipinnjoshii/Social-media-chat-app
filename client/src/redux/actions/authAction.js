@@ -107,19 +107,30 @@ export const refreshToken = () => async (dispatch) => {
   const storedUser = localStorage.getItem("user");
   const storedUserType = localStorage.getItem("userType");
 
-  if (token && storedUser) {
+  if (
+    token &&
+    storedUser &&
+    token !== "undefined" &&
+    token !== "null" &&
+    storedUser !== "undefined" &&
+    storedUser !== "null"
+  ) {
     try {
       const user = JSON.parse(storedUser);
-      dispatch({
-        type: GLOBALTYPES.AUTH,
-        payload: { token, user },
-      });
-      dispatch({
-        type: GLOBALTYPES.USER_TYPE,
-        payload: storedUserType || user.role,
-      });
+      if (user && user._id) {
+        dispatch({
+          type: GLOBALTYPES.AUTH,
+          payload: { token, user },
+        });
+        dispatch({
+          type: GLOBALTYPES.USER_TYPE,
+          payload: storedUserType || user.role || "user",
+        });
+      }
     } catch (e) {
       console.error(e);
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
     }
   }
 

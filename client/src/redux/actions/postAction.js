@@ -62,15 +62,24 @@ export const getPosts = (token) => async dispatch => {
         dispatch({ type: POST_TYPES.LOADING_POST, payload: true  });
         const res = await getDataAPI('posts', token);
         dispatch({ type: POST_TYPES.GET_POSTS, payload: {...res.data, page: 2} });
-
         dispatch({ type: POST_TYPES.LOADING_POST, payload: false });
     } catch (err) {
-        dispatch({
-          type: GLOBALTYPES.ALERT,
-          payload: {
-            error: err.response ? err.response.data.msg : err.message,
-          },
-        });
+        dispatch({ type: POST_TYPES.LOADING_POST, payload: false });
+        const errMsg = err.response ? (err.response.data ? err.response.data.msg : err.message) : err.message;
+        if (typeof errMsg === 'string' && (errMsg.includes('jwt') || errMsg.includes('authorized'))) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          dispatch({ type: GLOBALTYPES.AUTH, payload: {} });
+          dispatch({
+            type: GLOBALTYPES.ALERT,
+            payload: { error: "Session expired. Please log in again." },
+          });
+        } else {
+          dispatch({
+            type: GLOBALTYPES.ALERT,
+            payload: { error: errMsg },
+          });
+        }
     }
 }
 

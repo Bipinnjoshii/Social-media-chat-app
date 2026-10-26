@@ -17,10 +17,18 @@ const Menu = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
+  const user = auth && auth.user;
+  const username = (user && user.username) || "User";
+  const email = (user && user.email) || "";
+  const avatar = user && user.avatar;
+  const userId = (user && user._id) || "";
+
   const isActive = (pn) => {
     if (pn === pathname) return "active";
     return "";
   };
+
+  const notifyList = (notify && notify.data) || [];
 
   return (
     <div className="menu">
@@ -43,13 +51,13 @@ const Menu = () => {
             aria-expanded="false"
           >
             <span
-              style={{ color: notify.data.length > 0 ? "var(--primary)" : "" }}
+              style={{ color: notifyList.length > 0 ? "var(--primary)" : "" }}
               className="material-icons"
             >
               notifications_none
             </span>
-            {notify.data.length > 0 && (
-              <span className="notify_length">{notify.data.length}</span>
+            {notifyList.length > 0 && (
+              <span className="notify_length">{notifyList.length}</span>
             )}
           </span>
 
@@ -67,22 +75,24 @@ const Menu = () => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <Avatar src={auth.user.avatar} size="medium-avatar" />
+            <Avatar src={avatar} size="medium-avatar" />
           </span>
           <ul className="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="userDropdown">
             <li>
               <div className="dropdown-header px-3 py-2">
                 <div className="fw-bold text-truncate" style={{ maxWidth: "160px" }}>
-                  {auth.user.username}
+                  {username}
                 </div>
-                <small className="text-muted text-truncate d-block" style={{ maxWidth: "160px" }}>
-                  {auth.user.email}
-                </small>
+                {email && (
+                  <small className="text-muted text-truncate d-block" style={{ maxWidth: "160px" }}>
+                    {email}
+                  </small>
+                )}
               </div>
             </li>
             <li><hr className="dropdown-divider my-1" /></li>
             <li>
-              <Link className="dropdown-item d-flex align-items-center py-2" to={`/profile/${auth.user._id}`}>
+              <Link className="dropdown-item d-flex align-items-center py-2" to={userId ? `/profile/${userId}` : "#"}>
                 <span className="material-icons me-2" style={{ fontSize: "19px" }}>person_outline</span>
                 <span>Profile</span>
               </Link>

@@ -11,14 +11,12 @@ export const SUGGEST_TYPES = {
 export const getSuggestions = (token) => async dispatch => {
     try {
         dispatch({type: SUGGEST_TYPES.LOADING, payload: true });
-
         const res = await getDataAPI(`suggestionsUser`, token);
-        
         dispatch({ type: SUGGEST_TYPES.GET_USERS, payload: res.data });
-
         dispatch({type: SUGGEST_TYPES.LOADING, payload: false });
-        
     } catch (err) {
-        dispatch({type: GLOBALTYPES.ALERT, payload: {error: err.response.data.msg} });
+        dispatch({type: SUGGEST_TYPES.LOADING, payload: false });
+        const errMsg = err.response ? (err.response.data ? err.response.data.msg : err.message) : err.message;
+        console.warn("Suggestions error:", errMsg);
     }
 }

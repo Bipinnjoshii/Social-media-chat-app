@@ -8,7 +8,7 @@ import { GLOBALTYPES } from '../../redux/actions/globalTypes';
 import { imageShow, videoShow } from '../../utils/mediaShow';
 import { imageUpload } from '../../utils/imageUpload';
 import { addMessage, getMessages, MESSAGE_TYPES } from '../../redux/actions/messageAction';
-import LoadIcon from '../../images/loading.gif';
+import LoadingIcon from '../LoadingIcon';
 
 const RightSide = () => {
     const { auth, message, theme, socket } = useSelector(state => state);
@@ -173,7 +173,7 @@ const RightSide = () => {
             ))}
             {loadMedia && (
               <div className="chat_row you_message">
-                <img src={LoadIcon} alt="Loading..." />
+                <LoadingIcon size="small" />
               </div>
             )}
           </div>

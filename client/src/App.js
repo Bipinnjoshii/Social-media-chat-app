@@ -44,7 +44,7 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
-    if (auth.token) {
+    if (auth && auth.token) {
       dispatch(getPosts(auth.token));
       dispatch(getSuggestions(auth.token));
       dispatch(getNotifies(auth.token));
@@ -59,26 +59,26 @@ function App() {
     }
   }, []);
 
+  const isAuthenticated = Boolean(auth && auth.token);
+
   return (
     <Router>
       <Alert />
       <div className={`App ${theme ? "theme-dark" : "theme-light"} ${(status || modal) && "mode"}`}>
         <div className="main">
-          {userType === "user" && auth.token && <Header />}
+          {userType === "user" && isAuthenticated && auth.user && <Header />}
           {status && <StatusModal />}
-          {auth.token && <SocketClient /> }
+          {isAuthenticated && auth.user && <SocketClient /> }
           <Route
             exact
             path="/"
-            component={
-              userType === "user"
-                ? auth.token
-                  ? Home
-                  : Login
-                : auth.token
-                ? AdminDashboard
-                : Login
-            }
+            render={() => (
+              isAuthenticated ? (
+                userType === "admin" ? <AdminDashboard /> : <Home />
+              ) : (
+                <Login />
+              )
+            )}
           />
 
           {userType === "user" && (

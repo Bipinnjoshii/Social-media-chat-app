@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDataAPI } from "../../utils/fetchData";
 import { GLOBALTYPES } from "../../redux/actions/globalTypes";
-// import { Link } from "react-router-dom";
 import UserCard from "../UserCard";
-import LoadIcon from "../../images/loading.gif";
 
 const Search = () => {
   const [search, setSearch] = useState("");
@@ -25,9 +23,10 @@ const Search = () => {
       setUsers(res.data.users);
       setLoad(false);
     } catch (err) {
+      setLoad(false);
       dispatch({
         type: GLOBALTYPES.ALERT,
-        payload: { error: err.response.data.msg },
+        payload: { error: err.response?.data?.msg || err.message },
       });
     }
   };
@@ -66,7 +65,14 @@ const Search = () => {
         Search
       </button>
 
-      {load && <img className="loading" src={LoadIcon} alt="Loading" />}
+      {load && (
+        <div className="loading py-1">
+          <div
+            className="aesthetic_spinner"
+            style={{ width: "20px", height: "20px", borderWidth: "2px" }}
+          />
+        </div>
+      )}
 
       <div className="users">
         {search &&

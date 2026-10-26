@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PostThumb from "../PostThumb";
-import LoadIcon from "../../images/loading.gif";
+import LoadingIcon from "../LoadingIcon";
 import LoadMoreBtn from "../LoadMoreBtn";
 import { getDataAPI } from "../../utils/fetchData";
 import { GLOBALTYPES } from "../../redux/actions/globalTypes";
@@ -14,35 +14,38 @@ const Saved = ({ auth, dispatch }) => {
   useEffect(() => {
     setLoad(true);
     getDataAPI(`getSavePosts`, auth.token)
-    .then(res => { 
-        setSavePosts(res.data.savePosts) 
-        setResult(res.data.result)
-        setLoad(false)
-    })  
-    .catch(err => {
-        dispatch({type: GLOBALTYPES.ALERT, payload: {error: err.response.data.msg}})
-    })
+      .then((res) => {
+        setSavePosts(res.data.savePosts || []);
+        setResult(res.data.result);
+        setLoad(false);
+      })
+      .catch((err) => {
+        setLoad(false);
+        const error = err.response?.data?.msg || err.message;
+        dispatch({ type: GLOBALTYPES.ALERT, payload: { error } });
+      });
 
     return () => setSavePosts([]);
   }, [dispatch, auth.token]);
 
   const handleLoadMore = async () => {
     setLoad(true);
-    const res = await getDataAPI(`getSavePosts?limit=${page * 9}`, auth.token);
-    setSavePosts(res.data.savePosts);
-    setResult(res.data.result);
-    setPage(page + 1);
+    try {
+      const res = await getDataAPI(`getSavePosts?limit=${page * 9}`, auth.token);
+      setSavePosts(res.data.savePosts || []);
+      setResult(res.data.result);
+      setPage(page + 1);
+    } catch (e) {
+      console.error(e);
+    }
     setLoad(false);
   };
-
 
   return (
     <div>
       <PostThumb posts={savePosts} result={result} />
 
-      {load && (
-        <img src={LoadIcon} alt="Loading..." className="d-block mx-auto" />
-      )}
+      {load && <LoadingIcon size="small" text="Loading saved posts" />}
 
       <LoadMoreBtn
         result={result}

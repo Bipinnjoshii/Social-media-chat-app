@@ -41,14 +41,10 @@ export const removeNotify = ({ msg, auth, socket }) => async (dispatch) => {
 export const getNotifies = (token) => async (dispatch) => {
   try {
     const res = await getDataAPI('notifies', token);
-    
     dispatch({type: NOTIFY_TYPES.GET_NOTIFIES, payload: res.data.notifies});
-    
   } catch (err) {
-    dispatch({
-      type: GLOBALTYPES.ALERT,
-      payload: { error: err.response.data.msg },
-    });
+    const errMsg = err.response ? (err.response.data ? err.response.data.msg : err.message) : err.message;
+    console.warn("Notify error:", errMsg);
   }
 };
 

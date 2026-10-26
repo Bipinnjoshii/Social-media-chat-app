@@ -6,37 +6,51 @@ const API = process.env.REACT_APP_API_URL
   ? axios.create({ baseURL: process.env.REACT_APP_API_URL })
   : axios.create({ baseURL: '' });
 
+// Intercept unauthorized or expired JWT responses to prevent infinite loading loops
+API.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    try {
+      const msg = error.response && error.response.data && error.response.data.msg;
+      if (
+        (error.response && error.response.status === 401) ||
+        (typeof msg === 'string' && (msg.includes('jwt') || msg.includes('authorized')))
+      ) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        localStorage.removeItem('firstLogin');
+      }
+    } catch (e) {}
+    return Promise.reject(error);
+  }
+);
+
 export const getDataAPI = async (url, token) => {
-    const res = await API.get(`/api/${url}`, {
-        headers: { Authorization: token }
-    });
-    return res;
+  const headers = token ? { Authorization: token } : {};
+  const res = await API.get(`/api/${url}`, { headers });
+  return res;
 };
 
 export const postDataAPI = async (url, post, token) => {
-  const res = await API.post(`/api/${url}`, post, {
-    headers: { Authorization: token },
-  });
+  const headers = token ? { Authorization: token } : {};
+  const res = await API.post(`/api/${url}`, post, { headers });
   return res;
 };
 
 export const putDataAPI = async (url, post, token) => {
-  const res = await API.put(`/api/${url}`, post, {
-    headers: { Authorization: token },
-  });
+  const headers = token ? { Authorization: token } : {};
+  const res = await API.put(`/api/${url}`, post, { headers });
   return res;
 };
 
 export const patchDataAPI = async (url, post, token) => {
-  const res = await API.patch(`/api/${url}`, post, {
-    headers: { Authorization: token },
-  });
+  const headers = token ? { Authorization: token } : {};
+  const res = await API.patch(`/api/${url}`, post, { headers });
   return res;
 };
 
 export const deleteDataAPI = async (url, token) => {
-  const res = await API.delete(`/api/${url}`, {
-    headers: { Authorization: token },
-  });
+  const headers = token ? { Authorization: token } : {};
+  const res = await API.delete(`/api/${url}`, { headers });
   return res;
 };
