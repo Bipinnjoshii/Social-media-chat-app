@@ -199,7 +199,7 @@ const RightSide = () => {
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            style={{  ,  color: theme ? 'white' : ''}}
+            
           />
           <Icons setContent={setText} content={text} theme={theme} />
           <div className="file_upload">

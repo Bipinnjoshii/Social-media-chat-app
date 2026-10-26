@@ -1,21 +1,21 @@
 import React from 'react'
-import { useSelector } from "react-redux";
 
 const LikeButton = ({ isLike, handleLike, handleUnLike }) => {
-    const { theme } = useSelector(state => state);
   return (
-    <div>
+    <>
       {isLike ? (
         <i
-          className="fas fa-thumbs-up text-info"
-          style={{  }}
+          className="fas fa-heart text-danger"
           onClick={handleUnLike}
         />
       ) : (
-        <i className="far fa-thumbs-up" onClick={handleLike} />
+        <i
+          className="far fa-heart"
+          onClick={handleLike}
+        />
       )}
-    </div>
+    </>
   );
 };
 
-export default LikeButton
+export default LikeButton;

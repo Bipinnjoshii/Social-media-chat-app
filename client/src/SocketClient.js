@@ -120,12 +120,12 @@ const SocketClient = () => {
 
   //!Messages
   useEffect(() => {
+    if (!socket) return;
     socket.on("addMessageToClient", (msg) => {
       dispatch({ type: MESSAGE_TYPES.ADD_MESSAGE, payload: msg });
-
     });
     return () => socket.off("addMessageToClient");
-  }, []);
+  }, [dispatch, socket]);
 
   return (
     <>

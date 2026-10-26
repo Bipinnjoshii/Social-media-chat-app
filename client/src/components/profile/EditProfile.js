@@ -17,7 +17,7 @@ const EditProfile = ({ setOnEdit }) => {
   const [userData, setUserData] = useState(initialState);
   const { fullname, mobile, address, website, story, gender } = userData;
   const [avatar, SetAvatar] = useState("");
-  const { auth, theme } = useSelector((state) => state);
+  const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {

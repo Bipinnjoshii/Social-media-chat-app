@@ -18,12 +18,12 @@ const CardFooter = ({post}) => {
   const { auth, theme, socket } = useSelector((state) => state);
 
   useEffect(() => {
-    if (post.likes.find((like) => like._id === auth.user._id)) {
+    if (post && post.likes && auth && auth.user && auth.user._id && post.likes.find((like) => like._id === auth.user._id)) {
       setIsLike(true);
-    }else{
+    } else {
       setIsLike(false);
     }
-  }, [post.likes, auth.user._id]);
+  }, [post, auth]);
 
   const handleLike = async () => {
     if(loadLike) return;
@@ -54,12 +54,12 @@ const CardFooter = ({post}) => {
     };
 
     useEffect(() => {
-      if (auth.user.saved.find(id => id === post._id)) {
+      if (auth && auth.user && auth.user.saved && post && auth.user.saved.find(id => id === post._id)) {
         setSaved(true);
       } else {
         setSaved(false);
       }
-    }, [post._id, auth.user.saved]);
+    }, [post, auth]);
 
     return (
       <div className="card_footer">
@@ -93,10 +93,10 @@ const CardFooter = ({post}) => {
         </div>
         <div className="d-flex justify-content-start">
           <h6 style={{ padding: "0 25px", cursor: "pointer" }}>
-            {post.likes.length} likes
+            {(post && post.likes && post.likes.length) || 0} likes
           </h6>
           <h6 style={{ padding: "0 25px", cursor: "pointer" }}>
-            {post.comments.length} comments
+            {(post && post.comments && post.comments.length) || 0} comments
           </h6>
         </div>
 

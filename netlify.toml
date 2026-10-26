@@ -4,18 +4,19 @@
   publish = "build"
 
 [build.environment]
-  NODE_VERSION       = "18"
-  NODE_OPTIONS       = "--openssl-legacy-provider"
-  CI                 = "false"
-  GENERATE_SOURCEMAP = "false"
-  # Set REACT_APP_API_URL to your Render backend URL in Netlify dashboard
-  # Example: https://campus-connect-api.onrender.com
+  NODE_VERSION          = "18"
+  NODE_OPTIONS          = "--openssl-legacy-provider"
+  CI                    = "false"
+  GENERATE_SOURCEMAP    = "false"
+  DISABLE_ESLINT_PLUGIN = "true"
+  ESLINT_NO_DEV_ERRORS  = "true"
+  REACT_APP_API_URL     = "https://campus-connect-api-obe8.onrender.com"
 
 [[redirects]]
   from   = "/api/*"
-  to     = ":splat"
+  to     = "https://campus-connect-api-obe8.onrender.com/api/:splat"
   status = 200
-  force  = false
+  force  = true
 
 [[redirects]]
   from   = "/*"

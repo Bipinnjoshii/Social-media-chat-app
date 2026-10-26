@@ -9,7 +9,7 @@ import { likeComment, unLikeComment, updateComment } from '../../../redux/action
 import InputComment from "../InputComment";
 
 const CommentCard = ({ children, comment, post, commentId }) => {
-  const { auth, theme } = useSelector((state) => state);
+  const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const [content, setContent] = useState("");
   const [readMore, setReadMore] = useState(false);
