@@ -4,25 +4,41 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const SocketServer = require('./socketServer');
-const corsOptions = {
-  Credential: 'true',
-  
-};
 
+// Allow requests from Netlify frontend and localhost
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:3000',
+].filter(Boolean);
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+};
 
 const app = express();
 
-app.use(express.json())
-app.options("*" , cors(corsOptions));
+app.use(express.json());
+app.options("*", cors(corsOptions));
 app.use(cors(corsOptions));
-app.use(cookieParser())
+app.use(cookieParser());
 
 
 //#region // !Socket
 const http = require('http').createServer(app);
-const io = require('socket.io')(http);
-
-
+const io = require('socket.io')(http, {
+  cors: {
+    origin: allowedOrigins,
+    methods: ["GET", "POST"],
+    credentials: true
+  }
+});
 
 io.on('connection', socket => {
     SocketServer(socket);
@@ -40,13 +56,13 @@ app.use('/api', require('./routes/notifyRouter'));
 app.use('/api', require('./routes/messageRouter'));
 //#endregion
 
+// Health check
+app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
 const URI = process.env.MONGODB_URL;
 mongoose.connect(URI, {
-    useCreateIndex:true,
-    useFindAndModify:false,
-    useNewUrlParser:true,
-    useUnifiedTopology:true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 }, err => {
     if(err) throw err;
     console.log("Database Connected!!")

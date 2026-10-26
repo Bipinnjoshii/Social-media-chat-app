@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     dispatch(refreshToken());
 
-    const socket = io();
+    const socket = io(process.env.REACT_APP_API_URL || window.location.origin);
     dispatch({type: GLOBALTYPES.SOCKET, payload: socket })
     return () => socket.close()
   }, [dispatch]);
