@@ -1,89 +1,116 @@
-/* #region Comment input */
+/* ==========================================================================
+   Comments & Discussion Styling
+   ========================================================================== */
 
-.comment_input{
-    display: flex;
-    align-items: center;
+/* Comment Input Bar */
+.comment_input {
+  display: flex;
+  align-items: center;
+  padding: 8px 18px 14px 18px;
+  background: transparent;
+  gap: 10px;
 }
 
-.comment_input input{
-    background: #f7f7f7;
-    border: none;
-    outline: none;
-    flex: 1;
-    overflow: auto;
+.comment_input input {
+  background: #f1f5f9;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  outline: none;
+  flex: 1;
+  color: #1e293b;
+  transition: all 0.2s ease;
 }
 
-.comment_input .postBtn{
-    border: none;
-    outline: none;
-    background: #f7f7f7;
-    font-weight: 600;
-    color: crimson;
+.comment_input input:focus {
+  background: #ffffff;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
 }
 
-
-/* #endregion */
-
-
-/* #region Comment display */
-.comment_display{
-    padding: 10px 25px;
-
+.comment_input .postBtn {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #6366f1;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
 }
 
-.comment_card .comment_content{
-    background: #eee;
-    padding: 7px;
-    border-radius: 10px;
-    border-top-left-radius: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+.comment_input .postBtn:hover {
+  background: rgba(99, 102, 241, 0.08);
+  color: #4f46e5;
 }
 
-.comment_card .comment_content .readMore{
-    cursor: pointer;
-    color: crimson;
+/* Comment Display */
+.comment_display {
+  padding: 8px 20px;
+}
+
+.comment_card .comment_content {
+  background: #f1f5f9;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border-top-left-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.92rem;
+  color: #1e293b;
+  margin-left: 8px;
+}
+
+.comment_card .comment_content .readMore {
+  cursor: pointer;
+  color: #6366f1;
+  font-weight: 500;
+  margin-left: 4px;
 }
 
 .comment_card .comment_content .nav-item {
-    cursor: pointer;
-    opacity: 0;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
 }
 
-.comment_card .comment_content:hover .nav-item{
-    opacity: 1;
+.comment_card .comment_content:hover .nav-item {
+  opacity: 1;
 }
 
-.comment_card .comment_content .dropdown-menu{
-    position: absolute;
-    right: 0;
-    left: inherit !important;
+.comment_card .comment_content .dropdown-menu {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  padding: 4px;
 }
 
-.comment_card .comment_content .dropdown-item{
-    display: flex;
-    margin: 10px ;
-    width: inherit;
+.comment_card .comment_content .dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: #334155;
+  border-radius: 6px;
+  transition: background 0.15s ease;
 }
 
-.comment_card .comment_content .dropdown-item:hover{
-    background: var(--pink);
+.comment_card .comment_content .dropdown-item:hover {
+  background: #f1f5f9;
+  color: #6366f1;
 }
 
-.comment_card .comment_content textarea{
-    border: none;
-    outline: none;
-    width: 100%;
-    background: #eee;
+.comment_card .comment_content textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 6px 10px;
+  outline: none;
+  width: 100%;
+  background: #ffffff;
+  font-size: 0.9rem;
 }
-
-/* #endregion */
-
-
-
-
-
-
-

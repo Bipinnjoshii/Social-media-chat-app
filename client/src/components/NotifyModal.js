@@ -31,10 +31,11 @@ const NotifyModal = () => {
         className="mt-1"
         style={{
           minWidth: "280px",
-          boxShadow: "5px 8px 8px var(--c2) ,-3px -3px 8px var(--c3)",
+          boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05)",
+          border: "1px solid #e2e8f0",
           background: "white",
-          borderRadius: "10px",
-          borderTopRightRadius: "0",
+          borderRadius: "14px",
+          padding: "14px",
         }}
       >
         <div className="d-flex justify-content-between align-items-center">
