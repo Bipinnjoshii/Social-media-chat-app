@@ -210,8 +210,3 @@ npm start
 ## 👤 Author
 
 - **Bipin Joshi** — [@Bipinnjoshii](https://github.com/Bipinnjoshii)
-
----
-
-## 📄 License
-This project is licensed under the [MIT License](LICENSE) - &copy; 2026 Bipin Joshi.
