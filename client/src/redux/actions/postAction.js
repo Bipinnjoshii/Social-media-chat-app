@@ -31,17 +31,19 @@ export const createPost = ({content, images, auth, socket}) => async dispatch =>
         dispatch({ type: GLOBALTYPES.ALERT, payload: { loading: false } });
         
 
-        // todo notification
-        const msg = {
-          id: res.data.newPost._id,
-          text: "Added a new post.",
-          recipients: res.data.newPost.user.followers,
-          url: `/post/${res.data.newPost._id}`,
-          content, 
-          image: media.length > 0 ? media[0].url : ""
-        };
-
-        dispatch(createNotify({msg, auth, socket}));
+        // notification
+        const followers = (res.data.newPost.user && res.data.newPost.user.followers) || [];
+        if (followers.length > 0) {
+          const msg = {
+            id: res.data.newPost._id,
+            text: "Added a new post.",
+            recipients: followers,
+            url: `/post/${res.data.newPost._id}`,
+            content: content || "", 
+            image: media.length > 0 ? media[0].url : ""
+          };
+          dispatch(createNotify({msg, auth, socket}));
+        }
 
     } catch (err) {
         dispatch({

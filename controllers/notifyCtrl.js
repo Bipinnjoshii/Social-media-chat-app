@@ -1,12 +1,15 @@
 const Notifies = require('../models/notifyModel');
 
-
 const notifyCtrl = {
   createNotify: async (req, res) => {
     try {
       const { id, recipients, url, text, content, image } = req.body;
 
-      if (recipients.includes(req.user._id.toString())) return;
+      if (!recipients || !Array.isArray(recipients) || recipients.length === 0) {
+        return res.json({ msg: "No recipients" });
+      }
+
+      if (recipients.includes(req.user._id.toString())) return res.json({ msg: "Self notify ignored" });
 
       const notify = new Notifies({
         id,
@@ -14,7 +17,7 @@ const notifyCtrl = {
         url,
         text,
         content,
-        image,
+        image: image || "",
         user: req.user._id,
       });
 
