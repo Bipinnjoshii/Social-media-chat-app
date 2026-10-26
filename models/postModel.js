@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-
 const postSchema = new Schema(
   {
     content: String,
     images: {
       type: Array,
-      required: true,
+      default: [],
     },
     likes: [
       {
@@ -36,6 +35,5 @@ const postSchema = new Schema(
     timestamps: true,
   }
 );
-
 
 module.exports = mongoose.model('post', postSchema);

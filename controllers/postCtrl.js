@@ -22,8 +22,9 @@ const postCtrl = {
     try {
       const { content, images } = req.body;
 
-      if (images.length === 0) {
-        return res.status(400).json({ msg: "Please add photo(s)" });
+      const imgs = images || [];
+      if (!content && imgs.length === 0) {
+        return res.status(400).json({ msg: "Please add text or photo" });
       }
 
       const newPost = new Posts({

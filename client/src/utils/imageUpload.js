@@ -3,13 +3,13 @@ export const checkImage = (file) => {
     if(!file){
         return err = "File does not exist.";
     }
-//?1 mb
-    if(file.size > 1024 * 1024){
-         return (err = "File size must be less than 1 Mb.");
+    // Limit to 2MB for direct upload
+    if(file.size > 2 * 1024 * 1024){
+         return (err = "File size must be less than 2 Mb.");
     }
 
-    if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
-      return (err = "Image must be jpeg or png.");
+    if (!file.type.startsWith('image/')) {
+      return (err = "Please select a valid image format.");
     }
 
     return err;
@@ -18,27 +18,20 @@ export const checkImage = (file) => {
 export const imageUpload = async (images) => {
     let imgArr = [];
     for(const item of images){
-        const formData = new FormData();
-
-        if(item.camera){
-            formData.append("file", item.camera);
-        }else{
-            formData.append("file", item);  
-        }
-
+        const file = item.camera || item;
         
-        formData.append("upload_preset", "ADD VALUE HERE");
-        formData.append("cloud_name", "ADD VALUE HERE");
+        // Read file as base64 data URL
+        const dataUrl = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = (error) => reject(error);
+            reader.readAsDataURL(file);
+        });
 
-        const res = await fetch("ADD CLOUDINARY IMAGE UPLOAD LINK HERE", {
-            method: "POST",
-            body: formData
-        })
-
-        const data = await res.json();
-        imgArr.push({ public_id: data.public_id, url: data.secure_url });
-        
-      
+        imgArr.push({
+            public_id: "img_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9),
+            url: dataUrl
+        });
     }
     return imgArr;
 }
