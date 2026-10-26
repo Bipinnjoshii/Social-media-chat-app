@@ -5,9 +5,10 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   },
   "overrides": {
+    "postcss": "^8.4.31",
     "postcss-safe-parser": "^6.0.0"
   },
   "dependencies": {

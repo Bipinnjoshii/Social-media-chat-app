@@ -5,7 +5,7 @@
   "description": "Campus Connect - Full-stack MERN social media platform with real-time chat and admin dashboard",
   "main": "server.js",
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   },
   "scripts": {
     "start": "node server.js",
