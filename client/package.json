@@ -7,10 +7,6 @@
   "engines": {
     "node": "18.x"
   },
-  "overrides": {
-    "postcss": "^8.4.31",
-    "postcss-safe-parser": "^6.0.0"
-  },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
