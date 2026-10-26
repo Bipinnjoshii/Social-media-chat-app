@@ -60,7 +60,7 @@
 }
 
 .info_container .follow_btn {
-  color: #6366f1;
+  color: #C25E3E;
   cursor: pointer;
   font-weight: 600;
   display: flex;
@@ -73,7 +73,7 @@
 }
 
 .info_container .follow_btn span:hover {
-  color: #4f46e5;
+  color: #A64B2D;
   text-decoration: underline;
 }
 
@@ -118,8 +118,8 @@
 
 .edit_profile form input:focus {
   background-color: #ffffff;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  border-color: #C25E3E;
+  box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.15);
 }
 
 .edit_profile form textarea {
@@ -135,8 +135,8 @@
 
 .edit_profile form textarea:focus {
   background-color: #ffffff;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  border-color: #C25E3E;
+  box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.15);
 }
 
 .edit_profile .btn_close {
@@ -273,7 +273,7 @@
 }
 
 .profile_tab button.active {
-  color: #6366f1;
+  color: #C25E3E;
   font-weight: 700;
 }
 
@@ -284,6 +284,6 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: #6366f1;
+  background: #C25E3E;
   border-radius: 9999px;
 }

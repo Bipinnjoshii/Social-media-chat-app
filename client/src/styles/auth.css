@@ -5,7 +5,7 @@
 .auth_page {
   width: 100%;
   min-height: 100vh;
-  background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, rgba(248, 250, 252, 1) 90%);
+  background: radial-gradient(circle at 10% 20%, rgba(194, 94, 62, 0.05) 0%, #FAF7F2 90%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +28,7 @@
   font-size: 1.85rem;
   font-weight: 800;
   letter-spacing: -0.025em;
-  background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+  background: linear-gradient(135deg, #C25E3E 0%, #D97736 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 24px;
@@ -42,8 +42,8 @@
 }
 
 .auth_page form input.form-control {
-  border: 1px solid #cbd5e1;
-  background-color: #f8fafc;
+  border: 1px solid #E8E2D9;
+  background-color: #FAF7F2;
   border-radius: 10px;
   padding: 10px 14px;
   font-size: 0.95rem;
@@ -54,8 +54,8 @@
 
 .auth_page form input.form-control:focus {
   background-color: #ffffff;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  border-color: #C25E3E;
+  box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.15);
   outline: none;
 }
 
@@ -73,7 +73,7 @@
   right: 12px;
   transform: translateY(-50%);
   cursor: pointer;
-  color: #6366f1;
+  color: #C25E3E;
   font-weight: 600;
   font-size: 0.82rem;
   user-select: none;
@@ -90,7 +90,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  background: linear-gradient(135deg, #C25E3E 0%, #4f46e5 100%);
   border: none;
   border-radius: 10px;
   color: #ffffff;
@@ -113,7 +113,7 @@
 }
 
 .auth_page a {
-  color: #6366f1;
+  color: #C25E3E;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.15s ease;

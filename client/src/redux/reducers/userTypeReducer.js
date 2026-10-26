@@ -1,6 +1,16 @@
 import { GLOBALTYPES } from "../actions/globalTypes";
 
-const userTypeReducer = (state = "user", action) => {
+const getInitialUserType = () => {
+  try {
+    if (typeof window !== "undefined") {
+      const ut = localStorage.getItem("userType");
+      if (ut) return ut;
+    }
+  } catch (e) {}
+  return "user";
+};
+
+const userTypeReducer = (state = getInitialUserType(), action) => {
   switch (action.type) {
     case GLOBALTYPES.USER_TYPE:
       return action.payload;

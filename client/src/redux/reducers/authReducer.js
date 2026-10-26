@@ -1,8 +1,19 @@
 import { GLOBALTYPES } from '../actions/globalTypes';
 
-
-const initialState = {
+const getInitialAuthState = () => {
+  try {
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("token");
+      const userStr = localStorage.getItem("user");
+      if (token && userStr) {
+        return { token, user: JSON.parse(userStr) };
+      }
+    }
+  } catch (e) {}
+  return {};
 };
+
+const initialState = getInitialAuthState();
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {

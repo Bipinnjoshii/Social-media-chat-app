@@ -27,7 +27,7 @@
 .message_header input {
   flex: 1;
   height: 40px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #EAE5DE;
   outline: none;
   background: #f8fafc;
   padding: 0 16px;
@@ -38,8 +38,8 @@
 
 .message_header input:focus {
   background: #ffffff;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+  border-color: #C25E3E;
+  box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.12);
 }
 
 .message_chat_list {
@@ -53,7 +53,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 14px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid #F5EFEB;
   color: #334155;
   cursor: pointer;
   transition: background 0.15s ease;
@@ -65,7 +65,7 @@
 
 .message_chat_list .message_user.active {
   background: #eff6ff;
-  border-left: 3px solid #6366f1;
+  border-left: 3px solid #C25E3E;
 }
 
 .message_chat_list .message_user .fa-circle {
@@ -128,12 +128,12 @@
 }
 
 .you_message .chat_text {
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  background: linear-gradient(135deg, #C25E3E 0%, #A64B2D 100%);
   color: #ffffff;
   border: none;
   border-radius: 18px;
   border-bottom-right-radius: 4px;
-  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 2px 4px rgba(194, 94, 62, 0.2);
 }
 
 .other_message .chat_text {
@@ -159,7 +159,7 @@
 .chat_input input {
   width: 100%;
   height: 42px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #EAE5DE;
   border-radius: 9999px;
   outline: none;
   padding: 0 16px;
@@ -170,8 +170,8 @@
 
 .chat_input input:focus {
   background: #ffffff;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+  border-color: #C25E3E;
+  box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.12);
 }
 
 .chat_input button {
@@ -179,7 +179,7 @@
   outline: none;
   background: transparent;
   cursor: pointer;
-  color: #6366f1;
+  color: #C25E3E;
   display: flex;
   align-items: center;
   transition: transform 0.15s ease;
@@ -187,7 +187,7 @@
 
 .chat_input button:hover {
   transform: scale(1.1);
-  color: #4f46e5;
+  color: #A64B2D;
 }
 
 .chat_input .file_upload {
@@ -198,7 +198,7 @@
 }
 
 .chat_input .file_upload:hover {
-  color: #6366f1;
+  color: #C25E3E;
 }
 
 .chat_input .file_upload #file {
@@ -217,7 +217,7 @@
   grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
   place-items: center;
   grid-gap: 10px;
-  background: #f1f5f9;
+  background: #F5EFEB;
   border-radius: 10px;
   padding: 6px;
   margin-bottom: 8px;

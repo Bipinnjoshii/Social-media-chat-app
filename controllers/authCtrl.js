@@ -43,7 +43,7 @@ const authCtrl = {
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
         path: "/api/refresh_token",
-        maxAge: 30 * 24 * 60 * 60 * 1000, //validity of 30 days
+        maxAge: 30 * 24 * 60 * 60 * 1000, sameSite: 'none', secure: true
       });
 
       res.json({
@@ -161,8 +161,8 @@ const authCtrl = {
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
         path: "/api/refresh_token",
-        sameSite: 'lax',
-        maxAge: 30 * 24 * 60 * 60 * 1000, //validity of 30 days
+        sameSite: 'none', secure: true,
+        maxAge: 30 * 24 * 60 * 60 * 1000, sameSite: 'none', secure: true
       });
 
       res.json({
@@ -199,7 +199,7 @@ const authCtrl = {
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
         path: "/api/refresh_token",
-        maxAge: 30 * 24 * 60 * 60 * 1000, //validity of 30 days
+        maxAge: 30 * 24 * 60 * 60 * 1000, sameSite: 'none', secure: true
       });
 
       res.json({

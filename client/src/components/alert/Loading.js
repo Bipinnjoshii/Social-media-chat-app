@@ -1,28 +1,21 @@
-//!its a component
 import React from "react";
 
 const Loading = () => {
   return (
     <div
       style={{
-        background: "white",
+        background: "rgba(251, 249, 245, 0.85)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
         top: 0,
         left: 0,
-        zIndex: 50,
-        opacity: 0.7
+        zIndex: 9999,
+        transition: "opacity 0.25s ease",
       }}
-      className="position-fixed vh-100 w-100   d-flex justify-content-center align-items-center"
+      className="position-fixed vh-100 w-100 d-flex flex-column justify-content-center align-items-center"
     >
-      <div className="loading">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <text className="loading_text" fill="#fff" x="5" y="47">
-        Loading
-      </text>
+      <div className="aesthetic_spinner"></div>
+      <span className="aesthetic_loading_text">Loading</span>
     </div>
   );
 };

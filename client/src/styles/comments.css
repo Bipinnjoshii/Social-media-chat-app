@@ -12,7 +12,7 @@
 }
 
 .comment_input input {
-  background: #f1f5f9;
+  background: #F5EFEB;
   border: 1px solid transparent;
   border-radius: 9999px;
   padding: 8px 16px;
@@ -25,8 +25,8 @@
 
 .comment_input input:focus {
   background: #ffffff;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+  border-color: #C25E3E;
+  box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.12);
 }
 
 .comment_input .postBtn {
@@ -35,7 +35,7 @@
   background: transparent;
   font-weight: 600;
   font-size: 0.9rem;
-  color: #6366f1;
+  color: #C25E3E;
   cursor: pointer;
   padding: 6px 12px;
   border-radius: 8px;
@@ -43,8 +43,8 @@
 }
 
 .comment_input .postBtn:hover {
-  background: rgba(99, 102, 241, 0.08);
-  color: #4f46e5;
+  background: rgba(194, 94, 62, 0.08);
+  color: #A64B2D;
 }
 
 /* Comment Display */
@@ -53,7 +53,7 @@
 }
 
 .comment_card .comment_content {
-  background: #f1f5f9;
+  background: #F5EFEB;
   padding: 10px 14px;
   border-radius: 14px;
   border-top-left-radius: 4px;
@@ -67,7 +67,7 @@
 
 .comment_card .comment_content .readMore {
   cursor: pointer;
-  color: #6366f1;
+  color: #C25E3E;
   font-weight: 500;
   margin-left: 4px;
 }
@@ -101,8 +101,8 @@
 }
 
 .comment_card .comment_content .dropdown-item:hover {
-  background: #f1f5f9;
-  color: #6366f1;
+  background: #F5EFEB;
+  color: #C25E3E;
 }
 
 .comment_card .comment_content textarea {

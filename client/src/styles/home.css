@@ -18,18 +18,18 @@
   text-align: left;
   margin-left: 12px;
   font-size: 0.95rem;
-  background-color: #f1f5f9;
+  background-color: #F5EFEB;
   border: 1px solid transparent;
-  color: #64748b;
+  color: #78716C;
   font-weight: 500;
   transition: all 0.2s ease;
   width: 100%;
 }
 
 .status .statusBtn:hover {
-  background-color: #e2e8f0;
-  color: #334155;
-  border-color: #cbd5e1;
+  background-color: #EAE5DE;
+  color: #292524;
+  border-color: #D6CEBE;
 }
 
 /* Post Cards */
@@ -37,7 +37,7 @@
   background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: 18px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 4px 0 rgba(41, 37, 36, 0.04);
   margin-bottom: 24px;
   overflow: hidden;
   transition: box-shadow 0.2s ease;
@@ -90,13 +90,13 @@
   padding: 8px 12px;
   border-radius: 8px;
   font-size: 0.88rem;
-  color: #334155;
+  color: #292524;
   transition: background 0.15s ease;
 }
 
 .posts .card_header .dropdown-item:hover {
-  background: #f1f5f9;
-  color: #6366f1;
+  background: #F5EFEB;
+  color: #C25E3E;
 }
 
 .posts .card_header #moreLink {
@@ -106,7 +106,7 @@
 }
 
 .posts .card_header #moreLink:hover {
-  color: #334155;
+  color: #292524;
 }
 
 /* Post Card Body */
@@ -114,11 +114,11 @@
   padding: 10px 20px 14px 20px;
   font-size: 0.95rem;
   line-height: 1.55;
-  color: #1e293b;
+  color: #292524;
 }
 
 .posts .card_body-content .readMore {
-  color: #6366f1;
+  color: #C25E3E;
   font-weight: 600;
   cursor: pointer;
   margin-left: 4px;
@@ -176,6 +176,6 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #64748b;
+  color: #78716C;
   margin-bottom: 14px;
 }
