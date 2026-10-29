@@ -21,15 +21,15 @@ const LeftSide = () => {
         e.preventDefault();
         if (!search) return setSearchUsers([]);
 
-    try {
-      const res = await getDataAPI(`search?username=${search}`, auth.token);
-      setSearchUsers(res.data.users);
-    } catch (err) {
-      dispatch({
-        type: GLOBALTYPES.ALERT,
-        payload: { error: err.response.data.msg },
-      });
-    }
+        try {
+          const res = await getDataAPI(`search?username=${search}`, auth.token);
+          setSearchUsers(res.data.users);
+        } catch (err) {
+          dispatch({
+            type: GLOBALTYPES.ALERT,
+            payload: { error: err.response?.data?.msg || err.message },
+          });
+        }
     };
 
     const handleAddUser = (user) => {
@@ -49,25 +49,25 @@ const LeftSide = () => {
       dispatch(getConversations({ auth }));
     }, [dispatch, auth, message.firstLoad]);
 
-     useEffect(() => {
-       const observer = new IntersectionObserver(
-         (entries) => {
-           if (entries[0].isIntersecting) {
-             setPage((p) => p + 1);
-           }
-         },
-         {
-           threshold: 0.1,
-         }
-       );
-       observer.observe(pageEnd.current);
-     }, [setPage]);
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            setPage((p) => p + 1);
+          }
+        },
+        { threshold: 0.1 }
+      );
+      if (pageEnd.current) observer.observe(pageEnd.current);
+    }, [setPage]);
 
-     useEffect(() => {
-       if (message.resultUsers >= (page - 1) * 9 && page > 1) {
-         dispatch(getConversations({ auth, page }));
-       }
-     }, [message.resultUsers, page, auth, dispatch]);
+    useEffect(() => {
+      if (message.resultUsers >= (page - 1) * 9 && page > 1) {
+        dispatch(getConversations({ auth, page }));
+      }
+    }, [message.resultUsers, page, auth, dispatch]);
+
+    const usersList = (message && message.users) || [];
 
     return (
       <>
@@ -76,7 +76,7 @@ const LeftSide = () => {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="search..."
+            placeholder="Search conversations..."
           />
 
           <button style={{ display: "none" }} type="submit" id="search">
@@ -99,24 +99,24 @@ const LeftSide = () => {
             </>
           ) : (
             <>
-              {message.users.map((user) => (
+              {usersList.map((user) => (
                 <div
                   key={user._id}
-                  cclassName={`message_user ${isActive(user)}`}
+                  className={`message_user ${isActive(user)}`}
                   onClick={() => handleAddUser(user)}
                 >
                   <UserCard user={user} msg={true}>
-                    <i className="fas fa-circle" />
+                    <i className="fas fa-circle active" />
                   </UserCard>
                 </div>
               ))}
             </>
           )}
 
-          <button style={{opacity: 0}} ref={pageEnd}>Load more..</button>
+          <button style={{ opacity: 0, height: "1px" }} ref={pageEnd}>Load more..</button>
         </div>
       </>
     );
-}
+};
 
-export default LeftSide
+export default LeftSide;

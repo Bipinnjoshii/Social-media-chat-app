@@ -5,12 +5,15 @@ import RightSide from "../../components/message/RightSide";
 const Conversation = () => {
   return (
     <div className="message d-flex">
-      <div className="col-md-4 px-0" style={{ borderRight: "1px solid #ddd" }}>
+      <div
+        className="col-md-4 px-0"
+        style={{ borderRight: "1px solid var(--border-color)" }}
+      >
         <LeftSide />
       </div>
 
       <div className="col-md-8 px-0">
-        <RightSide /> 
+        <RightSide />
       </div>
     </div>
   );
