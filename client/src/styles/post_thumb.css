@@ -1,50 +1,79 @@
-.post_thumb{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    justify-content: center;
+/* ==========================================================================
+   Post Thumbnails Grid — Modern Studio Optimized
+   ========================================================================== */
+
+.post_thumb {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  justify-content: center;
+  grid-gap: 16px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.post_thumb_display {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.post_thumb_display:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.post_thumb_display img,
+.post_thumb_display video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.post_thumb_display .post_thumb_menu {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 18, 20, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post_thumb_display:hover .post_thumb_menu {
+  opacity: 1;
+}
+
+.post_thumb_display .post_thumb_menu .thumb_metric {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.post_thumb_display .post_thumb_menu .thumb_metric i {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 576px) {
+  .post_thumb {
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
-    overflow: hidden;
-    margin: 15px 0;
-}
-
-.post_thumb_display{
-    min-width: 300px;
-    height: 300px;
-    width: 100%;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-.post_thumb_display img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.post_thumb_display .post_thumb_menu{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: #0008;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: all 0.5s;
-    transform: translateY(100%);
-}
-
-.post_thumb_display:hover .post_thumb_menu{
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.post_thumb_display .post_thumb_menu i{
-    font-size: 1.5rem;
-    color: white;
-    margin: 0 20px;
+  }
 }

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   User Profile Styles
+   User Profile Styles — Modern Studio Adapted
    ========================================================================== */
 
 .profile {
@@ -14,10 +14,11 @@
   max-width: 860px;
   margin: 20px auto;
   padding: 30px 24px;
-  background: #ffffff;
+  background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 20px;
   box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .info_container {
@@ -53,14 +54,15 @@
 
 .info_content_title button {
   padding: 8px 18px;
-  border-radius: 10px;
+  border-radius: 12px;
   font-weight: 600;
   font-size: 0.88rem;
   transition: all 0.2s ease;
+  min-height: 40px;
 }
 
 .info_container .follow_btn {
-  color: #C25E3E;
+  color: var(--primary);
   cursor: pointer;
   font-weight: 600;
   display: flex;
@@ -70,10 +72,11 @@
 
 .info_container .follow_btn span {
   transition: color 0.15s ease;
+  padding: 4px 0;
 }
 
 .info_container .follow_btn span:hover {
-  color: #A64B2D;
+  color: var(--primary-hover);
   text-decoration: underline;
 }
 
@@ -84,31 +87,42 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 1060;
   overflow-y: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 16px;
 }
 
 .edit_profile form {
   max-width: 480px;
   width: 100%;
-  background: #ffffff;
+  background: var(--bg-card);
+  color: var(--text-main);
   padding: 32px;
   border-radius: 20px;
   box-shadow: var(--shadow-xl);
   border: 1px solid var(--border-color);
   position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.edit_profile form label {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .edit_profile form input {
-  border: 1px solid #cbd5e1;
-  background-color: #f8fafc;
-  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card-subtle);
+  color: var(--text-main);
+  border-radius: 12px;
   padding: 10px 14px;
   font-size: 0.92rem;
   width: 100%;
@@ -117,15 +131,17 @@
 }
 
 .edit_profile form input:focus {
-  background-color: #ffffff;
-  border-color: #C25E3E;
+  background-color: var(--bg-card);
+  border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.15);
+  outline: none;
 }
 
 .edit_profile form textarea {
-  border: 1px solid #cbd5e1;
-  background-color: #f8fafc;
-  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card-subtle);
+  color: var(--text-main);
+  border-radius: 12px;
   padding: 10px 14px;
   font-size: 0.92rem;
   width: 100%;
@@ -134,9 +150,21 @@
 }
 
 .edit_profile form textarea:focus {
-  background-color: #ffffff;
-  border-color: #C25E3E;
+  background-color: var(--bg-card);
+  border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.15);
+  outline: none;
+}
+
+.edit_profile form select {
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card-subtle);
+  color: var(--text-main);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 0.92rem;
+  width: 100%;
+  margin-bottom: 14px;
 }
 
 .edit_profile .btn_close {
@@ -144,6 +172,7 @@
   top: 1.25rem;
   right: 1.25rem;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .edit_profile .info_avatar {
@@ -153,7 +182,7 @@
   border-radius: 50%;
   position: relative;
   margin: 10px auto 20px auto;
-  border: 3px solid #e0e7ff;
+  border: 3px solid var(--border-color);
   cursor: pointer;
   box-shadow: var(--shadow-md);
 }
@@ -178,7 +207,7 @@
   font-size: 0.82rem;
   font-weight: 600;
   transition: 0.25s ease;
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .edit_profile .info_avatar:hover span {
@@ -200,8 +229,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   width: 100%;
   height: 100vh;
   z-index: 1060;
@@ -212,15 +242,18 @@
 }
 
 .follow_box {
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   max-height: 480px;
   border: 1px solid var(--border-color);
-  border-radius: 18px;
-  background: #ffffff;
+  border-radius: 20px;
+  background: var(--bg-card);
+  color: var(--text-main);
   padding: 24px;
   box-shadow: var(--shadow-xl);
   position: relative;
   overflow-y: auto;
+  transition: background-color 0.2s ease;
 }
 
 .follow_box .follow_box-heading {
@@ -230,18 +263,31 @@
   margin-bottom: 16px;
 }
 
+.follow_box hr {
+  border-color: var(--border-color);
+}
+
 .follow_box .close {
   position: absolute;
-  top: 16px;
-  right: 18px;
+  top: 14px;
+  right: 16px;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #94a3b8;
+  color: var(--text-muted);
   transition: color 0.15s ease;
+  background: transparent;
+  border: none;
+  min-width: 40px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
 }
 
 .follow_box .close:hover {
-  color: #0f172a;
+  color: var(--text-main);
+  background: var(--bg-card-subtle);
 }
 
 /* Profile Tabs */
@@ -262,18 +308,19 @@
   font-weight: 600;
   font-size: 0.95rem;
   padding: 12px 18px;
-  color: #64748b;
+  min-height: 44px;
+  color: var(--text-muted);
   position: relative;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
 .profile_tab button:hover {
-  color: #0f172a;
+  color: var(--text-main);
 }
 
 .profile_tab button.active {
-  color: #C25E3E;
+  color: var(--primary);
   font-weight: 700;
 }
 
@@ -284,6 +331,51 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: #C25E3E;
+  background: var(--primary);
   border-radius: 9999px;
+}
+
+/* Responsive Adaptations for Mobile Viewports */
+@media (max-width: 576px) {
+  .info {
+    padding: 20px 16px;
+    margin: 12px auto;
+    border-radius: 16px;
+  }
+
+  .info_container {
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .info_content {
+    min-width: unset;
+  }
+
+  .info_content_title {
+    justify-content: center;
+  }
+
+  .info_content_title h2 {
+    font-size: 1.4rem;
+  }
+
+  .info_container .follow_btn {
+    justify-content: center;
+  }
+
+  .edit_profile form {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .profile_tab {
+    gap: 16px;
+  }
+
+  .profile_tab button {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
 }

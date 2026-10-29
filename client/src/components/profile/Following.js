@@ -20,9 +20,14 @@ const Following = ({ users, setShowFollowing }) => {
           </UserCard>
         ))}
 
-        <div className="close" onClick={() => setShowFollowing(false)}>
+        <button
+          type="button"
+          className="close"
+          aria-label="Close following modal"
+          onClick={() => setShowFollowing(false)}
+        >
           &times;
-        </div>
+        </button>
       </div>
     </div>
   );

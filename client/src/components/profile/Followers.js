@@ -20,9 +20,14 @@ const Followers = ({ users, setShowFollowers }) => {
           </UserCard>
         ))}
 
-        <div className="close" onClick={() => setShowFollowers(false)}>
+        <button
+          type="button"
+          className="close"
+          aria-label="Close followers modal"
+          onClick={() => setShowFollowers(false)}
+        >
           &times;
-        </div>
+        </button>
       </div>
     </div>
   );

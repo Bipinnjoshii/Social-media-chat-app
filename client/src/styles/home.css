@@ -1,12 +1,12 @@
 /* ==========================================================================
-   Home Feed, Posts & Cards
+   Home Feed, Posts & Cards — Modern Studio Edition
    ========================================================================== */
 
 /* Status (Create Post Bar) */
 .status {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 18px;
+  border-radius: 20px;
   box-shadow: var(--shadow-sm);
   padding: 16px 20px;
   margin-bottom: 24px;
@@ -26,6 +26,7 @@
   transition: all 0.2s ease;
   width: 100%;
   cursor: pointer;
+  min-height: 44px;
 }
 
 .status .statusBtn:hover {
@@ -42,7 +43,7 @@
   box-shadow: var(--shadow-card) !important;
   margin-bottom: 26px;
   overflow: hidden;
-  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
 }
 
 .posts .card:hover {
@@ -68,32 +69,95 @@
   margin-bottom: 0;
 }
 
-.posts .card_header .card_name h6 a {
+.posts .card_header .card_name h6 .post_username {
   color: var(--text-main);
   text-decoration: none;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   transition: color 0.15s ease;
 }
 
-.posts .card_header .card_name h6 a:hover {
+.posts .card_header .card_name h6 .post_username:hover {
   color: var(--primary);
 }
 
-.posts .card_header .card_name small {
+.posts .card_header .card_name .post_timestamp {
   color: var(--text-muted);
   font-size: 0.8rem;
 }
 
-.posts .card_header #moreLink {
-  color: var(--text-muted);
+/* Post Action Button Touch Targets & Transitions */
+.posts .action_btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  min-width: 42px;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 4px;
-  border-radius: 8px;
-  transition: all 0.15s ease;
+  color: var(--text-muted);
+  border-radius: 12px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease, background-color 0.15s ease;
+  text-decoration: none;
 }
 
-.posts .card_header #moreLink:hover {
+.posts .action_btn:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+  transform: scale(1.14);
+}
+
+.posts .action_btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.posts .action_btn i {
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.posts .action_btn.like_btn.liked i {
+  color: var(--danger) !important;
+}
+
+.posts .card_header .post_menu_btn {
+  border-radius: 10px;
+}
+
+.posts .card_header .post_menu_btn .material-icons {
+  font-size: 22px;
+  color: var(--text-muted);
+}
+
+.posts .card_header .dropdown-menu {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: var(--shadow-md);
+}
+
+.posts .card_header .dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  font-weight: 500;
   color: var(--text-main);
+  background: transparent;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.posts .card_header .dropdown-item:hover {
   background: var(--bg-card-subtle);
+  color: var(--primary);
 }
 
 /* Post Card Body */
@@ -104,11 +168,21 @@
   color: var(--text-main);
 }
 
-.posts .card_body-content .readMore {
+.posts .card_body-content .readMore_btn {
+  background: transparent;
+  border: none;
+  padding: 0;
   color: var(--primary);
   font-weight: 600;
+  font-size: 0.94rem;
   cursor: pointer;
   margin-left: 6px;
+  transition: color 0.15s ease;
+}
+
+.posts .card_body-content .readMore_btn:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
 }
 
 /* Post Card Actions / Footer */
@@ -116,49 +190,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-top: 1px solid var(--border-color);
 }
 
-.posts .card_icon_menu i {
-  font-size: 22px;
-  margin-right: 16px;
-  cursor: pointer;
-  transition: transform 0.15s ease, color 0.15s ease;
+.posts .post_meta_counts {
+  padding: 0 20px 12px 20px;
+  gap: 16px;
+}
+
+.posts .post_meta_counts .post_metric {
   color: var(--text-muted);
-}
-
-.posts .card_icon_menu i:hover {
-  transform: scale(1.18);
-  color: var(--primary);
-}
-
-.posts .card_icon_menu i.fas.fa-heart.text-danger {
-  color: var(--danger) !important;
-}
-
-.posts .card_icon_menu img {
-  width: 22px;
-  height: 22px;
-  cursor: pointer;
-  margin-right: 14px;
-  transition: transform 0.15s ease;
-  opacity: 0.8;
-}
-
-.posts .card_icon_menu img:hover {
-  transform: scale(1.18);
-  opacity: 1;
-}
-
-/* Likes & Comments Count */
-.card_footer h6 {
-  color: var(--text-muted);
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   font-weight: 600;
+  margin-bottom: 0;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: color 0.15s ease;
 }
 
-.card_footer h6:hover {
+.posts .post_meta_counts .post_metric:hover {
+  color: var(--text-main);
+}
+
+.posts .post_meta_counts .post_metric span {
+  font-weight: 700;
   color: var(--text-main);
 }
 
