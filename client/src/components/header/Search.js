@@ -44,24 +44,32 @@ const Search = () => {
         name="search"
         value={search}
         id="search"
+        aria-label="Search campus users and creators"
+        placeholder="Search..."
         onChange={(e) =>
           setSearch(e.target.value.toLowerCase().replace(/ /g, " "))
         }
       />
-      <div className="search_icon" style={{ opacity: search ? 0 : 0.3 }}>
+      <div className="search_icon" style={{ opacity: search ? 0 : 0.4 }}>
         <span className="material-icons">search</span>
-        <span>Enter to Search</span>
       </div>
 
-      <div
+      <button
+        type="button"
         onClick={handleClose}
         className="close_search"
-        style={{ opacity: users.length === 0 ? 0 : 1 }}
+        aria-label="Clear search query"
+        style={{
+          opacity: users.length === 0 && !search ? 0 : 1,
+          background: "transparent",
+          border: "none",
+          cursor: "pointer",
+        }}
       >
         &times;
-      </div>
+      </button>
 
-      <button type="submit" style={{ display: "none" }}>
+      <button type="submit" style={{ display: "none" }} aria-label="Submit search">
         Search
       </button>
 
@@ -74,7 +82,7 @@ const Search = () => {
         </div>
       )}
 
-      <div className="users">
+      <div className="users shadow-lg">
         {search &&
           users.map((user) => (
             <UserCard

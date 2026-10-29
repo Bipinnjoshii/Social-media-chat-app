@@ -6,7 +6,7 @@ import {
   PinterestShareButton, PinterestIcon,
   RedditShareButton, RedditIcon,
   TelegramShareButton, TelegramIcon,
-  TwitterShareButton,TwitterIcon,
+  TwitterShareButton, TwitterIcon,
   WhatsappShareButton, WhatsappIcon
 } from "react-share";
 
@@ -15,43 +15,47 @@ const ShareModal = ({ url, theme, setIsShare }) => {
     <div className="share_modal">
       <div className="share_modal-container">
         <div className="share_modal-header">
-          <span>Share to...</span>
-          <span onClick={() => setIsShare(false)}>&times;</span>
+          <span className="fw-semibold">Share to...</span>
+          <button
+            type="button"
+            className="close_modal_btn"
+            aria-label="Close share dialog"
+            onClick={() => setIsShare(false)}
+          >
+            &times;
+          </button>
         </div>
-        <div
-          className=" share_modal-body"
-          style={{  }}
-        >
-          <FacebookShareButton url={url}>
-            <FacebookIcon round={true} size={32} />
+        <div className="share_modal-body">
+          <FacebookShareButton url={url} aria-label="Share on Facebook">
+            <FacebookIcon round={true} size={36} />
           </FacebookShareButton>
 
-          <TwitterShareButton url={url}>
-            <TwitterIcon round={true} size={32} />
+          <TwitterShareButton url={url} aria-label="Share on Twitter">
+            <TwitterIcon round={true} size={36} />
           </TwitterShareButton>
 
-          <EmailShareButton url={url}>
-            <EmailIcon round={true} size={32} />
+          <EmailShareButton url={url} aria-label="Share via Email">
+            <EmailIcon round={true} size={36} />
           </EmailShareButton>
 
-          <TelegramShareButton url={url}>
-            <TelegramIcon round={true} size={32} />
+          <TelegramShareButton url={url} aria-label="Share on Telegram">
+            <TelegramIcon round={true} size={36} />
           </TelegramShareButton>
 
-          <WhatsappShareButton url={url}>
-            <WhatsappIcon round={true} size={32} />
+          <WhatsappShareButton url={url} aria-label="Share on WhatsApp">
+            <WhatsappIcon round={true} size={36} />
           </WhatsappShareButton>
 
-          <PinterestShareButton url={url}>
-            <PinterestIcon round={true} size={32} />
+          <PinterestShareButton url={url} aria-label="Share on Pinterest">
+            <PinterestIcon round={true} size={36} />
           </PinterestShareButton>
 
-          <RedditShareButton url={url}>
-            <RedditIcon round={true} size={32} />
+          <RedditShareButton url={url} aria-label="Share on Reddit">
+            <RedditIcon round={true} size={36} />
           </RedditShareButton>
 
-          <LinkedinShareButton url={url}>
-            <LineIcon round={true} size={32} />
+          <LinkedinShareButton url={url} aria-label="Share on LinkedIn">
+            <LineIcon round={true} size={36} />
           </LinkedinShareButton>
         </div>
       </div>
@@ -59,4 +63,4 @@ const ShareModal = ({ url, theme, setIsShare }) => {
   );
 };
 
-export default ShareModal
+export default ShareModal;
