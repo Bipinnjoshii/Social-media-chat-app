@@ -14,45 +14,47 @@ const RightSideBar = () => {
   const usersList = (suggestions && suggestions.users) || [];
 
   return (
-    <div className="my-4">
+    <div className="right_sidebar my-4">
       {auth && auth.user && (
-        <div className="inner-shadow mb-4" style={{ borderRadius: "14px", padding: "4px" }}>
+        <div className="current_user_card mb-4 p-2">
           <UserCard user={auth.user} />
         </div>
       )}
-      <div className="d-flex justify-content-between align-items-center my-2">
-        <h6
-          className="color-c1 m-0 fw-bold"
-          style={{ letterSpacing: "0.5px" }}
-        >
-          Suggestions for you
+
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h6 className="sidebar_heading m-0">
+          Campus Connections
         </h6>
         {suggestions && !suggestions.loading && auth && auth.token && (
-          <div className="outer-shadow hover-in-shadow btn-1 d-flex justify-content-center align-items-center" style={{ width: "32px", height: "32px", borderRadius: "50%" }}>
-            <i
-              className="fas fa-redo"
-              style={{ cursor: "pointer", fontSize: "0.8rem" }}
-              onClick={() => dispatch(getSuggestions(auth.token))}
-            />
-          </div>
+          <button
+            type="button"
+            className="action_btn refresh_btn"
+            aria-label="Refresh suggestions"
+            onClick={() => dispatch(getSuggestions(auth.token))}
+          >
+            <i className="fas fa-redo" style={{ fontSize: "0.82rem" }} />
+          </button>
         )}
       </div>
 
       {suggestions && suggestions.loading ? (
-        <LoadingIcon size="small" text="Loading suggestions" />
+        <LoadingIcon size="small" text="Discovering peers" />
       ) : (
         <div className="suggestions">
-          {usersList.map((user) => (
-            <div
-              key={user._id}
-              className="mb-2 inner-shadow"
-              style={{ borderRadius: "12px", padding: "2px" }}
-            >
-              <UserCard key={user._id} user={user}>
-                <FollowBtn key={user._id} user={user} />
-              </UserCard>
-            </div>
-          ))}
+          {usersList.length === 0 ? (
+            <p className="text-muted small">No new suggestions right now.</p>
+          ) : (
+            usersList.map((user) => (
+              <div
+                key={user._id}
+                className="suggestion_item mb-2 p-1"
+              >
+                <UserCard user={user}>
+                  <FollowBtn user={user} />
+                </UserCard>
+              </div>
+            ))
+          )}
         </div>
       )}
     </div>

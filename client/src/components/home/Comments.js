@@ -4,7 +4,7 @@ import CommentDisplay from "./comments/CommentDisplay";
 const Comments = ({ post }) => {
   const [comments, setComments] = useState([]);
   const [showComments, setShowComments] = useState([]);
-  const [next, setNext] = useState(2);
+  const [next, setNext] = useState(3);
   const [replyComments, setReplyComments] = useState([]);
 
   const postComments = (post && post.comments) || [];
@@ -30,23 +30,24 @@ const Comments = ({ post }) => {
           replyCm={replyComments.filter((item) => item.reply === comment._id)}
         />
       ))}
+
       {comments.length - next > 0 ? (
-        <div
-          onClick={() => setNext(next + 10)}
-          className="p-2 border-top"
-          style={{ cursor: "pointer", color: "var(--primary)" }}
+        <button
+          type="button"
+          onClick={() => setNext(next + 5)}
+          className="btn_link p-2 border-top w-100 text-center"
         >
-          Load more...
-        </div>
+          Load previous comments ({comments.length - next})
+        </button>
       ) : (
-        comments.length > 2 && (
-          <div
-            onClick={() => setNext(2)}
-            className="p-2 border-top"
-            style={{ cursor: "pointer", color: "var(--primary)" }}
+        comments.length > 3 && (
+          <button
+            type="button"
+            onClick={() => setNext(3)}
+            className="btn_link p-2 border-top w-100 text-center text-muted"
           >
-            Hide...
-          </div>
+            Show fewer comments
+          </button>
         )
       )}
     </div>

@@ -122,11 +122,11 @@
   font-weight: 600 !important;
   font-size: 0.98rem !important;
   padding: 12px !important;
-  box-shadow: 0 4px 14px rgba(194, 94, 62, 0.28) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.20) !important;
   transition: all 0.2s ease !important;
 }
 
 .status_footer button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(194, 94, 62, 0.38) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.27) !important;
 }

@@ -10,7 +10,7 @@
   border-top-color: #C25E3E;
   border-right-color: #D97736;
   animation: warmSpin 0.75s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  box-shadow: 0 4px 14px rgba(194, 94, 62, 0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
 @keyframes warmSpin {

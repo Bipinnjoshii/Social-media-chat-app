@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import CommentCard from './CommentCard'
+import React, { useEffect, useState } from 'react';
+import CommentCard from './CommentCard';
 
 const CommentDisplay = ({ comment, post, replyCm }) => {
   const [showRep, setShowRep] = useState([]);
@@ -26,20 +26,22 @@ const CommentDisplay = ({ comment, post, replyCm }) => {
           )}
 
           {replyCm.length - next > 0 ? (
-            <div
+            <button
+              type="button"
+              className="btn_link reply_toggle_btn"
               onClick={() => setNext(next + 10)}
-              style={{ cursor: "pointer", color: "crimson" }}
             >
-              Load more...
-            </div>
+              Load more replies ({replyCm.length - next})
+            </button>
           ) : (
             replyCm.length > 1 && (
-              <div
+              <button
+                type="button"
+                className="btn_link reply_toggle_btn text-muted"
                 onClick={() => setNext(1)}
-                style={{ cursor: "pointer", color: "crimson" }}
               >
-                Hide...
-              </div>
+                Hide replies
+              </button>
             )
           )}
         </div>
@@ -48,4 +50,4 @@ const CommentDisplay = ({ comment, post, replyCm }) => {
   );
 };
 
-export default CommentDisplay
+export default CommentDisplay;

@@ -1,36 +1,31 @@
 import React from "react";
-// import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
+
 const Icons = ({ setContent, content, theme }) => {
   return (
-    <div
-      className="nav-item dropdown"
-      style={{
-        opacity: "1",
-        zIndex: "10",
-        
-      }}
-    >
-      <span
-        className="nav-link position-relative px-1"
-        id="navbarDropdown"
-        role="button"
+    <div className="nav-item dropdown" style={{ zIndex: "10" }}>
+      <button
+        type="button"
+        className="action_btn emoji_picker_btn"
+        id="emojiDropdownBtn"
         data-bs-toggle="dropdown"
+        aria-label="Insert emoji"
         aria-expanded="false"
       >
-        <span>😏</span>
-      </span>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+        <i className="far fa-smile" style={{ fontSize: "1.15rem" }} />
+      </button>
+
+      <div className="dropdown-menu p-0 border-0 shadow-lg" aria-labelledby="emojiDropdownBtn">
         <Picker
           theme={theme ? "dark" : "light"}
-          showSkinTones="true"
-          showPreview="false"
+          showSkinTones={true}
+          showPreview={false}
           onSelect={(emoji) => setContent(content + emoji.native)}
           i18n={{
             search: "Search",
-            clear: "Clear", // Accessible label on "clear" button
+            clear: "Clear",
             notfound: "No Emoji Found",
-            skintext: "Choose your default skin tone",
+            skintext: "Choose skin tone",
             categories: {
               search: "Search Results",
               recent: "Frequently Used",
@@ -44,15 +39,6 @@ const Icons = ({ setContent, content, theme }) => {
               symbols: "Symbols",
               flags: "Flags",
               custom: "Custom",
-            },
-            categorieslabel: "Emoji categories", // Accessible title for the list of categories
-            skintones: {
-              1: "Default Skin Tone",
-              2: "Light Skin Tone",
-              3: "Medium-Light Skin Tone",
-              4: "Medium Skin Tone",
-              5: "Medium-Dark Skin Tone",
-              6: "Dark Skin Tone",
             },
           }}
         />

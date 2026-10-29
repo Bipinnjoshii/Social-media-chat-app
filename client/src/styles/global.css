@@ -209,15 +209,15 @@ a:focus:not(:focus-visible) {
   line-height: 1.5;
   cursor: pointer;
   border-radius: 12px;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-block;
   border: none;
-  box-shadow: 0 2px 8px rgba(194, 94, 62, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .btn-1:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(194, 94, 62, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
   color: #ffffff !important;
 }
 
@@ -225,15 +225,15 @@ a:focus:not(:focus-visible) {
   background: var(--background-1) !important;
   border: none !important;
   border-radius: 12px !important;
-  box-shadow: 0 2px 8px rgba(194, 94, 62, 0.22) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
   font-weight: 600 !important;
   padding: 9px 20px !important;
   color: #ffffff !important;
-  transition: all 0.2s ease !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 4px 14px rgba(194, 94, 62, 0.35) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
   transform: translateY(-1px);
   color: #ffffff !important;
 }

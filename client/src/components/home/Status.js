@@ -8,21 +8,22 @@ const Status = () => {
   const dispatch = useDispatch();
 
   const user = auth && auth.user;
-  const username = (user && user.username) || "Friend";
+  const username = (user && user.username) || "Student";
   const avatar = user && user.avatar;
 
   return (
     <div className="status my-3 d-flex align-items-center">
-      <div className="outer-shadow big-avatar-cover">
+      <div className="avatar_wrapper me-2">
         <Avatar src={avatar} size="big-avatar" />
       </div>
       <button
+        type="button"
         onClick={() => dispatch({ type: GLOBALTYPES.STATUS, payload: true })}
-        className="btn-1 outer-shadow hover-in-shadow statusBtn flex-fill text-start px-4"
-        style={{ marginLeft: "12px", borderRadius: "14px", height: "50px" }}
+        className="statusBtn flex-fill text-start px-4"
+        aria-label="Create a new post"
       >
-        <span style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
-          {username}, what's on your mind?
+        <span>
+          {username}, share a project, critique, or update...
         </span>
       </button>
     </div>

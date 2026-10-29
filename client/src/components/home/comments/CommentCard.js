@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import Avatar from '../../Avatar';
-import { Link } from 'react-router-dom';
-import { useSelector , useDispatch } from "react-redux";
-import moment from 'moment';
+import React, { useState, useEffect } from "react";
+import Avatar from "../../Avatar";
+import { Link } from "react-router-dom";
+import moment from "moment";
 import LikeButton from "../../LikeButton";
-import CommentMenu from './CommentMenu';
-import { likeComment, unLikeComment, updateComment } from '../../../redux/actions/commentAction';
+import CommentMenu from "./CommentMenu";
+import { useSelector, useDispatch } from "react-redux";
+import { updateComment, likeComment, unLikeComment } from "../../../redux/actions/commentAction";
 import InputComment from "../InputComment";
 
 const CommentCard = ({ children, comment, post, commentId }) => {
-  const { auth } = useSelector((state) => state);
+  const { auth, socket } = useSelector((state) => state);
   const dispatch = useDispatch();
+
   const [content, setContent] = useState("");
   const [readMore, setReadMore] = useState(false);
 
   const [isLike, setIsLike] = useState(false);
-  const [loadLike, setLoadLike] = useState(false);
   const [onEdit, setOnEdit] = useState(false);
+
+  const [loadLike, setLoadLike] = useState(false);
   const [onReply, setOnReply] = useState(false);
 
   useEffect(() => {
@@ -39,20 +41,19 @@ const CommentCard = ({ children, comment, post, commentId }) => {
 
   const handleLike = async () => {
     if (loadLike) return;
-
     setIsLike(true);
 
     setLoadLike(true);
-    await dispatch(likeComment({ comment, post, auth }));
+    await dispatch(likeComment({ comment, post, auth, socket }));
     setLoadLike(false);
   };
 
   const handleUnLike = async () => {
     if (loadLike) return;
-
     setIsLike(false);
+
     setLoadLike(true);
-    await dispatch(unLikeComment({ comment, post, auth }));
+    await dispatch(unLikeComment({ comment, post, auth, socket }));
     setLoadLike(false);
   };
 
@@ -60,7 +61,7 @@ const CommentCard = ({ children, comment, post, commentId }) => {
     if (onReply) {
       return setOnReply(false);
     }
-    setOnReply({...comment, commentId});
+    setOnReply({ ...comment, commentId });
   };
 
   const styleCard = {
@@ -70,22 +71,17 @@ const CommentCard = ({ children, comment, post, commentId }) => {
 
   return (
     <div className="comment_card mt-2" style={styleCard}>
-      <Link to={`/profile/${comment.user._id}`} className="d-flex text-dark">
+      <Link to={`/profile/${comment.user._id}`} className="d-flex align-items-center comment_username">
         <Avatar src={comment.user.avatar} size="small-avatar" />
-        <h6 className="mx-1">{comment.user.username}</h6>
+        <h6 className="mx-2 mb-0">{comment.user.username}</h6>
       </Link>
 
       <div className="comment_content">
-        <div
-          className="flex-fill"
-          style={{
-            
-            
-          }}
-        >
+        <div className="flex-fill">
           {onEdit ? (
             <textarea
-              rows="5"
+              rows="3"
+              className="comment_edit_textarea"
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
@@ -94,74 +90,69 @@ const CommentCard = ({ children, comment, post, commentId }) => {
               {comment.tag && comment.tag._id !== comment.user._id && (
                 <Link
                   to={`/profile/${comment.tag._id}`}
-                  style={{ textDecoration: "none" }}
-                  className="me-1"
+                  className="comment_tag me-1"
                 >
                   @{comment.tag.username}
                 </Link>
               )}
               <span>
-                {content.length < 100
+                {content && (content.length < 100
                   ? content
                   : readMore
                   ? content + " "
-                  : content.slice(0, 100) + "..."}
+                  : content.slice(0, 100) + "...")}
               </span>
-              {content.length > 100 && (
-                <span
-                  className="readMore"
+              {content && content.length > 100 && (
+                <button
+                  type="button"
+                  className="btn_link readMore_link"
                   onClick={() => setReadMore(!readMore)}
                 >
-                  {readMore ? "Hide " : "Read more"}
-                </span>
+                  {readMore ? "Show less" : "Read more"}
+                </button>
               )}
             </div>
           )}
 
-          <div style={{ cursor: "pointer" }}>
-            <small className="text-muted" style={{ marginRight: "9px" }}>
+          <div className="comment_meta_bar d-flex align-items-center">
+            <small className="text-muted me-2">
               {moment(comment.createdAt).fromNow()}
             </small>
 
-            <small
-              style={{ fontWeight: "bold", marginRight: "9px" }}
-              className="mr3"
-            >
-              {comment.likes.length} likes
+            <small className="fw-semibold me-2 text-muted">
+              {comment.likes ? comment.likes.length : 0} likes
             </small>
+
             {onEdit ? (
               <>
-                <small
+                <button
+                  type="button"
+                  className="comment_action_btn fw-semibold"
                   onClick={handleUpdate}
-                  style={{ fontWeight: "bold", marginRight: "9px" }}
-                  className="mr3"
                 >
-                  update
-                </small>
-                <small
+                  Update
+                </button>
+                <button
+                  type="button"
+                  className="comment_action_btn fw-semibold text-muted"
                   onClick={() => setOnEdit(false)}
-                  style={{ fontWeight: "bold", marginRight: "9px" }}
-                  className="mr3"
                 >
-                  cancel
-                </small>
+                  Cancel
+                </button>
               </>
             ) : (
-              <small
-                style={{ fontWeight: "bold", marginRight: "9px" }}
-                className="mr3"
+              <button
+                type="button"
+                className="comment_action_btn fw-semibold"
                 onClick={handleReply}
               >
-                {onReply ? "cancel" : "reply"}
-              </small>
+                {onReply ? "Cancel" : "Reply"}
+              </button>
             )}
           </div>
         </div>
 
-        <div
-          className="d-flex align-items-center "
-          style={{ cursor: "pointer" }}
-        >
+        <div className="d-flex align-items-center ms-2">
           <CommentMenu post={post} comment={comment} setOnEdit={setOnEdit} />
 
           <LikeButton
@@ -175,8 +166,7 @@ const CommentCard = ({ children, comment, post, commentId }) => {
       {onReply && (
         <InputComment post={post} onReply={onReply} setOnReply={setOnReply}>
           <Link
-            style={{ textDecoration: "none" }}
-            className="mr-1"
+            className="comment_tag me-1"
             to={`/profile/${onReply.user._id}`}
           >
             @{onReply.user.username}
@@ -188,4 +178,4 @@ const CommentCard = ({ children, comment, post, commentId }) => {
   );
 };
 
-export default CommentCard
+export default CommentCard;

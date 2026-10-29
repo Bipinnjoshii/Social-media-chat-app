@@ -6,7 +6,7 @@ import { likePost, savePost, unLikePost, unSavePost } from "../../../redux/actio
 import ShareModal from '../../ShareModal';
 import { BASE_URL } from '../../../utils/config';
 
-const CardFooter = ({ post }) => {
+const CardFooter = ({ post, showComments, setShowComments }) => {
   const [isLike, setIsLike] = useState(false);
   const [saved, setSaved] = useState(false);
   const [loadLike, setLoadLike] = useState(false);
@@ -69,13 +69,24 @@ const CardFooter = ({ post }) => {
             handleLike={handleLike}
             handleUnLike={handleUnLike}
           />
-          <Link
-            to={`/post/${post._id}`}
-            className="action_btn comment_btn"
-            aria-label={`View comments on post by ${post.user ? post.user.username : 'user'}`}
-          >
-            <i className="far fa-comments" />
-          </Link>
+          {setShowComments ? (
+            <button
+              type="button"
+              className={`action_btn comment_btn ${showComments ? 'active' : ''}`}
+              aria-label={showComments ? "Hide comments" : "View comments"}
+              onClick={() => setShowComments(!showComments)}
+            >
+              <i className="far fa-comments" />
+            </button>
+          ) : (
+            <Link
+              to={`/post/${post._id}`}
+              className="action_btn comment_btn"
+              aria-label={`View comments on post by ${post.user ? post.user.username : 'user'}`}
+            >
+              <i className="far fa-comments" />
+            </Link>
+          )}
           <button
             type="button"
             className="action_btn share_btn"
@@ -94,7 +105,7 @@ const CardFooter = ({ post }) => {
           onClick={saved ? handleUnSavePost : handleSavePost}
         >
           {saved ? (
-            <i className="fas text-info fa-bookmark" />
+            <i className="fas fa-bookmark" style={{ color: "var(--primary)" }} />
           ) : (
             <i className="far fa-bookmark" />
           )}
@@ -105,7 +116,10 @@ const CardFooter = ({ post }) => {
         <h6 className="post_metric">
           <span>{(post && post.likes && post.likes.length) || 0}</span> likes
         </h6>
-        <h6 className="post_metric">
+        <h6
+          className="post_metric"
+          onClick={() => setShowComments && setShowComments(!showComments)}
+        >
           <span>{(post && post.comments && post.comments.length) || 0}</span> comments
         </h6>
       </div>

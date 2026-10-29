@@ -15,10 +15,14 @@ const Home = () => {
         {homePosts.loading ? (
           <LoadingIcon text="Loading feed" />
         ) : homePosts.result === 0 ? (
-          <div className="text-center py-5">
-            <i className="far fa-newspaper mb-3" style={{ fontSize: "3rem", color: "var(--text-muted)", opacity: 0.5 }} />
-            <h4 style={{ color: "var(--text-main)", fontWeight: 600 }}>No Posts Yet</h4>
-            <p className="text-muted" style={{ fontSize: "0.9rem" }}>Share your first post above or connect with people!</p>
+          <div className="empty_feed_state text-center my-4">
+            <div className="empty_feed_icon mb-3">
+              <i className="fas fa-layer-group" />
+            </div>
+            <h4>Studio Feed is Quiet</h4>
+            <p className="text-muted" style={{ fontSize: "0.92rem", maxWidth: "420px", margin: "auto" }}>
+              Be the first to share an architectural design, project critique, or studio update with your campus peers.
+            </p>
           </div>
         ) : (
           <Posts />

@@ -10,14 +10,14 @@ const CardBody = ({ post, theme }) => {
       <div className="card_body-content">
         <span>
           {post.content && (
-            post.content.length < 60
+            post.content.length < 180
               ? post.content
               : readMore
               ? post.content + " "
-              : post.content.slice(0, 60) + "..."
+              : post.content.slice(0, 180) + "..."
           )}
         </span>
-        {post.content && post.content.length > 60 && (
+        {post.content && post.content.length >= 180 && (
           <button
             type="button"
             className="readMore_btn"
