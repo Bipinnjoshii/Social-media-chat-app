@@ -333,6 +333,17 @@
   font-weight: 700;
 }
 
+@keyframes tabUnderlineReveal {
+  from {
+    transform: scaleX(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
 .profile_tab button.active::after {
   content: '';
   position: absolute;
@@ -342,6 +353,8 @@
   height: 2.5px;
   background: var(--primary);
   border-radius: 9999px;
+  animation: tabUnderlineReveal 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
 }
 
 /* Edit Profile & Security Modals */
@@ -359,6 +372,7 @@
   justify-content: center;
   align-items: center;
   padding: 16px;
+  animation: modalBackdropFade 0.2s ease;
 }
 
 .edit_profile_card {
@@ -372,6 +386,7 @@
   border: 1px solid var(--border-color);
   position: relative;
   transition: background-color 0.2s ease;
+  animation: modalPop 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn_close_circle {
@@ -488,6 +503,7 @@
   justify-content: center;
   align-items: center;
   padding: 16px;
+  animation: modalBackdropFade 0.2s ease;
 }
 
 .follow_box {
@@ -503,6 +519,7 @@
   position: relative;
   overflow-y: auto;
   transition: background-color 0.2s ease;
+  animation: modalPop 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .follow_box .follow_box-heading {
