@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Header Navbar Styles
+   Header Navbar Styles — The Modern Studio
    ========================================================================== */
 
 .header {
@@ -13,33 +13,66 @@
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.03);
   transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .header .navbar {
   width: 100%;
+  min-height: 64px;
   padding: 8px 16px;
   background: transparent !important;
 }
 
-.header .logo {
+/* Studio Brand Identity */
+.header .brand_logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
+  cursor: pointer;
 }
 
-.header .logo h1 {
-  font-size: 1.45rem;
+.header .brand_icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--background-1);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header .brand_logo:hover .brand_icon {
+  transform: rotate(6deg) scale(1.05);
+}
+
+.header .brand_meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .brand_name {
+  font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: -0.025em;
-  background: var(--background-1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  transition: opacity 0.2s ease;
+  color: var(--text-main);
+  line-height: 1.15;
+  transition: color 0.15s ease;
 }
 
-.header .logo:hover h1 {
-  opacity: 0.9;
+.header .brand_edition {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  line-height: 1;
+  margin-top: 2px;
 }
 
 /* ==========================================================================
@@ -49,22 +82,22 @@
 .header .search_form {
   position: relative;
   margin-left: auto;
-  margin-right: 16px;
-  max-width: 320px;
+  margin-right: 18px;
+  max-width: 300px;
   width: 100%;
 }
 
 .header .search_form #search {
   background: var(--bg-card-subtle);
   border: 1px solid var(--border-color);
-  min-width: 240px;
+  min-width: 220px;
   width: 100%;
   outline: none;
   padding: 8px 16px 8px 36px;
   border-radius: 9999px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-main);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header .search_form #search:focus {
@@ -81,6 +114,12 @@
   font-size: 18px;
   color: var(--text-muted);
   pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.header .search_form .search_icon .material-icons {
+  font-size: 18px;
 }
 
 .header .search_form .close_search {
@@ -88,30 +127,115 @@
   top: 50%;
   right: 12px;
   transform: translateY(-50%);
-  cursor: pointer;
   font-size: 14px;
   font-weight: 900;
   color: var(--text-muted);
 }
 
+.header .search_form .close_search:hover {
+  color: var(--primary);
+}
+
 .header .search_form .users {
   position: absolute;
   width: 100%;
-  min-width: 250px;
+  min-width: 260px;
   background: var(--bg-card);
   max-height: calc(100vh - 150px);
-  overflow: auto;
+  overflow-y: auto;
   margin-top: 8px;
-  border-radius: 14px;
+  border-radius: 16px;
   box-shadow: var(--shadow-xl);
   border: 1px solid var(--border-color);
   z-index: 1040;
 }
 
 /* ==========================================================================
-   Menu Component
+   Menu Component — Segmented Pill Navigation
    ========================================================================== */
 
+.header .nav_pills_container {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  padding: 3px 4px;
+  margin-right: 12px;
+  gap: 2px;
+}
+
+.header .nav_pill_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header .nav_pill_link .pill_icon {
+  font-size: 18px;
+}
+
+.header .nav_pill_link:hover {
+  color: var(--text-main);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.header .nav-item.active .nav_pill_link {
+  background: var(--bg-card);
+  color: var(--primary);
+  box-shadow: var(--shadow-sm);
+  font-weight: 700;
+}
+
+.header .notify_btn {
+  border-radius: 50%;
+  min-width: 38px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+.header .notify_btn:hover {
+  background: var(--bg-card-subtle);
+  color: var(--primary);
+}
+
+.header .notify_length {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 1px 5px;
+  border: 2px solid var(--bg-card);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.header .avatar_ring {
+  padding: 2px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  transition: all 0.2s ease;
+  display: flex;
+}
+
+.header .avatar_btn:hover .avatar_ring {
+  border-color: var(--primary);
+  transform: scale(1.06);
+}
+
+/* Mobile Icon Nav Support */
 .header .menu .nav-link {
   color: var(--text-muted);
   font-size: 1.45rem;
@@ -131,21 +255,4 @@
 .header .menu .nav-item.active .nav-link {
   color: var(--primary);
   background: var(--primary-light);
-}
-
-.header .menu .nav-item.active .nav-link .material-icons {
-  font-weight: 700;
-}
-
-.header .menu .notify_length {
-  position: absolute;
-  top: 2px;
-  right: 4px;
-  background: var(--primary);
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 700;
-  border-radius: 9999px;
-  padding: 1px 5px;
-  border: 2px solid var(--bg-card);
 }

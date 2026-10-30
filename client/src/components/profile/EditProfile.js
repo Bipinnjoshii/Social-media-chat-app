@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { GLOBALTYPES } from "../../redux/actions/globalTypes";
 import { updateProfileUser } from "../../redux/actions/profileAction";
-
 import { checkImage } from "../../utils/imageUpload";
 
 const EditProfile = ({ setOnEdit }) => {
@@ -16,7 +15,7 @@ const EditProfile = ({ setOnEdit }) => {
   };
   const [userData, setUserData] = useState(initialState);
   const { fullname, mobile, address, website, story, gender } = userData;
-  const [avatar, SetAvatar] = useState("");
+  const [avatar, setAvatar] = useState("");
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -30,7 +29,7 @@ const EditProfile = ({ setOnEdit }) => {
     if (err) {
       return dispatch({ type: GLOBALTYPES.ALERT, payload: { error: err } });
     }
-    SetAvatar(file);
+    setAvatar(file);
   };
 
   const handleInput = (e) => {
@@ -38,30 +37,36 @@ const EditProfile = ({ setOnEdit }) => {
     setUserData({ ...userData, [name]: value });
   };
 
-  const handleSubmit = e => {
-      e.preventDefault();
-      dispatch(updateProfileUser( {userData, avatar, auth} ) );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(updateProfileUser({ userData, avatar, auth }));
   };
 
   return (
     <div className="edit_profile">
-      <button
-        className="btn btn-danger btn_close"
-        onClick={() => setOnEdit(false)}
-      >
-        Close
-      </button>
+      <form onSubmit={handleSubmit} className="edit_profile_card">
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <h4 className="m-0 font-weight-bold" style={{ letterSpacing: "-0.02em", color: "var(--text-main)" }}>
+            Edit Studio Profile
+          </h4>
+          <button
+            type="button"
+            className="btn_close_circle"
+            onClick={() => setOnEdit(false)}
+            aria-label="Close edit profile modal"
+          >
+            &times;
+          </button>
+        </div>
 
-      <form onSubmit={handleSubmit}>
         <div className="info_avatar">
           <img
             alt="profile"
             src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar}
-            style={{  }}
           />
           <span>
-            <i className="fas fa-camera" />
-            <p>Change</p>
+            <i className="fas fa-camera mr-1" />
+            <p className="m-0">Change</p>
             <input
               type="file"
               name="file"
@@ -84,11 +89,13 @@ const EditProfile = ({ setOnEdit }) => {
               onChange={handleInput}
             />
             <small
-              className="text-danger position-absolute"
+              className="position-absolute"
               style={{
                 top: "50%",
-                right: "5px",
+                right: "12px",
                 transform: "translateY(-50%)",
+                color: fullname.length > 25 ? "var(--danger)" : "var(--text-muted)",
+                fontSize: "0.75rem",
               }}
             >
               {fullname.length}/25
@@ -97,8 +104,7 @@ const EditProfile = ({ setOnEdit }) => {
         </div>
 
         <div className="form_group">
-          <label htmlFor="mobile">Mobile</label>
-
+          <label htmlFor="mobile">Phone / Mobile</label>
           <input
             type="text"
             className="form-control"
@@ -106,12 +112,12 @@ const EditProfile = ({ setOnEdit }) => {
             name="mobile"
             value={mobile}
             onChange={handleInput}
+            placeholder="+1 555-0199"
           />
         </div>
 
         <div className="form_group">
-          <label htmlFor="address">Address</label>
-
+          <label htmlFor="address">Campus / Location</label>
           <input
             type="text"
             className="form-control"
@@ -119,12 +125,12 @@ const EditProfile = ({ setOnEdit }) => {
             name="address"
             value={address}
             onChange={handleInput}
+            placeholder="Studio Hall B, Building 4"
           />
         </div>
 
         <div className="form_group">
-          <label htmlFor="website">Website</label>
-
+          <label htmlFor="website">Portfolio / Website</label>
           <input
             type="text"
             className="form-control"
@@ -132,30 +138,35 @@ const EditProfile = ({ setOnEdit }) => {
             name="website"
             value={website}
             onChange={handleInput}
+            placeholder="https://portfolio.design"
           />
         </div>
 
         <div className="form_group">
-          <label htmlFor="story">Story</label>
-
+          <label htmlFor="story">Studio Bio / Story</label>
           <textarea
             cols="30"
             rows="4"
-            type="text"
             className="form-control"
             id="story"
             name="story"
             value={story}
             onChange={handleInput}
+            placeholder="Introduce your craft, focus discipline, and current projects..."
           />
-
-          <small className="text-danger d-block text-right">
+          <small
+            className="d-block text-right mt-1"
+            style={{
+              color: story.length > 200 ? "var(--danger)" : "var(--text-muted)",
+              fontSize: "0.75rem",
+            }}
+          >
             {story.length}/200
           </small>
         </div>
 
-        <label htmlFor="gender">Gender</label>
-        <div className="input-group-prepend px-0 mb-4">
+        <div className="form_group mb-4">
+          <label htmlFor="gender">Gender</label>
           <select
             className="custom-select text-capitalize"
             name="gender"
@@ -165,10 +176,12 @@ const EditProfile = ({ setOnEdit }) => {
           >
             <option value="male">Male</option>
             <option value="female">Female</option>
+            <option value="other">Other</option>
           </select>
         </div>
-        <button className="btn btn-info w-100" type="submit">
-          Save
+
+        <button className="btn_studio_primary w-100 justify-content-center" type="submit">
+          Save Changes
         </button>
       </form>
     </div>

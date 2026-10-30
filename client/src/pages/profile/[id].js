@@ -8,14 +8,14 @@ import { getProfileUsers } from "../../redux/actions/profileAction";
 import Saved from '../../components/profile/Saved';
 
 const Profile = () => {
-  const { profile, auth } = useSelector(state => state);
+  const { profile, auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const { id } = useParams();
   const [saveTab, setSaveTab] = useState(false);
 
   useEffect(() => {
-    if (profile && profile.ids && profile.ids.every(item => item !== id)) {
+    if (profile && profile.ids && profile.ids.every((item) => item !== id)) {
       dispatch(getProfileUsers({ id, auth }));
     }
   }, [id, auth, dispatch, profile]);
@@ -29,16 +29,20 @@ const Profile = () => {
       {isCurrentUser && (
         <div className="profile_tab">
           <button
+            type="button"
             className={saveTab ? "" : "active"}
             onClick={() => setSaveTab(false)}
+            aria-label="View posted studio works"
           >
-            posts
+            <i className="fas fa-th-large mr-2" /> Studio Works
           </button>
           <button
+            type="button"
             className={saveTab ? "active" : ""}
             onClick={() => setSaveTab(true)}
+            aria-label="View saved collections"
           >
-            saved
+            <i className="fas fa-bookmark mr-2" /> Saved Collections
           </button>
         </div>
       )}

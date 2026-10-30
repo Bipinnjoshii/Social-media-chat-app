@@ -179,25 +179,73 @@ a:focus:not(:focus-visible) {
   background: var(--text-muted);
 }
 
-/* Utility Shadow Classes */
+/* Utility Shadow & Container Classes (Modern Studio Refined) */
 .outer-shadow {
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color) !important;
   background-color: var(--bg-card) !important;
+  border-radius: 16px;
 }
 
 .inner-shadow {
-  box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color) !important;
+  background-color: var(--bg-card-subtle) !important;
+  border-radius: 14px;
 }
 
 .hover-in-shadow {
-  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
 }
 
 .hover-in-shadow:hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
+}
+
+/* Badge & Pill Helpers */
+.badge_pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 9999px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(194, 94, 62, 0.18);
+  font-variant-numeric: tabular-nums;
+}
+
+.badge_pill.subtle {
+  background: var(--bg-card-subtle);
+  color: var(--text-muted);
+  border-color: var(--border-color);
+}
+
+/* Load More Button Pill */
+.btn_load_more {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  padding: 10px 28px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: 24px auto;
+  display: block;
+}
+
+.btn_load_more:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-1 {

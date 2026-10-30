@@ -2,7 +2,8 @@
    Home Feed, Posts & Cards — Modern Studio Edition
    ========================================================================== */
 
-/* Status (Create Post Bar) */
+/* Status Creator Card (The Modern Studio) */
+.status_creator_card,
 .status {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -13,26 +14,65 @@
   transition: all 0.2s ease;
 }
 
+.status_creator_card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(194, 94, 62, 0.22);
+}
+
+.status_input_btn,
 .status .statusBtn {
   border-radius: 9999px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   text-align: left;
-  margin-left: 12px;
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   background-color: var(--bg-card-subtle);
   border: 1px solid var(--border-color);
   color: var(--text-muted);
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   width: 100%;
   cursor: pointer;
-  min-height: 44px;
+  min-height: 46px;
 }
 
+.status_input_btn:hover,
 .status .statusBtn:hover {
   background-color: var(--primary-light);
   color: var(--primary);
   border-color: var(--primary);
+}
+
+.status_action_row {
+  border-top: 1px solid var(--border-color);
+  margin-top: 12px;
+  padding-top: 8px;
+}
+
+.status_quick_action {
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.status_quick_action:hover {
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+.sidebar_community_card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
 }
 
 /* Post Cards */

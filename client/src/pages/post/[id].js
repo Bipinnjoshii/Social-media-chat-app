@@ -20,7 +20,7 @@ const Post = () => {
   }, [detailPost, dispatch, id, auth]);
 
   return (
-    <div className="posts">
+    <div className="single_post_view" style={{ maxWidth: "680px", margin: "24px auto", padding: "0 16px" }}>
       {post.length === 0 && <LoadingIcon text="Loading post" />}
 
       {post.map((item) => (
