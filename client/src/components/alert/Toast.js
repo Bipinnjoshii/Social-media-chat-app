@@ -26,7 +26,7 @@ const Toast = ({ msg, handleShow, bgColor, type = "info" }) => {
           ? "linear-gradient(135deg, rgba(21, 128, 61, 0.95), rgba(16, 185, 129, 0.95))"
           : isError
           ? "linear-gradient(135deg, rgba(185, 28, 28, 0.95), rgba(220, 38, 38, 0.95))"
-          : "linear-gradient(135deg, rgba(194, 94, 62, 0.95), rgba(217, 119, 54, 0.95))",
+          : "linear-gradient(135deg, rgba(14, 19, 31, 0.96), rgba(20, 27, 42, 0.96))",
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
         color: "#ffffff",

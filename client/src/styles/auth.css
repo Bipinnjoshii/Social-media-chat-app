@@ -1,11 +1,14 @@
 /* ==========================================================================
-   Authentication Pages (Login / Register) — The Modern Studio
+   Chirp Authentication Styling (Login / Register) — Million-Dollar Edition
    ========================================================================== */
 
 .auth_page {
   width: 100%;
   min-height: 100vh;
-  background: var(--bg-app);
+  background-color: var(--bg-app);
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(0, 229, 153, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 45%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +17,7 @@
 }
 
 .auth_container {
-  max-width: 1020px;
+  max-width: 1060px;
   width: 100%;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -23,6 +26,7 @@
   display: flex;
   overflow: hidden;
   animation: authScale 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
 @keyframes authScale {
@@ -36,71 +40,104 @@
   }
 }
 
-/* Left Side Editorial Billboard */
+/* Left Side Showcase Billboard */
 .auth_billboard {
-  flex: 1;
-  padding: 48px 44px;
-  background: linear-gradient(155deg, var(--bg-card-subtle) 0%, rgba(194, 94, 62, 0.07) 100%);
+  width: 48%;
+  background: var(--bg-card-subtle);
   border-right: 1px solid var(--border-color);
+  padding: 44px;
   position: relative;
+  overflow: hidden;
 }
 
-.auth_billboard .billboard_brand {
+.auth_billboard::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.billboard_brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-.auth_billboard .brand_icon,
-.auth_mobile_brand .brand_icon {
-  width: 40px;
-  height: 40px;
+.billboard_brand .brand_icon {
+  width: 38px;
+  height: 38px;
   border-radius: 12px;
-  background: var(--background-1);
-  color: #ffffff;
+  background: var(--brand-gradient);
+  color: #080B11;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 4px 14px var(--primary-glow);
 }
 
-.auth_billboard .brand_title {
-  font-size: 1.35rem;
+.billboard_brand .brand_title {
+  font-size: 1.5rem;
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.04em;
   color: var(--text-main);
+  line-height: 1;
 }
 
-.auth_billboard .billboard_headline {
+.billboard_brand .brand_dot {
+  color: var(--primary);
+  font-size: 1.8rem;
+  line-height: 0;
+}
+
+.badge_pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid var(--border-highlight);
+  width: fit-content;
+}
+
+.billboard_headline {
   font-size: 2.15rem;
   font-weight: 800;
+  letter-spacing: -0.04em;
   line-height: 1.2;
-  letter-spacing: -0.03em;
   color: var(--text-main);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
-.auth_billboard .billboard_desc {
-  font-size: 0.95rem;
+.billboard_desc {
   color: var(--text-muted);
+  font-size: 0.96rem;
   line-height: 1.6;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
-.auth_billboard .billboard_features {
+.billboard_features {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
-.auth_billboard .feature_item {
+.feature_item {
   display: flex;
   align-items: flex-start;
   gap: 14px;
 }
 
-.auth_billboard .feature_icon {
+.feature_icon {
   width: 36px;
   height: 36px;
   border-radius: 10px;
@@ -109,186 +146,225 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 0.95rem;
   flex-shrink: 0;
+  margin-top: 2px;
+  border: 1px solid var(--border-highlight);
 }
 
-.auth_billboard .feature_item h6 {
+.feature_item h6 {
   color: var(--text-main);
   font-size: 0.92rem;
+  margin-bottom: 2px;
 }
 
-.auth_billboard .feature_item small {
+.feature_item small {
   color: var(--text-muted);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  display: block;
 }
 
-/* Right Side Form Panel */
+/* Metric Counters Row */
+.billboard_metrics_row {
+  border-top: 1px solid var(--border-color);
+}
+
+.metric_number {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.metric_label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.metric_divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border-color);
+}
+
+.billboard_footer small {
+  font-size: 0.78rem;
+  color: var(--text-sub);
+}
+
+/* Right Side Auth Form Wrapper */
 .auth_form_wrapper {
-  flex: 1.15;
-  padding: 48px 44px;
+  padding: 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: var(--bg-card);
 }
 
-.auth_form .form_header h4 {
-  font-size: 1.45rem;
+.auth_form {
+  max-width: 440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form_header h4 {
+  font-size: 1.6rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--text-main);
 }
 
 /* Role Selector Pill */
 .role_selector_pill {
+  display: flex;
   background: var(--bg-card-subtle);
   border: 1px solid var(--border-color);
-  border-radius: 14px;
+  border-radius: 9999px;
   padding: 4px;
-  display: flex;
   gap: 4px;
 }
 
-.role_selector_pill .role_btn {
+.role_btn {
   flex: 1;
-  border: none;
-  border-radius: 10px;
   background: transparent;
-  color: var(--text-muted);
-  font-size: 0.88rem;
+  border: none;
+  outline: none;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  font-size: 0.84rem;
   font-weight: 600;
-  padding: 9px 12px;
+  color: var(--text-muted);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.role_selector_pill .role_btn.active {
-  background: var(--background-1);
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-}
-
-/* Form Controls */
-.auth_form .form-label {
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  margin-bottom: 5px;
-}
-
-.auth_form .input_with_icon {
-  position: relative;
-  width: 100%;
-}
-
-.auth_form .input_with_icon .input_icon {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  pointer-events: none;
-}
-
-.auth_form .input_with_icon input.form-control {
-  padding-left: 42px;
-  padding-right: 42px;
-}
-
-.auth_form input.form-control {
-  border: 1px solid var(--border-color);
-  background-color: var(--bg-card-subtle);
-  border-radius: 12px;
-  padding: 10px 14px;
-  font-size: 0.94rem;
-  color: var(--text-main);
-  height: 44px;
-  transition: all 0.2s ease;
-  width: 100%;
-}
-
-.auth_form input.form-control:focus {
-  background-color: var(--bg-card);
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.15);
-  outline: none;
-}
-
-.auth_form .pass_toggle_btn {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 0.92rem;
-  padding: 4px;
-  transition: color 0.15s ease;
-}
-
-.auth_form .pass_toggle_btn:hover {
+.role_btn:hover {
   color: var(--text-main);
 }
 
-/* Gender Segmented Selection */
-.gender_segmented_pill {
-  background: var(--bg-card-subtle);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  gap: 4px;
-}
-
-.gender_pill_btn {
-  flex: 1;
-  border: none;
-  background: transparent;
-  padding: 8px 10px;
-  border-radius: 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.gender_pill_btn.active {
+.role_btn.active {
   background: var(--bg-card);
   color: var(--primary);
   box-shadow: var(--shadow-sm);
   font-weight: 700;
+  border: 1px solid var(--border-subtle);
 }
 
-.auth_form button[type="submit"] {
-  background: var(--background-1) !important;
-  color: #ffffff !important;
-  border: none !important;
-  border-radius: 12px !important;
-  height: 48px;
-  font-weight: 700 !important;
-  font-size: 0.98rem !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+.form-label {
+  color: var(--text-main);
+  font-size: 0.86rem;
+  font-weight: 600;
+  margin-bottom: 6px;
 }
 
-.auth_form button[type="submit"]:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22) !important;
+.input_with_icon {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.auth_form button[type="submit"]:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none !important;
+.input_icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.input_with_icon .form-control {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 11px 16px 11px 40px;
+  font-size: 0.92rem;
+  color: var(--text-main);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.input_with_icon .form-control:focus {
+  background: var(--bg-card);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+  outline: none;
+}
+
+.input_with_icon .form-control:focus + .input_icon {
+  color: var(--primary);
+}
+
+.input_with_icon.pass .form-control {
+  padding-right: 42px;
+}
+
+.pass_toggle_btn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  font-size: 0.95rem;
+  transition: color 0.15s ease;
+}
+
+.pass_toggle_btn:hover {
+  color: var(--text-main);
+}
+
+/* Gender Selector Capsule */
+.gender_pills_container {
+  display: flex;
+  gap: 8px;
+}
+
+.gender_pill_label {
+  flex: 1;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.gender_pill_label input {
+  display: none;
+}
+
+.gender_pill_label:hover {
+  color: var(--text-main);
+  background: var(--bg-card-hover);
+}
+
+.gender_pill_label.active {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 700;
 }
 
 .auth_switch_link {
   color: var(--primary);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
   transition: color 0.15s ease;
 }
 
@@ -297,11 +373,14 @@
   text-decoration: underline;
 }
 
+/* Responsive Adaptations */
 @media (max-width: 991px) {
   .auth_container {
-    max-width: 480px;
+    max-width: 520px;
+    border-radius: 22px;
   }
+
   .auth_form_wrapper {
-    padding: 36px 24px;
+    padding: 32px 24px;
   }
 }

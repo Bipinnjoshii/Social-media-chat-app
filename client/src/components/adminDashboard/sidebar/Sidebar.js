@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { logout } from "../../../redux/actions/authAction";
 import "./Sidebar.css";
@@ -8,11 +8,9 @@ import AdminManagement from "../adminManagement/AdminManagement";
 import Spam from "../spamManagement/Spam";
 import UsersManagement from "../usersManagement/UsersManagement";
 
-
 const Sidebar = () => {
   const dispatch = useDispatch();
-    const [adminMenu, setAdminMenu] = useState(1);
-
+  const [adminMenu, setAdminMenu] = useState(1);
 
   return (
     <>
@@ -24,7 +22,9 @@ const Sidebar = () => {
       <div className="sidebar_responsive" id="sidebar">
         <div className="sidebar__title">
           <div className="sidebar__img">
-            <h1>Campus Connect</h1>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontWeight: 800, fontSize: "1.2rem", letterSpacing: "-0.03em", color: "#F8FAFC" }}>
+              chirp<span style={{ color: "#00E599" }}>.</span> <span style={{ fontSize: "0.75rem", letterSpacing: "1.5px", color: "#64748B", fontWeight: 700, marginLeft: "4px", textTransform: "uppercase" }}>Console</span>
+            </span>
           </div>
           <i className="fa fa-times" id="sidebarIcon" aria-hidden="true"></i>
         </div>
@@ -58,14 +58,6 @@ const Sidebar = () => {
           >
             <i className="fa fa-wrench"></i>
             <span>Users Management</span>
-          </div>
-          <div className="sidebar__link">
-            <i className="fa fa-archive"></i>
-            <span>xyz</span>
-          </div>
-          <div className="sidebar__link">
-            <i className="fa fa-handshake-o"></i>
-            <span>xyz</span>
           </div>
 
           <div className="sidebar__logout">

@@ -44,8 +44,8 @@ const Search = () => {
         name="search"
         value={search}
         id="search"
-        aria-label="Search campus users and creators"
-        placeholder="Search..."
+        aria-label="Search creators, topics and tags"
+        placeholder="Search Chirp..."
         onChange={(e) =>
           setSearch(e.target.value.toLowerCase().replace(/ /g, " "))
         }

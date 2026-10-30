@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <div
       style={{
-        background: "rgba(251, 249, 245, 0.85)",
+        background: "rgba(8, 11, 17, 0.82)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
         top: 0,

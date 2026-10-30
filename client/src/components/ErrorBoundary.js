@@ -31,62 +31,64 @@ class ErrorBoundary extends React.Component {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "#FAF7F2",
-            color: "#292524",
+            background: "#080B11",
+            color: "#F8FAFC",
             padding: "24px",
-            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+            fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
           }}
         >
           <div
             style={{
-              maxWidth: "440px",
+              maxWidth: "460px",
               width: "100%",
-              padding: "36px 30px",
-              background: "#FFFFFF",
-              borderRadius: "20px",
-              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.08)",
-              border: "1px solid #E7E5E4",
+              padding: "40px 32px",
+              background: "#0E131F",
+              borderRadius: "24px",
+              boxShadow: "0 24px 48px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08)",
               textAlign: "center"
             }}
           >
             <div
               style={{
-                width: "56px",
-                height: "56px",
-                borderRadius: "50%",
-                background: "rgba(194, 94, 62, 0.12)",
-                color: "#C25E3E",
+                width: "60px",
+                height: "60px",
+                borderRadius: "16px",
+                background: "rgba(0, 229, 153, 0.12)",
+                color: "#00E599",
+                border: "1px solid rgba(0, 229, 153, 0.25)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                margin: "0 auto 18px",
+                margin: "0 auto 20px",
                 fontSize: "24px"
               }}
             >
-              <i className="fas fa-sync-alt"></i>
+              <i className="fas fa-satellite-dish"></i>
             </div>
-            <h4 style={{ fontWeight: 700, marginBottom: "10px", color: "#1C1917" }}>
-              Session Update Available
-            </h4>
-            <p style={{ color: "#78716C", fontSize: "0.92rem", lineHeight: 1.5, marginBottom: "24px" }}>
-              Your browser held cached state from an earlier version. Click below to refresh your session.
+            <h3 style={{ fontWeight: 800, fontSize: "1.35rem", letterSpacing: "-0.03em", marginBottom: "10px", color: "#F8FAFC" }}>
+              Syncing with Chirp
+            </h3>
+            <p style={{ color: "#94A3B8", fontSize: "0.92rem", lineHeight: 1.6, marginBottom: "28px" }}>
+              A network state update was detected. Refresh to restore your real-time connection.
             </p>
             <button
               onClick={this.handleClearAndReload}
               style={{
                 width: "100%",
-                padding: "12px 20px",
-                borderRadius: "12px",
-                background: "#C25E3E",
-                color: "#FFFFFF",
+                padding: "13px 24px",
+                borderRadius: "9999px",
+                background: "linear-gradient(135deg, #00E599 0%, #00C882 100%)",
+                color: "#051A12",
                 border: "none",
-                fontWeight: 600,
+                fontWeight: 700,
                 fontSize: "0.95rem",
+                letterSpacing: "-0.01em",
                 cursor: "pointer",
-                boxShadow: "0 4px 14px rgba(194, 94, 62, 0.25)"
+                boxShadow: "0 8px 24px -4px rgba(0, 229, 153, 0.45)",
+                transition: "transform 0.15s ease"
               }}
             >
-              Refresh &amp; Open App
+              Reconnect &amp; Open Chirp
             </button>
           </div>
         </div>

@@ -5,11 +5,11 @@ const getInitialTheme = () => {
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme !== null) return savedTheme === "true";
-      // Default to system preference or false (light)
-      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      // Default to dark mode for Chirp's signature obsidian experience
+      return true;
     }
   } catch (e) {}
-  return false;
+  return true;
 };
 
 const initialState = getInitialTheme();

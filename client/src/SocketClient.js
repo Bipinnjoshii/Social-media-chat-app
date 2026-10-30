@@ -126,7 +126,7 @@ const SocketClient = () => {
           (msg.user.username || "") + " " + (msg.text || ""),
           msg.user.avatar || "",
           msg.url || "",
-          "CAMPUS CONNECT"
+          "Chirp"
         );
       }
     });

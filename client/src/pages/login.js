@@ -37,86 +37,110 @@ const Login = () => {
   return (
     <div className="auth_page">
       <div className="auth_container">
-        {/* Left Side: Bold Editorial Studio Billboard */}
+        {/* Left Side: Chirp Electric Showcase Billboard */}
         <div className="auth_billboard d-none d-lg-flex flex-column justify-content-between">
           <div className="billboard_header">
             <div className="billboard_brand">
-              <span className="brand_icon">
-                <i className="fas fa-shapes" />
-              </span>
-              <span className="brand_title">Campus Connect</span>
+              <div className="brand_icon me-2">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 3L11.5 13.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M22 3L15 22L11.5 13.5L3 10L22 3Z" fill="currentColor" fillOpacity="0.25" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <span className="brand_title">chirp<span className="brand_dot">.</span></span>
             </div>
-            <div className="badge_pill mt-3">The Modern Studio</div>
+            <div className="badge_pill mt-3">The Next-Gen Social Network</div>
           </div>
 
           <div className="billboard_body my-auto py-4">
             <h2 className="billboard_headline">
-              Where Campus Ideas Take Physical Form.
+              Speak freely.<br />Connect instantly.
             </h2>
             <p className="billboard_desc">
-              A unified creative network for student architects, designers, developers, and thinkers. Critique projects, collaborate in real time, and showcase your best work.
+              The high-velocity real-time social platform engineered for live conversations, spontaneous media sharing, and creator networks.
             </p>
 
             <div className="billboard_features">
               <div className="feature_item">
                 <div className="feature_icon">
-                  <i className="fas fa-layer-group" />
-                </div>
-                <div>
-                  <h6 className="m-0 fw-bold">Peer Critique & WIP Drops</h6>
-                  <small>Share raw concepts and receive structured feedback</small>
-                </div>
-              </div>
-              <div className="feature_item">
-                <div className="feature_icon">
                   <i className="fas fa-bolt" />
                 </div>
                 <div>
-                  <h6 className="m-0 fw-bold">Real-Time Messenger</h6>
-                  <small>Direct socket-powered channels across departments</small>
+                  <h6 className="m-0 fw-bold">Instant Socket Engine</h6>
+                  <small>Sub-15ms real-time direct delivery across peer channels</small>
                 </div>
               </div>
               <div className="feature_item">
                 <div className="feature_icon">
-                  <i className="fas fa-compass" />
+                  <i className="fas fa-layer-group" />
                 </div>
                 <div>
-                  <h6 className="m-0 fw-bold">University-Wide Showcase</h6>
-                  <small>Discover student work across 40+ departments</small>
+                  <h6 className="m-0 fw-bold">Rich Media Canvases</h6>
+                  <small>Share ultra HD images, video carousels, and live stories</small>
                 </div>
+              </div>
+              <div className="feature_item">
+                <div className="feature_icon">
+                  <i className="fas fa-shield-alt" />
+                </div>
+                <div>
+                  <h6 className="m-0 fw-bold">Private & End-to-End Secure</h6>
+                  <small>Your conversations and data stay protected with modern encryption</small>
+                </div>
+              </div>
+            </div>
+
+            {/* Platform Live Metric Badges */}
+            <div className="billboard_metrics_row mt-4 pt-3 d-flex align-items-center gap-4">
+              <div>
+                <div className="metric_number">500K+</div>
+                <div className="metric_label">Creators</div>
+              </div>
+              <div className="metric_divider" />
+              <div>
+                <div className="metric_number">12M+</div>
+                <div className="metric_label">Messages</div>
+              </div>
+              <div className="metric_divider" />
+              <div>
+                <div className="metric_number">99.9%</div>
+                <div className="metric_label">Uptime</div>
               </div>
             </div>
           </div>
 
           <div className="billboard_footer">
-            <small className="text-muted">Campus Connect © 2026 · Creative Commons for University Students</small>
+            <small className="text-muted">Chirp Global Technologies © 2026 · Engineered for Speed & Delight</small>
           </div>
         </div>
 
-        {/* Right Side: Tactile Studio Auth Form */}
+        {/* Right Side: Sleek Sign-In Card */}
         <div className="auth_form_wrapper flex-fill">
           <div className="auth_mobile_brand d-lg-none mb-4 text-center">
             <div className="brand_icon mx-auto mb-2">
-              <i className="fas fa-shapes" />
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 3L11.5 13.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M22 3L15 22L11.5 13.5L3 10L22 3Z" fill="currentColor" fillOpacity="0.25" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </div>
-            <h3 className="fw-bold mb-1">Campus Connect</h3>
-            <span className="badge_pill">The Modern Studio</span>
+            <h3 className="fw-bold mb-1">chirp<span className="brand_dot">.</span></h3>
+            <span className="badge_pill">Real-Time Social</span>
           </div>
 
           <form onSubmit={handleSubmit} className="auth_form">
             <div className="form_header mb-4">
               <h4 className="fw-bold mb-1">Welcome Back</h4>
-              <p className="text-muted small m-0">Sign in to your campus studio workspace</p>
+              <p className="text-muted small m-0">Sign in to join the conversation</p>
             </div>
 
-            {/* Account Role Selector Pill */}
+            {/* Portal Switcher Pill */}
             <div className="role_selector_pill mb-4">
               <button
                 type="button"
                 className={`role_btn ${!isAdmin ? "active" : ""}`}
                 onClick={() => setIsAdmin(false)}
               >
-                Creator Workspace
+                Chirper Account
               </button>
               <button
                 type="button"
@@ -129,7 +153,7 @@ const Login = () => {
 
             <div className="form_group mb-3">
               <label htmlFor="loginEmail" className="form-label">
-                Campus Email Address
+                Email Address
               </label>
               <div className="input_with_icon">
                 <i className="far fa-envelope input_icon" />
@@ -140,7 +164,7 @@ const Login = () => {
                   onChange={handleChangeInput}
                   value={email}
                   name="email"
-                  placeholder="name@university.edu"
+                  placeholder="name@example.com"
                   required
                 />
               </div>
@@ -177,16 +201,16 @@ const Login = () => {
 
             <button
               type="submit"
-              className="btn btn-primary w-100 mb-3"
+              className="btn_chirp_primary w-100 mb-3"
               disabled={!email || !password}
             >
-              {isAdmin ? "Access Admin Console" : "Enter Studio"}
+              {isAdmin ? "Access Admin Console" : "Enter Chirp"}
             </button>
 
             <div className="text-center pt-2">
-              <span className="text-muted small">New to Campus Connect? </span>
+              <span className="text-muted small">Don't have an account? </span>
               <Link to="/register" className="auth_switch_link">
-                Claim your studio profile
+                Sign up for free
               </Link>
             </div>
           </form>

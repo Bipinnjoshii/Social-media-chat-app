@@ -47,7 +47,7 @@ const EditProfile = ({ setOnEdit }) => {
       <form onSubmit={handleSubmit} className="edit_profile_card">
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h4 className="m-0 font-weight-bold" style={{ letterSpacing: "-0.02em", color: "var(--text-main)" }}>
-            Edit Studio Profile
+            Edit Chirp Profile
           </h4>
           <button
             type="button"
@@ -65,7 +65,7 @@ const EditProfile = ({ setOnEdit }) => {
             src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar}
           />
           <span>
-            <i className="fas fa-camera mr-1" />
+            <i className="fas fa-camera me-1" />
             <p className="m-0">Change</p>
             <input
               type="file"
@@ -104,7 +104,7 @@ const EditProfile = ({ setOnEdit }) => {
         </div>
 
         <div className="form_group">
-          <label htmlFor="mobile">Phone / Mobile</label>
+          <label htmlFor="mobile">Mobile / Phone</label>
           <input
             type="text"
             className="form-control"
@@ -117,7 +117,7 @@ const EditProfile = ({ setOnEdit }) => {
         </div>
 
         <div className="form_group">
-          <label htmlFor="address">Campus / Location</label>
+          <label htmlFor="address">Location</label>
           <input
             type="text"
             className="form-control"
@@ -125,12 +125,12 @@ const EditProfile = ({ setOnEdit }) => {
             name="address"
             value={address}
             onChange={handleInput}
-            placeholder="Studio Hall B, Building 4"
+            placeholder="San Francisco, CA"
           />
         </div>
 
         <div className="form_group">
-          <label htmlFor="website">Portfolio / Website</label>
+          <label htmlFor="website">Website / Portfolio</label>
           <input
             type="text"
             className="form-control"
@@ -138,12 +138,12 @@ const EditProfile = ({ setOnEdit }) => {
             name="website"
             value={website}
             onChange={handleInput}
-            placeholder="https://portfolio.design"
+            placeholder="https://chirp.social"
           />
         </div>
 
         <div className="form_group">
-          <label htmlFor="story">Studio Bio / Story</label>
+          <label htmlFor="story">Bio / Story</label>
           <textarea
             cols="30"
             rows="4"
@@ -152,7 +152,7 @@ const EditProfile = ({ setOnEdit }) => {
             name="story"
             value={story}
             onChange={handleInput}
-            placeholder="Introduce your craft, focus discipline, and current projects..."
+            placeholder="Share your interests, work, or what you're building..."
           />
           <small
             className="d-block text-right mt-1"
@@ -180,7 +180,7 @@ const EditProfile = ({ setOnEdit }) => {
           </select>
         </div>
 
-        <button className="btn_studio_primary w-100 justify-content-center" type="submit">
+        <button className="btn_chirp_primary w-100 justify-content-center" type="submit">
           Save Changes
         </button>
       </form>

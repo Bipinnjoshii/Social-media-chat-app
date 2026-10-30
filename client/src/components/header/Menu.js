@@ -9,8 +9,8 @@ import NotifyModal from "../NotifyModal";
 const Menu = () => {
   const navLinks = [
     { label: "Feed", icon: "dashboard", path: "/" },
-    { label: "Chat", icon: "chat_bubble_outline", path: "/message" },
-    { label: "Discover", icon: "explore", path: "/discover" },
+    { label: "Messages", icon: "chat_bubble_outline", path: "/message" },
+    { label: "Explore", icon: "explore", path: "/discover" },
   ];
 
   const { auth, theme, notify } = useSelector((state) => state);
@@ -28,11 +28,16 @@ const Menu = () => {
     return "";
   };
 
+  const handleOpenCompose = () => {
+    dispatch({ type: GLOBALTYPES.STATUS, payload: true });
+  };
+
   const notifyList = (notify && notify.data) || [];
 
   return (
     <div className="menu">
-      <ul className="navbar-nav flex-row align-items-center mb-0">
+      <ul className="navbar-nav flex-row align-items-center mb-0 gap-1 gap-md-2">
+        {/* Desktop Segmented Navigation Pills */}
         <div className="nav_pills_container d-none d-md-flex align-items-center">
           {navLinks.map((link, index) => (
             <li className={`nav-item ${isActive(link.path)}`} key={index}>
@@ -44,7 +49,20 @@ const Menu = () => {
           ))}
         </div>
 
-        {/* Mobile icons */}
+        {/* Quick Compose Button for Desktop */}
+        <li className="nav-item d-none d-lg-flex align-items-center">
+          <button
+            type="button"
+            className="btn_chirp_compose"
+            onClick={handleOpenCompose}
+            title="Create a new Chirp"
+          >
+            <i className="fas fa-feather-alt me-1" />
+            <span>Chirp</span>
+          </button>
+        </li>
+
+        {/* Mobile Nav Icons */}
         <div className="d-flex d-md-none align-items-center">
           {navLinks.map((link, index) => (
             <li className={`nav-item px-1 ${isActive(link.path)}`} key={index}>
@@ -56,7 +74,7 @@ const Menu = () => {
         </div>
 
         {/* Notifications Dropdown */}
-        <li className="nav-item dropdown px-2" style={{ opacity: "1" }}>
+        <li className="nav-item dropdown px-1" style={{ opacity: "1" }}>
           <button
             type="button"
             className="action_btn notify_btn position-relative"
@@ -112,7 +130,7 @@ const Menu = () => {
             <li>
               <Link className="dropdown-item d-flex align-items-center py-2" to={userId ? `/profile/${userId}` : "#"}>
                 <span className="material-icons me-2" style={{ fontSize: "19px" }}>person_outline</span>
-                <span>Profile Showcase</span>
+                <span>Profile</span>
               </Link>
             </li>
             <li>
@@ -123,7 +141,7 @@ const Menu = () => {
                 <span className="material-icons me-2" style={{ fontSize: "19px" }}>
                   {theme ? "light_mode" : "dark_mode"}
                 </span>
-                <span>{theme ? "Switch to Light Mode" : "Switch to Dark Mode"}</span>
+                <span>{theme ? "Light Mode" : "Dark Mode"}</span>
               </div>
             </li>
             <li><hr className="dropdown-divider my-1" /></li>

@@ -36,7 +36,7 @@ const ChangePassword = ({ setChangePassword }) => {
           </button>
         </div>
 
-        <div className="form_group">
+        <div className="form_group mb-3">
           <label htmlFor="oldPassword">Current Password</label>
           <div className="position-relative">
             <input
@@ -53,7 +53,7 @@ const ChangePassword = ({ setChangePassword }) => {
               className="position-absolute"
               style={{
                 top: "50%",
-                right: "12px",
+                right: "14px",
                 transform: "translateY(-50%)",
                 cursor: "pointer",
                 color: "var(--text-muted)",
@@ -66,7 +66,7 @@ const ChangePassword = ({ setChangePassword }) => {
           </div>
         </div>
 
-        <div className="form_group">
+        <div className="form_group mb-3">
           <label htmlFor="newPassword">New Password</label>
           <div className="position-relative">
             <input
@@ -83,7 +83,7 @@ const ChangePassword = ({ setChangePassword }) => {
               className="position-absolute"
               style={{
                 top: "50%",
-                right: "12px",
+                right: "14px",
                 transform: "translateY(-50%)",
                 cursor: "pointer",
                 color: "var(--text-muted)",
@@ -113,7 +113,7 @@ const ChangePassword = ({ setChangePassword }) => {
               className="position-absolute"
               style={{
                 top: "50%",
-                right: "12px",
+                right: "14px",
                 transform: "translateY(-50%)",
                 cursor: "pointer",
                 color: "var(--text-muted)",
@@ -126,7 +126,7 @@ const ChangePassword = ({ setChangePassword }) => {
           </div>
         </div>
 
-        <button className="btn_studio_primary w-100 justify-content-center" type="submit">
+        <button className="btn_chirp_primary w-100 justify-content-center" type="submit">
           Update Password
         </button>
       </form>

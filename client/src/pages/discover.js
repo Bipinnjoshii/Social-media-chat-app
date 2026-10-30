@@ -30,54 +30,50 @@ const Discover = () => {
     setLoad(false);
   };
 
-  const disciplines = [
-    { id: "all", label: "All Works" },
-    { id: "design", label: "Architecture & Design" },
-    { id: "visual", label: "Visual Arts" },
-    { id: "tech", label: "Engineering & Code" },
-    { id: "writing", label: "WIP & Critiques" },
+  const categories = [
+    { id: "all", label: "All Chirps" },
+    { id: "trending", label: "🔥 Trending" },
+    { id: "tech", label: "💻 Tech & Code" },
+    { id: "design", label: "🎨 Visual Arts" },
+    { id: "ideas", label: "💡 Thoughts & Drops" },
   ];
 
   return (
     <div className="discover_page my-3">
       <div className="discover_hero_header mb-4 p-4 text-center">
-        <div className="badge_pill mx-auto mb-2">Campus Showcase</div>
-        <h2 className="discover_title">Explore Student Works & Critiques</h2>
+        <div className="badge_pill mx-auto mb-2">Explore Chirp</div>
+        <h2 className="discover_title">What's Buzzing in the World</h2>
         <p className="discover_subtitle text-muted mx-auto">
-          Discover portfolio pieces, studio models, UI designs, and creative writing from students across the campus.
+          Trending creations, viral discussions, visual portfolios, and real-time ideas from creators across the globe.
         </p>
 
-        {/* Filter Pills */}
+        {/* Filter Capsules */}
         <div className="discover_filter_bar d-flex justify-content-center flex-wrap gap-2 mt-3">
-          {disciplines.map((d) => (
+          {categories.map((c) => (
             <button
-              key={d.id}
+              key={c.id}
               type="button"
-              className={`filter_pill_btn ${filterTag === d.id ? "active" : ""}`}
-              onClick={() => setFilterTag(d.id)}
+              className={`filter_pill_btn ${filterTag === c.id ? "active" : ""}`}
+              onClick={() => setFilterTag(c.id)}
             >
-              {d.label}
+              {c.label}
             </button>
           ))}
         </div>
       </div>
 
       {discover.loading ? (
-        <LoadingIcon text="Curating student works" />
+        <LoadingIcon text="Curating the feed" />
       ) : (
         <PostThumb posts={discover.posts} result={discover.result} />
       )}
 
-      {load && <LoadingIcon size="small" text="Loading more works" />}
-
-      {!discover.loading && (
-        <LoadMoreBtn
-          result={discover.result}
-          page={discover.page}
-          load={load}
-          handleLoadMore={handleLoadMore}
-        />
-      )}
+      <LoadMoreBtn
+        result={discover.result}
+        page={discover.page}
+        load={load}
+        handleLoadMore={handleLoadMore}
+      />
     </div>
   );
 };

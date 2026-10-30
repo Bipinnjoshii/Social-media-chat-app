@@ -17,11 +17,11 @@ const Home = () => {
         ) : homePosts.result === 0 ? (
           <div className="empty_feed_state text-center my-4">
             <div className="empty_feed_icon mb-3">
-              <i className="fas fa-layer-group" />
+              <i className="fas fa-feather-alt" />
             </div>
-            <h4>Studio Feed is Quiet</h4>
+            <h4>Feed is Quiet</h4>
             <p className="text-muted" style={{ fontSize: "0.92rem", maxWidth: "420px", margin: "auto" }}>
-              Be the first to share an architectural design, project critique, or studio update with your campus peers.
+              Be the first to drop a chirp, spark a discussion, or share a breakthrough with the community.
             </p>
           </div>
         ) : (

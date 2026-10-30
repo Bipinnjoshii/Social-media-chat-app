@@ -1,6 +1,6 @@
 {
-  "short_name": "Campus Connect",
-  "name": "Campus Connect — Social Media Platform",
+  "short_name": "Chirp",
+  "name": "Chirp — Real-Time Social & Messages",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#080B11",
+  "background_color": "#080B11"
 }

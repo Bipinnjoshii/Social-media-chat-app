@@ -18,7 +18,7 @@ const CardHeader = ({ post }) => {
   };
 
   const handleDeletePost = () => {
-    if (window.confirm("Are you sure you want to delete this post?")) {
+    if (window.confirm("Are you sure you want to delete this chirp?")) {
       dispatch(deletePost({ post, auth, socket }));
       return history.push("/");
     }
@@ -56,7 +56,7 @@ const CardHeader = ({ post }) => {
           className="action_btn post_menu_btn"
           id={`postMenu-${post._id}`}
           data-bs-toggle="dropdown"
-          aria-label="Post options"
+          aria-label="Chirp options"
           aria-expanded="false"
         >
           <span className="material-icons">more_horiz</span>
@@ -67,11 +67,11 @@ const CardHeader = ({ post }) => {
             <>
               <button type="button" className="dropdown-item" onClick={handleEditPost}>
                 <span className="material-icons text-info me-2">create</span>
-                Edit Post
+                Edit Chirp
               </button>
               <button type="button" className="dropdown-item" onClick={handleDeletePost}>
                 <span className="material-icons text-danger me-2">delete</span>
-                Delete Post
+                Delete Chirp
               </button>
             </>
           )}
@@ -82,7 +82,7 @@ const CardHeader = ({ post }) => {
           </button>
           <button type="button" className="dropdown-item" onClick={handleReportPost}>
             <span className="material-icons text-warning me-2">report_problem</span>
-            Report this post
+            Report this chirp
           </button>
         </div>
       </div>

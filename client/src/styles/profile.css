@@ -1,5 +1,5 @@
 /* ==========================================================================
-   User Profile Surface — Modern Studio Edition
+   Chirp Profile Surface Styling
    ========================================================================== */
 
 .profile {
@@ -25,37 +25,37 @@
   transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
-/* Architectural Studio Cover Banner */
-.profile_studio_banner {
+/* Chirp Panoramic Mesh Banner */
+.profile_chirp_banner {
   height: 170px;
   position: relative;
-  background: linear-gradient(135deg, rgba(194, 94, 62, 0.18) 0%, rgba(44, 95, 124, 0.12) 100%);
+  background: linear-gradient(135deg, rgba(0, 229, 153, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%);
   border-bottom: 1px solid var(--border-color);
 }
 
-.profile_banner_overlay {
+.profile_banner_mesh {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(194, 94, 62, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle at 80% 20%, rgba(0, 229, 153, 0.15) 0%, transparent 65%);
 }
 
-.profile_discipline_badge {
+.profile_creator_badge {
   position: absolute;
   top: 16px;
   right: 18px;
-  background: rgba(28, 25, 23, 0.72);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(8, 11, 17, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.14);
   color: #FFFFFF;
   font-size: 0.76rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
   padding: 6px 14px;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 .profile_card_body {
@@ -105,61 +105,6 @@
   flex-wrap: wrap;
 }
 
-/* Studio Buttons */
-.btn_studio_primary {
-  background: var(--background-1);
-  color: #FFFFFF !important;
-  font-weight: 600;
-  font-size: 0.88rem;
-  padding: 10px 20px;
-  border-radius: 12px;
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  min-height: 42px;
-  text-decoration: none;
-}
-
-.btn_studio_primary:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
-  transform: translateY(-1px);
-  color: #FFFFFF !important;
-}
-
-.btn_studio_primary:active {
-  transform: translateY(0);
-}
-
-.btn_studio_secondary {
-  background: var(--bg-card-subtle);
-  color: var(--text-main) !important;
-  font-weight: 600;
-  font-size: 0.88rem;
-  padding: 10px 20px;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  min-height: 42px;
-  text-decoration: none;
-}
-
-.btn_studio_secondary:hover {
-  background: var(--bg-card);
-  border-color: var(--primary);
-  color: var(--primary) !important;
-  transform: translateY(-1px);
-}
-
-.btn_studio_secondary:active {
-  transform: translateY(0);
-}
-
 /* Profile Details & Typography */
 .profile_details {
   display: flex;
@@ -174,10 +119,10 @@
 }
 
 .profile_username {
-  font-size: 1.7rem;
+  font-size: 1.75rem;
   font-weight: 800;
   color: var(--text-main);
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -190,7 +135,7 @@
 }
 
 .profile_fullname {
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--text-muted);
   margin: 0;
@@ -200,7 +145,7 @@
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--text-main);
-  margin: 12px 0 16px 0;
+  margin: 12px 0 18px 0;
   max-width: 660px;
 }
 
@@ -363,9 +308,9 @@
   inset: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 1060;
   overflow-y: auto;
   display: flex;
@@ -437,7 +382,7 @@
 .edit_profile_card select:focus {
   background-color: var(--bg-card);
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.15);
+  box-shadow: 0 0 0 3px var(--primary-light);
   outline: none;
 }
 
@@ -473,7 +418,7 @@
   font-size: 0.82rem;
   font-weight: 600;
   transition: 0.22s ease;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(8, 11, 17, 0.8);
 }
 
 .edit_profile .info_avatar:hover span {
@@ -493,9 +438,9 @@
 .follow {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   width: 100%;
   height: 100vh;
   z-index: 1060;
@@ -557,7 +502,7 @@
   background: var(--bg-card-subtle);
 }
 
-/* Responsive Adaptations for Mobile Viewports */
+/* Mobile Responsive */
 @media (max-width: 576px) {
   .info {
     margin: 12px auto;
@@ -567,7 +512,7 @@
     border-radius: 18px;
   }
 
-  .profile_studio_banner {
+  .profile_chirp_banner {
     height: 120px;
   }
 
@@ -590,15 +535,6 @@
   .profile_btn_group {
     width: 100%;
     justify-content: center;
-  }
-
-  .profile_btn_group button,
-  .profile_btn_group a {
-    flex: 1;
-    justify-content: center;
-    min-height: 40px;
-    padding: 8px 14px;
-    font-size: 0.84rem;
   }
 
   .profile_names {

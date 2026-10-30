@@ -32,17 +32,17 @@ const Profile = () => {
             type="button"
             className={saveTab ? "" : "active"}
             onClick={() => setSaveTab(false)}
-            aria-label="View posted studio works"
+            aria-label="View posted chirps"
           >
-            <i className="fas fa-th-large mr-2" /> Studio Works
+            <i className="fas fa-feather-alt me-2" /> Chirps
           </button>
           <button
             type="button"
             className={saveTab ? "active" : ""}
             onClick={() => setSaveTab(true)}
-            aria-label="View saved collections"
+            aria-label="View saved drops"
           >
-            <i className="fas fa-bookmark mr-2" /> Saved Collections
+            <i className="fas fa-bookmark me-2" /> Saved Drops
           </button>
         </div>
       )}

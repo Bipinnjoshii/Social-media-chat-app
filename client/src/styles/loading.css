@@ -1,19 +1,19 @@
 /* ==========================================================================
-   Aesthetic Minimal Warm Loading Spinner
+   Chirp — Minimal High-Velocity Loading Spinner
    ========================================================================== */
 
 .aesthetic_spinner {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 2.5px solid rgba(194, 94, 62, 0.15);
-  border-top-color: #C25E3E;
-  border-right-color: #D97736;
-  animation: warmSpin 0.75s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  border: 2.5px solid var(--primary-light);
+  border-top-color: var(--primary);
+  border-right-color: var(--secondary);
+  animation: chirpSpin 0.75s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  box-shadow: 0 4px 16px var(--primary-glow);
 }
 
-@keyframes warmSpin {
+@keyframes chirpSpin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
@@ -21,14 +21,14 @@
 .aesthetic_loading_text {
   margin-top: 14px;
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: #78716C;
-  animation: warmTextPulse 1.4s ease-in-out infinite;
+  color: var(--text-muted);
+  animation: chirpTextPulse 1.4s ease-in-out infinite;
 }
 
-@keyframes warmTextPulse {
+@keyframes chirpTextPulse {
   0%, 100% { opacity: 0.45; }
   50% { opacity: 0.95; }
 }

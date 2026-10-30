@@ -37,7 +37,7 @@ const InputComment = ({ children, post, onReply, setOnReply }) => {
       {children}
       <input
         type="text"
-        placeholder="Add comments..."
+        placeholder="Chirp a reply..."
         value={content}
         onChange={(e) => setContent(e.target.value)}
         style={{
@@ -48,7 +48,7 @@ const InputComment = ({ children, post, onReply, setOnReply }) => {
       />
       <Icons setContent={setContent} content={content} theme={theme} />
       <button type="submit" className="postBtn">
-        Post
+        Reply
       </button>
     </form>
   );

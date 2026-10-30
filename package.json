@@ -1,8 +1,8 @@
 {
-  "name": "mern-social-media",
-  "version": "1.0.0",
+  "name": "chirp-network",
+  "version": "2.0.0",
   "private": true,
-  "description": "Campus Connect - Full-stack MERN social media platform with real-time chat and admin dashboard",
+  "description": "Chirp — Real-Time High-Velocity Social Network & Messaging Platform",
   "main": "server.js",
   "engines": {
     "node": "24.x"

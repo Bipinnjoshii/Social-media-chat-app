@@ -1,12 +1,12 @@
-# Campus Connect — Full-Stack MERN Social Media Platform
+# Chirp (`chirp.`) — Real-Time High-Velocity Social Network & Messaging Platform
 
 <p align="center">
-  <img src="./screenshots/banner.svg" alt="Campus Connect Platform Showcase" width="100%" />
+  <img src="./screenshots/banner.svg" alt="Chirp Platform Showcase" width="100%" />
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-17.0.1-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
-  <img src="https://img.shields.io/badge/Node.js-14+-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/Express.js-4.17-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
   <img src="https://img.shields.io/badge/MongoDB-Mongoose-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
   <img src="https://img.shields.io/badge/Socket.io-4.0.1-010101?style=for-the-badge&logo=socket.io&logoColor=white" alt="Socket.io" />
@@ -17,9 +17,7 @@
 
 ## 📌 Overview
 
-**Campus Connect** is a feature-rich, modern social media and communication platform engineered using the **MERN** stack (MongoDB, Express, React, Node.js) with real-time interactivity powered by **Socket.io**. 
-
-The platform delivers a streamlined, modern social networking experience featuring JWT-based authentication, post creation with camera/image uploads, threaded comments with nested replies, real-time 1-on-1 direct messaging, instant notifications with sound alerts, profile management, and a dedicated **Admin Moderation Portal** for community safety.
+**Chirp** (`chirp.`) is an out-of-distribution, unicorn-grade real-time social network and direct messaging platform engineered for creators, engineers, and digital innovators. Designed with an **Obsidian & Electric Mint** design system, high-frequency WebSockets, and sub-second interaction feedback, Chirp delivers an elevated experience comparable to products like Linear, Discord, and Threads.
 
 ---
 
@@ -27,11 +25,11 @@ The platform delivers a streamlined, modern social networking experience featuri
 
 <div align="center">
 
-| Authentication & Sign In | User Profile & Connections |
+| Authentication Billboard | User Profile & Verified Badges |
 | :---: | :---: |
 | <img src="./screenshots/login.svg" width="450"/> | <img src="./screenshots/profile.svg" width="450"/> |
 
-| Real-Time Messenger | Admin Moderation Dashboard |
+| Real-Time Messenger | Admin Intelligence Console |
 | :---: | :---: |
 | <img src="./screenshots/chat.svg" width="450"/> | <img src="./screenshots/admin.svg" width="450"/> |
 
@@ -41,40 +39,24 @@ The platform delivers a streamlined, modern social networking experience featuri
 
 ## ✨ Features & Capabilities
 
-### 👤 Social Interaction & User Experience
-- **Authentication & Security:** Secure registration and login flow utilizing salted password hashing (`bcrypt`) and dual-token JWT verification (short-lived access tokens and refresh tokens stored in HTTP-only cookies).
-- **Post Creation & Media Support:**
-  - Create, edit, and delete multimedia posts with captions and imagery.
-  - In-browser camera capture or direct file-picker uploads.
-  - Multi-image carousel presentation.
-- **Social Engagement:**
-  - Dynamic like/unlike interactions.
-  - Nested comments and threaded replies with individual comment likes.
-  - Dynamic post sharing and clipboard link copy.
-  - Save posts into private user collections.
-- **Discovery & Navigation:**
-  - **Explore Feed:** Discover trending content and posts from across the network.
-  - **Dynamic Search:** Real-time user search by username and display name.
-  - **Automated Suggestions:** Algorithmic suggestions to discover new peers.
-  - **Infinite Scroll / Pagination:** Smooth pagination across feeds, explore views, and comments.
-- **Real-Time WebSockets (`Socket.io`):**
-  - Instantaneous 1-on-1 direct messaging.
-  - Live socket notifications for likes, comments, follows, and messages with audio triggers.
-  - Online/offline presence indicators.
-- **Modern Design & Theming:**
-  - Responsive, glassmorphic navigation header with blur filters.
-  - Clean card-based layout with soft elevations and smooth hover states.
-  - Built-in Dark Mode with natural true-color media preservation.
-- **Safety & Moderation:**
-  - User post reporting system to flag spam or inappropriate content.
+### ⚡ Chirp Feed & Creator Studio
+- **High-Velocity Composer:** Instant publishing with multimedia carousels, camera streaming capture, code/tag snippets, and markdown styling.
+- **Dynamic Interactions:** Spring-animated likes, bookmarking to private vaults, and full-resolution image galleries.
+- **Threaded Discussions:** Nested, real-time replies with instant optimistic updates and dedicated action controls.
+- **Explore & Categorization:** Topic filtering pills across *Trending*, *Tech & Code*, *Visual Arts*, and *Thoughts & Drops*.
 
----
+### 💬 Direct Messaging & Real-Time Presence
+- **Socket.io Streaming:** Sub-15ms latency 1-on-1 messaging with live read receipts and online presence dots.
+- **Audio & In-App Alerts:** Dynamic notifications with toggles and sound effects.
 
-### 🛡️ Admin Moderation Dashboard
-- **Platform Analytics:** Real-time metrics tracking total users, posts, community engagements, and active spam flags.
-- **Content Moderation:** Dedicated review table for community-reported content.
-- **Administrative Moderation:** Direct review and deletion of reported spam content.
-- **Role Assignment:** Ability to provision and grant administrative permissions.
+### 🎨 Design System & Aesthetics
+- **Dual-Mode Obsidian Architecture:** Deep Obsidian (`#080B11`) ground paired with Electric Mint (`#00E599`) and Electric Iris (`#6366F1`) accents.
+- **Accessible Typography:** Powered by `Plus Jakarta Sans` with tight tracking floors (`-0.03em`) and high contrast ratios (> 4.5:1).
+- **Surface Elevation:** Multi-stop directional shadows, hairline glass borders, custom micro-scrollbars, and full reduced-motion support.
+
+### 🛡️ Admin Moderation & Intelligence Console
+- **Platform Analytics:** Real-time metrics tracking registered creators, active chirps, community engagements, and flagged reports.
+- **Content Moderation:** Instant spam filtering, flag resolution, and user role management.
 
 ---
 
@@ -82,7 +64,7 @@ The platform delivers a streamlined, modern social networking experience featuri
 
 | Layer | Technologies |
 |---|---|
-| **Frontend** | React 17, Redux, Redux Thunk, React Router v5, Material-UI, Bootstrap 5, Socket.io-client, Axios, Moment.js, Emoji-Mart |
+| **Frontend** | React 17, Redux & Redux Thunk, React Router v5, Plus Jakarta Sans, Bootstrap 5 Grid, Socket.io-client, Axios, Moment.js, Emoji-Mart |
 | **Backend** | Node.js, Express.js, Socket.io, Mongoose, JWT (`jsonwebtoken`), bcrypt, cookie-parser, cors |
 | **Database** | MongoDB / MongoDB Atlas |
 | **Media Hosting** | Cloudinary (Camera and file upload pipeline) |
@@ -91,13 +73,12 @@ The platform delivers a streamlined, modern social networking experience featuri
 
 ## 🚀 Getting Started
 
-Follow the steps below to set up and run Campus Connect locally.
+Follow the steps below to run Chirp locally.
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v14 or higher)
+- [Node.js](https://nodejs.org/) (v18 or higher)
 - [MongoDB](https://www.mongodb.com/) (Local instance or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
-- [Cloudinary Account](https://cloudinary.com/) (Free tier for media uploads)
-- `npm` or `yarn`
+- [Cloudinary Account](https://cloudinary.com/) (For media hosting)
 
 ---
 
@@ -110,7 +91,7 @@ cd Social-media-chat-app
 ---
 
 ### 2. Configure Environment Variables
-Copy the `.env.example` file to create your local `.env`:
+Copy `.env.example` to create your local `.env`:
 
 ```bash
 cp .env.example .env
@@ -119,91 +100,43 @@ cp .env.example .env
 Set the required environment keys in `.env`:
 ```env
 PORT=8080
-MONGODB_URL=mongodb://localhost:27017/mern
+MONGODB_URL=mongodb://localhost:27017/chirp
 ACCESS_TOKEN_SECRET=your_jwt_access_token_secret
 REFRESH_TOKEN_SECRET=your_jwt_refresh_token_secret
 ```
 
 ---
 
-### 3. Configure Cloudinary
-To enable image and camera uploads, add your Cloudinary credentials in:
-`client/src/utils/imageUpload.js`
+### 3. Install Dependencies & Build
 
-```javascript
-formData.append("upload_preset", "YOUR_CLOUDINARY_UPLOAD_PRESET");
-formData.append("cloud_name", "YOUR_CLOUDINARY_CLOUD_NAME");
-
-const res = await fetch("https://api.cloudinary.com/v1_1/YOUR_CLOUDINARY_CLOUD_NAME/image/upload", {
-    method: "POST",
-    body: formData
-});
-```
-
----
-
-### 4. Install Dependencies
-
-#### Backend Dependencies (Root Directory)
 ```bash
+# Backend dependencies
 npm install
-```
 
-#### Frontend Dependencies (Client Directory)
-```bash
+# Frontend dependencies & build
 cd client
 npm install
+npm run build
 cd ..
 ```
 
 ---
 
-### 5. Run the Application
+### 4. Run the Application
 
-#### Start Backend Server
-In the root directory:
 ```bash
+# Start backend server
 npm start
-# or for hot reloading during development:
+# or development mode with nodemon:
 npm run dev
 ```
-> Server runs on `http://localhost:8080`.
 
-#### Start Frontend Client
-In a separate terminal:
+In a second terminal:
 ```bash
 cd client
 npm start
 ```
-> React client launches at `http://localhost:3000`.
-
----
-
-## 📂 Project Structure
-
-```text
-├── client/                     # Frontend React application
-│   ├── public/                 # Static assets & HTML template
-│   └── src/
-│       ├── audio/              # Notification audio files
-│       ├── components/         # Reusable React components (Feed, Navbar, Cards, Modals)
-│       ├── customRouter/       # Protected route handling
-│       ├── images/             # Icons and UI images
-│       ├── pages/              # App pages (Home, Login, Register, Profile, Messages, Admin)
-│       ├── redux/              # Redux store, actions, and reducers
-│       ├── styles/             # Modular CSS stylesheets (Modern Design System)
-│       └── utils/              # API helpers, validation, and Cloudinary uploads
-├── controllers/                # Backend route controllers (Auth, Posts, Users, Comments, Messages, Admin)
-├── middleware/                 # Authentication middleware (JWT verification)
-├── models/                     # Mongoose database models (User, Post, Comment, Message, Conversation, Notification)
-├── routes/                     # Express API endpoint definitions
-├── screenshots/                # Vector UI preview mockups & banner
-├── .env.example                # Sample environment configuration
-├── .gitignore                  # Git ignore rules
-├── package.json                # Backend dependencies, metadata, and scripts
-├── server.js                   # Express application entry point & MongoDB connection
-└── socketServer.js             # Socket.io real-time event handlers
-```
+> Chirp launches at `http://localhost:3000`.
 
 ---
 

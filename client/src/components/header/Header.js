@@ -21,14 +21,17 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="navbar navbar-expand-lg justify-content-between p-0">
-        <div className="container-fluid d-flex align-items-center justify-content-between px-2">
-          <Link to="/" className="brand_logo" onClick={handleRefreshHome} aria-label="Campus Connect Home">
+        <div className="container-fluid d-flex align-items-center justify-content-between px-2 px-md-3">
+          <Link to="/" className="brand_logo" onClick={handleRefreshHome} aria-label="Chirp Home">
             <div className="brand_icon">
-              <i className="fas fa-shapes" />
+              {/* Bespoke Geometric Origami Bird / Signal Pulse SVG */}
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 3L11.5 13.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M22 3L15 22L11.5 13.5L3 10L22 3Z" fill="currentColor" fillOpacity="0.25" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </div>
             <div className="brand_meta">
-              <span className="brand_name">Campus Connect</span>
-              <span className="brand_edition">The Modern Studio</span>
+              <span className="brand_name">chirp<span className="brand_dot">.</span></span>
             </div>
           </Link>
 

@@ -84,7 +84,7 @@ const StatusModal = () => {
     if (images.length === 0 && !content.trim()) {
       return dispatch({
         type: GLOBALTYPES.ALERT,
-        payload: { error: "Please add your content or an image/video." },
+        payload: { error: "Please write a thought or attach an image/video." },
       });
     }
 
@@ -109,11 +109,13 @@ const StatusModal = () => {
     }
   }, [status]);
 
+  const username = (auth.user && auth.user.username) || "Chirper";
+
   return (
     <div className="status_modal">
       <form onSubmit={handleSubmit}>
         <div className="status_header">
-          <h5 className="m-0">{status.onEdit ? "Edit Post" : "Create Post"}</h5>
+          <h5 className="m-0 fw-bold">{status.onEdit ? "Edit Chirp" : "Create a Chirp"}</h5>
           <button
             type="button"
             className="close_modal_btn"
@@ -129,8 +131,8 @@ const StatusModal = () => {
             onChange={(e) => setContent(e.target.value)}
             value={content}
             name="content"
-            aria-label="Post text content"
-            placeholder={`${auth.user ? auth.user.username : 'Student'}, share a project, critique, or update...`}
+            aria-label="Chirp text content"
+            placeholder={`What's happening, ${username}? Drop a thought, project highlight, or update...`}
           />
 
           <div className="d-flex align-items-center justify-content-end mb-2">
@@ -230,11 +232,11 @@ const StatusModal = () => {
 
         <div className="status_footer mt-3">
           <button
-            className="btn btn-primary w-100"
+            className="btn_chirp_primary w-100 justify-content-center"
             type="submit"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Publishing..." : status.onEdit ? "Update Post" : "Share with Studio"}
+            {isSubmitting ? "Publishing..." : status.onEdit ? "Update Chirp" : "Publish Chirp"}
           </button>
         </div>
       </form>

@@ -20,7 +20,7 @@ const Info = ({ id, auth, profile, dispatch }) => {
     if (id === auth.user._id) {
       setUserData([auth.user]);
     } else {
-      const newData = profile.users.filter(user => user._id === id);
+      const newData = profile.users.filter((user) => user._id === id);
       setUserData(newData);
     }
   }, [id, auth, dispatch, profile.users]);
@@ -40,16 +40,16 @@ const Info = ({ id, auth, profile, dispatch }) => {
 
         return (
           <div key={user._id} className="profile_card">
-            {/* Architectural Studio Cover Banner */}
-            <div className="profile_studio_banner">
-              <div className="profile_banner_overlay" />
-              <div className="profile_discipline_badge">
-                <i className="fas fa-certificate mr-1" /> Campus Resident
+            {/* Chirp Electric Panoramic Banner */}
+            <div className="profile_chirp_banner">
+              <div className="profile_banner_mesh" />
+              <div className="profile_creator_badge">
+                <i className="fas fa-check-circle me-1" style={{ color: "var(--primary)" }} /> Chirp Member
               </div>
             </div>
 
             <div className="profile_card_body">
-              {/* Avatar + Action Row */}
+              {/* Avatar + Main Actions */}
               <div className="profile_identity_row">
                 <div className="profile_avatar_wrapper">
                   <Avatar src={user.avatar} size="supper-avatar" />
@@ -60,19 +60,19 @@ const Info = ({ id, auth, profile, dispatch }) => {
                     <div className="profile_btn_group">
                       <button
                         type="button"
-                        className="btn_studio_primary"
+                        className="btn_chirp_primary"
                         onClick={() => setOnEdit(true)}
                         aria-label="Edit profile settings"
                       >
-                        <i className="fas fa-user-edit mr-2" /> Edit Profile
+                        <i className="fas fa-user-edit me-1" /> Edit Profile
                       </button>
                       <button
                         type="button"
-                        className="btn_studio_secondary"
+                        className="btn_chirp_secondary"
                         onClick={() => setChangePassword(true)}
                         aria-label="Change account password"
                       >
-                        <i className="fas fa-lock mr-2" /> Change Password
+                        <i className="fas fa-lock me-1" /> Security
                       </button>
                     </div>
                   ) : (
@@ -80,23 +80,23 @@ const Info = ({ id, auth, profile, dispatch }) => {
                       <FollowBtn user={user} />
                       <Link
                         to={`/message/${user._id}`}
-                        className="btn_studio_secondary"
+                        className="btn_chirp_secondary"
                         style={{ textDecoration: 'none' }}
                         aria-label={`Send direct message to ${user.username}`}
                       >
-                        <i className="far fa-paper-plane mr-2" /> Message
+                        <i className="far fa-paper-plane me-1" /> Message
                       </Link>
                     </div>
                   )}
                 </div>
               </div>
 
-              {/* User Bio & Names */}
+              {/* Identity & Bio */}
               <div className="profile_details">
                 <div className="profile_names">
                   <h2 className="profile_username">
                     {user.username}
-                    <i className="fas fa-check-circle verified_mark" title="Verified Campus Member" />
+                    <i className="fas fa-check-circle verified_mark" title="Verified Member" />
                   </h2>
                   <h4 className="profile_fullname">{user.fullname}</h4>
                 </div>
@@ -115,29 +115,29 @@ const Info = ({ id, auth, profile, dispatch }) => {
                       className="profile_meta_pill profile_link_pill"
                       title={user.website}
                     >
-                      <i className="fas fa-globe mr-2" />
+                      <i className="fas fa-link me-2" />
                       <span>{user.website.replace(/^https?:\/\//, '')}</span>
-                      <i className="fas fa-external-link-alt ml-1" style={{ fontSize: '0.72rem', opacity: 0.7 }} />
+                      <i className="fas fa-external-link-alt ms-1" style={{ fontSize: '0.72rem', opacity: 0.7 }} />
                     </a>
                   )}
 
                   {user.address && (
                     <span className="profile_meta_pill">
-                      <i className="fas fa-map-marker-alt mr-2" />
+                      <i className="fas fa-map-marker-alt me-2" />
                       <span>{user.address}</span>
                     </span>
                   )}
 
                   {user.email && (
                     <span className="profile_meta_pill">
-                      <i className="fas fa-envelope mr-2" />
+                      <i className="fas fa-envelope me-2" />
                       <span>{user.email}</span>
                     </span>
                   )}
 
                   {user.mobile && (
                     <span className="profile_meta_pill">
-                      <i className="fas fa-phone-alt mr-2" />
+                      <i className="fas fa-phone-alt me-2" />
                       <span>{user.mobile}</span>
                     </span>
                   )}

@@ -21,19 +21,27 @@ const RightSideBar = () => {
         </div>
       )}
 
+      {/* Chirp Network Live Status Card */}
       <div className="sidebar_community_card mb-4 p-3">
-        <div className="d-flex align-items-center mb-2">
-          <span className="badge_pill me-2">Campus Studio</span>
-          <span className="fw-bold small text-muted">Creative Network</span>
+        <div className="d-flex align-items-center justify-content-between mb-2">
+          <div className="d-flex align-items-center gap-2">
+            <span className="live_ping_dot" />
+            <span className="fw-bold small text-main" style={{ letterSpacing: "-0.01em" }}>
+              Chirp Network
+            </span>
+          </div>
+          <span className="badge_pill" style={{ fontSize: "0.68rem", padding: "2px 8px" }}>
+            Live
+          </span>
         </div>
         <p className="text-muted small m-0" style={{ lineHeight: 1.5 }}>
-          Connect with campus creators across architecture, design, media arts, and code.
+          Real-time global mesh active. Socket ping: 12ms. Connect with trending creators and start conversations.
         </p>
       </div>
 
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <h6 className="sidebar_heading m-0">
-          Campus Peers to Follow
+        <h6 className="sidebar_heading m-0 fw-bold">
+          Creators to Follow
         </h6>
         {suggestions && !suggestions.loading && auth && auth.token && (
           <button
@@ -41,6 +49,7 @@ const RightSideBar = () => {
             className="action_btn refresh_btn"
             aria-label="Refresh suggestions"
             onClick={() => dispatch(getSuggestions(auth.token))}
+            title="Refresh creator suggestions"
           >
             <i className="fas fa-redo" style={{ fontSize: "0.82rem" }} />
           </button>
@@ -48,7 +57,7 @@ const RightSideBar = () => {
       </div>
 
       {suggestions && suggestions.loading ? (
-        <LoadingIcon size="small" text="Discovering peers" />
+        <LoadingIcon size="small" text="Discovering creators" />
       ) : (
         <div className="suggestions">
           {usersList.length === 0 ? (
@@ -69,8 +78,8 @@ const RightSideBar = () => {
       )}
 
       <div className="sidebar_footer mt-4 pt-3 border-top text-muted small" style={{ fontSize: "0.76rem" }}>
-        <p className="m-0">Campus Connect · The Modern Studio</p>
-        <p className="m-0 text-muted opacity-75">Architecture · Design · Engineering · Arts</p>
+        <p className="m-0 fw-semibold">chirp. — Real-Time Network</p>
+        <p className="m-0 text-muted opacity-75">Privacy · Terms · Guidelines · Speed · © 2026</p>
       </div>
     </aside>
   );

@@ -8,7 +8,7 @@ const Status = () => {
   const dispatch = useDispatch();
 
   const user = auth && auth.user;
-  const username = (user && user.username) || "Student";
+  const username = (user && user.username) || "Chirper";
   const avatar = user && user.avatar;
 
   const handleOpenStatus = () => {
@@ -25,40 +25,54 @@ const Status = () => {
           type="button"
           onClick={handleOpenStatus}
           className="status_input_btn flex-fill text-start"
-          aria-label="Create a new project or status post"
+          aria-label="Start a new chirp post"
         >
           <span>
-            {username}, share a project draft, critique request, or studio update...
+            What's on your mind, {username}? Start a chirp...
           </span>
         </button>
       </div>
 
       <div className="status_action_row mt-3 pt-2 d-flex justify-content-between align-items-center">
-        <button
-          type="button"
-          className="status_quick_action"
-          onClick={handleOpenStatus}
-        >
-          <i className="fas fa-images me-2" style={{ color: "var(--primary)" }} />
-          <span>Photo / Video</span>
-        </button>
+        <div className="d-flex align-items-center gap-1">
+          <button
+            type="button"
+            className="status_quick_action"
+            onClick={handleOpenStatus}
+            title="Attach Media"
+          >
+            <i className="fas fa-images me-2" style={{ color: "var(--primary)" }} />
+            <span>Photo / Video</span>
+          </button>
+
+          <button
+            type="button"
+            className="status_quick_action"
+            onClick={handleOpenStatus}
+            title="Live Stream / Camera"
+          >
+            <i className="fas fa-camera text-info me-2" />
+            <span>Camera</span>
+          </button>
+
+          <button
+            type="button"
+            className="status_quick_action"
+            onClick={handleOpenStatus}
+            title="Share Code or Project Highlight"
+          >
+            <i className="fas fa-code text-warning me-2" />
+            <span>Snippet</span>
+          </button>
+        </div>
 
         <button
           type="button"
-          className="status_quick_action"
+          className="btn_chirp_mini_post"
           onClick={handleOpenStatus}
         >
-          <i className="fas fa-camera text-success me-2" />
-          <span>Camera Stream</span>
-        </button>
-
-        <button
-          type="button"
-          className="status_quick_action"
-          onClick={handleOpenStatus}
-        >
-          <i className="fas fa-layer-group text-warning me-2" />
-          <span>Project Critique</span>
+          <i className="fas fa-feather-alt me-1" />
+          <span>Chirp</span>
         </button>
       </div>
     </div>

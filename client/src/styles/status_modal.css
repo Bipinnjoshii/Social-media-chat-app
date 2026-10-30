@@ -98,7 +98,7 @@
 .status_body textarea:focus {
   border-color: var(--primary);
   background: var(--bg-card);
-  box-shadow: 0 0 0 3px rgba(194, 94, 62, 0.15);
+  box-shadow: 0 0 0 3px var(--primary-light);
 }
 
 .status_body .show_images {

@@ -21,7 +21,7 @@ const Post = () => {
 
   return (
     <div className="single_post_view" style={{ maxWidth: "680px", margin: "24px auto", padding: "0 16px" }}>
-      {post.length === 0 && <LoadingIcon text="Loading post" />}
+      {post.length === 0 && <LoadingIcon text="Loading chirp" />}
 
       {post.map((item) => (
         <PostCard post={item} key={item._id} />
