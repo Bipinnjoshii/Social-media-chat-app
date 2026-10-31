@@ -31,6 +31,7 @@
 .profile_chirp_banner {
   height: 170px;
   position: relative;
+  z-index: 1;
   background: linear-gradient(135deg, rgba(0, 229, 153, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%);
   border-bottom: 1px solid var(--border-color);
 }
@@ -62,6 +63,8 @@
 
 .profile_card_body {
   padding: 0 32px 32px 32px;
+  position: relative;
+  z-index: 3;
 }
 
 /* Avatar + Action Cluster */
@@ -73,6 +76,8 @@
   margin-bottom: 22px;
   flex-wrap: wrap;
   gap: 16px;
+  position: relative;
+  z-index: 4;
 }
 
 .profile_avatar_wrapper {
@@ -88,6 +93,8 @@
   overflow: hidden;
   flex-shrink: 0;
   transition: border-color 0.25s ease;
+  position: relative;
+  z-index: 5;
 }
 
 .profile_avatar_wrapper .supper-avatar {

@@ -244,6 +244,12 @@
 }
 
 /* Avatar Ring */
+.header .avatar_btn::after,
+.header .avatar_btn.dropdown-toggle::after {
+  display: none !important;
+  content: none !important;
+}
+
 .header .avatar_ring {
   padding: 2px;
   border-radius: 50%;

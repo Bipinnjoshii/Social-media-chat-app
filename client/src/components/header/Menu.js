@@ -103,7 +103,7 @@ const Menu = () => {
         <li className="nav-item dropdown px-1" style={{ opacity: "1" }}>
           <button
             type="button"
-            className="avatar_btn dropdown-toggle d-flex align-items-center p-0 border-0 bg-transparent"
+            className="avatar_btn d-flex align-items-center p-0 border-0 bg-transparent"
             id="userDropdown"
             data-bs-toggle="dropdown"
             aria-expanded="false"
