@@ -254,15 +254,18 @@
   color: var(--primary) !important;
 }
 
+.card_header .post_menu_btn,
 .posts .card_header .post_menu_btn {
   border-radius: 10px;
 }
 
+.card_header .post_menu_btn .material-icons,
 .posts .card_header .post_menu_btn .material-icons {
   font-size: 22px;
   color: var(--text-muted);
 }
 
+.card_header .dropdown-menu,
 .posts .card_header .dropdown-menu {
   background: var(--bg-card);
   border: 1px solid var(--border-color);

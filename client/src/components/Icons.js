@@ -1,5 +1,6 @@
 import React from "react";
 import { Picker } from "emoji-mart";
+import "emoji-mart/css/emoji-mart.css";
 
 const Icons = ({ setContent, content, theme }) => {
   return (
@@ -12,10 +13,10 @@ const Icons = ({ setContent, content, theme }) => {
         aria-label="Insert emoji"
         aria-expanded="false"
       >
-        <i className="far fa-smile" style={{ fontSize: "1.15rem" }} />
+        <i className="far fa-smile" style={{ fontSize: "1.2rem" }} />
       </button>
 
-      <div className="dropdown-menu p-0 border-0 shadow-lg" aria-labelledby="emojiDropdownBtn">
+      <div className="dropdown-menu dropdown-menu-end p-0 border-0 shadow-lg" aria-labelledby="emojiDropdownBtn">
         <Picker
           theme={theme ? "dark" : "light"}
           showSkinTones={true}

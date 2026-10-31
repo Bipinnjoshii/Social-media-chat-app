@@ -240,15 +240,174 @@ a:focus:not(:focus-visible) {
   min-height: 42px;
 }
 
+body.theme-light .btn_chirp_primary,
+.theme-light .btn_chirp_primary {
+  color: #FFFFFF !important;
+}
+
+body.theme-dark .btn_chirp_primary,
+.theme-dark .btn_chirp_primary {
+  color: #080B11 !important;
+}
+
 .btn_chirp_primary:hover {
   background: var(--primary-hover);
   transform: translateY(-1px);
   box-shadow: 0 6px 20px var(--primary-glow);
-  color: #080B11 !important;
 }
 
 .btn_chirp_primary:active {
   transform: scale(0.97);
+}
+
+/* Universal Action & Emoji Button Resets */
+.action_btn {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  border-radius: 12px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  user-select: none;
+  line-height: 1;
+}
+
+.action_btn:hover {
+  color: var(--primary);
+  background: var(--primary-light) !important;
+}
+
+.action_btn:active {
+  transform: scale(0.92);
+}
+
+.action_btn:focus,
+.action_btn:focus-visible {
+  outline: none !important;
+}
+
+.emoji_picker_btn {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  padding: 6px 10px !important;
+  border-radius: 12px !important;
+  color: var(--text-muted) !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.18s ease !important;
+}
+
+.emoji_picker_btn:hover {
+  color: var(--primary) !important;
+  background: var(--primary-light) !important;
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   Emoji Mart Styling — Chirp Fluid Theming
+   ========================================================================== */
+.emoji-mart {
+  font-family: inherit !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--shadow-xl) !important;
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  overflow: hidden;
+}
+
+.emoji-mart-bar {
+  border-color: var(--border-color) !important;
+}
+
+.emoji-mart-anchors {
+  padding: 8px 6px 4px 6px !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.emoji-mart-anchor {
+  color: var(--text-muted) !important;
+  padding: 8px 4px !important;
+  transition: color 0.15s ease;
+}
+
+.emoji-mart-anchor:hover,
+.emoji-mart-anchor-selected {
+  color: var(--primary) !important;
+}
+
+.emoji-mart-anchor-bar {
+  background-color: var(--primary) !important;
+}
+
+.emoji-mart-search {
+  padding: 10px 12px 6px 12px !important;
+}
+
+.emoji-mart-search input {
+  background: var(--bg-card-subtle) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  color: var(--text-main) !important;
+  padding: 8px 14px !important;
+  font-size: 0.88rem !important;
+  outline: none !important;
+  width: 100% !important;
+  transition: all 0.2s ease;
+}
+
+.emoji-mart-search input:focus {
+  border-color: var(--primary) !important;
+  background: var(--bg-card) !important;
+  box-shadow: 0 0 0 2px var(--primary-light) !important;
+}
+
+.emoji-mart-category-label span {
+  background-color: var(--bg-card) !important;
+  color: var(--text-muted) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+}
+
+.emoji-mart-scroll {
+  padding: 0 6px !important;
+}
+
+.emoji-mart-preview {
+  display: none !important;
+}
+
+.theme-dark .emoji-mart {
+  background-color: #0F141C !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.theme-dark .emoji-mart-bar {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.theme-dark .emoji-mart-category-label span {
+  background-color: #0F141C !important;
+}
+
+.theme-dark .emoji-mart-search input {
+  background: #18202F !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #FFFFFF !important;
+}
+
+.theme-dark .emoji-mart-anchor {
+  color: #94A3B8 !important;
 }
 
 .btn_chirp_secondary {

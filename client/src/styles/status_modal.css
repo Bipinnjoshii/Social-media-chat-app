@@ -168,30 +168,47 @@
 .status_body .input_images {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   margin-top: 14px;
-  padding: 10px 16px;
+  padding: 10px 14px;
   background: var(--bg-card-subtle);
   border: 1px solid var(--border-color);
-  border-radius: 14px;
+  border-radius: 16px;
 }
 
 .status_body .input_images .action_btn {
-  color: var(--primary);
-  font-size: 1.15rem;
-  min-width: 38px;
-  min-height: 38px;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: var(--primary) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.18rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .status_body .input_images .action_btn:hover {
-  background: var(--primary-light);
-  transform: scale(1.1);
+  background: var(--primary-light) !important;
+  color: var(--primary-hover) !important;
+  transform: translateY(-2px);
+}
+
+.status_body .input_images .action_btn:active {
+  transform: scale(0.92);
 }
 
 .status_body .file_upload {
   position: relative;
   overflow: hidden;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
 }
 
 .status_body .file_upload input {
@@ -204,19 +221,46 @@
   cursor: pointer;
 }
 
-.status_footer button {
-  background: var(--background-1) !important;
-  color: #ffffff !important;
-  border-radius: 14px !important;
-  border: none !important;
-  font-weight: 600 !important;
-  font-size: 0.98rem !important;
-  padding: 12px !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16) !important;
-  transition: all 0.2s ease !important;
+.status_footer button,
+.status_footer .btn_chirp_primary {
+  width: 100% !important;
+  background: var(--primary) !important;
+  border-radius: 9999px !important;
+  border: 1px solid var(--primary) !important;
+  font-weight: 700 !important;
+  font-size: 0.96rem !important;
+  padding: 12px 24px !important;
+  box-shadow: 0 4px 16px var(--primary-glow) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.status_footer button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24) !important;
+body.theme-light .status_footer button,
+.theme-light .status_footer button {
+  color: #FFFFFF !important;
+}
+
+body.theme-dark .status_footer button,
+.theme-dark .status_footer button {
+  color: #080B11 !important;
+}
+
+.status_footer button:hover:not(:disabled),
+.status_footer .btn_chirp_primary:hover:not(:disabled) {
+  background: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  box-shadow: 0 6px 22px var(--primary-glow) !important;
+  transform: translateY(-1px) !important;
+}
+
+.status_footer button:disabled,
+.status_footer .btn_chirp_primary:disabled {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
