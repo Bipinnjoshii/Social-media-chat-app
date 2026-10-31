@@ -2,6 +2,14 @@
    Chirp Post Thumbnails & Explore Gallery Styling
    ========================================================================== */
 
+/* Discover Page Layout */
+.discover_page {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
 /* Discover Hero Header */
 .discover_hero_header {
   background: var(--bg-card);

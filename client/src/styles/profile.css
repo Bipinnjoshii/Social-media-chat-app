@@ -4,15 +4,17 @@
 
 .profile {
   width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 16px 60px 16px;
   min-height: 100vh;
-  padding-bottom: 60px;
 }
 
 /* Profile Info Container */
 .info {
   width: 100%;
-  max-width: 880px;
-  margin: 20px auto;
+  max-width: 100%;
+  margin: 20px 0;
 }
 
 .profile_card {
@@ -245,12 +247,40 @@
 /* Profile Tabs */
 .profile_tab {
   width: 100%;
-  max-width: 880px;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   gap: 16px;
   border-bottom: 1px solid var(--border-color);
-  margin: 28px auto 28px auto;
+  margin: 28px 0;
+}
+
+/* Profile Posts Container & Grid Alignment */
+.profile_posts_container {
+  width: 100%;
+}
+
+.profile .post_thumb {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .profile .post_thumb {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile .post_thumb {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8px;
+  }
 }
 
 .profile_tab button {
@@ -504,8 +534,12 @@
 
 /* Mobile Responsive */
 @media (max-width: 576px) {
+  .profile {
+    padding: 0 12px 40px 12px;
+  }
+
   .info {
-    margin: 12px auto;
+    margin: 12px 0;
   }
 
   .profile_card {
@@ -568,7 +602,7 @@
 
   .profile_tab {
     gap: 8px;
-    margin: 20px auto;
+    margin: 18px 0;
   }
 
   .profile_tab button {

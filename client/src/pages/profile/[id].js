@@ -26,16 +26,16 @@ const Profile = () => {
     <div className="profile">
       <Info auth={auth} profile={profile} dispatch={dispatch} id={id} />
 
-      {isCurrentUser && (
-        <div className="profile_tab">
-          <button
-            type="button"
-            className={saveTab ? "" : "active"}
-            onClick={() => setSaveTab(false)}
-            aria-label="View posted chirps"
-          >
-            <i className="fas fa-feather-alt me-2" /> Chirps
-          </button>
+      <div className="profile_tab">
+        <button
+          type="button"
+          className={saveTab ? "" : "active"}
+          onClick={() => setSaveTab(false)}
+          aria-label="View posted chirps"
+        >
+          <i className="fas fa-feather-alt me-2" /> Chirps
+        </button>
+        {isCurrentUser && (
           <button
             type="button"
             className={saveTab ? "active" : ""}
@@ -44,19 +44,19 @@ const Profile = () => {
           >
             <i className="fas fa-bookmark me-2" /> Saved Drops
           </button>
-        </div>
-      )}
+        )}
+      </div>
 
       {profile && profile.loading ? (
         <LoadingIcon text="Loading profile" />
       ) : (
-        <>
+        <div className="profile_posts_container">
           {saveTab ? (
             <Saved auth={auth} dispatch={dispatch} />
           ) : (
             <Posts auth={auth} profile={profile} dispatch={dispatch} id={id} />
           )}
-        </>
+        </div>
       )}
     </div>
   );
