@@ -13,7 +13,7 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.vercel.app') || origin.endsWith('.netlify.app')) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -35,7 +35,7 @@ app.use(cookieParser());
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
   cors: {
-    origin: allowedOrigins,
+    origin: corsOptions.origin,
     methods: ["GET", "POST"],
     credentials: true
   }
