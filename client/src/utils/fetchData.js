@@ -1,10 +1,14 @@
 import axios from 'axios';
 
-// In production (Netlify), use the Render backend URL.
-// In development, use the local proxy (relative URL works via package.json proxy).
-const API = process.env.REACT_APP_API_URL
-  ? axios.create({ baseURL: process.env.REACT_APP_API_URL })
-  : axios.create({ baseURL: '' });
+// In production (Vercel / Netlify), use the Render backend URL directly.
+// In local development, use the local proxy (relative URL works via package.json proxy).
+const API_URL =
+  process.env.REACT_APP_API_URL ||
+  (typeof window !== 'undefined' && window.location.hostname === 'localhost'
+    ? ''
+    : 'https://campus-connect-api-obe8.onrender.com');
+
+const API = axios.create({ baseURL: API_URL });
 
 // Intercept unauthorized or expired JWT responses to prevent infinite loading loops
 API.interceptors.response.use(

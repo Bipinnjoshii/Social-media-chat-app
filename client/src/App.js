@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     dispatch(refreshToken());
 
-    const socket = io(process.env.REACT_APP_API_URL || window.location.origin);
+    const socket = io(process.env.REACT_APP_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:8080' : 'https://campus-connect-api-obe8.onrender.com'));
     dispatch({type: GLOBALTYPES.SOCKET, payload: socket })
     return () => socket.close()
   }, [dispatch]);
