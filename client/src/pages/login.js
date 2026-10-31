@@ -90,21 +90,20 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Platform Live Metric Badges */}
             <div className="billboard_metrics_row mt-4 pt-3 d-flex align-items-center gap-4">
               <div>
-                <div className="metric_number">500K+</div>
-                <div className="metric_label">Creators</div>
+                <div className="metric_number">Free</div>
+                <div className="metric_label">Forever</div>
               </div>
               <div className="metric_divider" />
               <div>
-                <div className="metric_number">12M+</div>
-                <div className="metric_label">Messages</div>
+                <div className="metric_number">Zero</div>
+                <div className="metric_label">Ad Clutter</div>
               </div>
               <div className="metric_divider" />
               <div>
-                <div className="metric_number">99.9%</div>
-                <div className="metric_label">Uptime</div>
+                <div className="metric_number">Instant</div>
+                <div className="metric_label">Setup</div>
               </div>
             </div>
           </div>

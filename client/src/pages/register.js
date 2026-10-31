@@ -56,7 +56,7 @@ const Register = () => {
 
           <div className="billboard_body my-auto py-4">
             <h2 className="billboard_headline">
-              Claim Your Handle.<br />Join 500K+ Creators.
+              Claim Your Handle.<br />Start Creating.
             </h2>
             <p className="billboard_desc">
               Connect with fellow developers, designers, entrepreneurs, and friends worldwide. Build your audience, drop updates, and chat in real-time.
