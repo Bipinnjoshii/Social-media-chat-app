@@ -5,7 +5,7 @@
   "description": "Chirp — Real-Time High-Velocity Social Network & Messaging Platform",
   "main": "server.js",
   "engines": {
-    "node": "24.x"
+    "node": "26.x"
   },
   "scripts": {
     "start": "node server.js",
